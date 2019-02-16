@@ -1,0 +1,19 @@
+{ "width": 550,
+  "data" : {
+    "url" : "AussieData.csv"
+  },
+  "mark": "sphere",
+  "encoding": {
+    "x": {
+      "field": "NEWCASTLE WSP 1h average",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "NEWCASTLE TEMP 1h average [°C]",
+      "type": "quantitative",
+      "scale": {
+        "domain": [16.3, 41.8]
+      }
+    }
+  }
+}
