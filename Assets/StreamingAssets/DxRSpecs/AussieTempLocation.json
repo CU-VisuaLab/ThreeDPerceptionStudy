@@ -1,0 +1,39 @@
+{
+  "width": 550,
+  "data": {
+    "url": "AussieLocationDataReduced.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Longitude",
+      "type": "quantitative",
+      "scale": {
+        "domain": [ 150.5, 151.8 ]
+      },
+      "axis": {
+        "Title": "Longitude",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "Latitude",
+      "type": "quantitative",
+      "scale": {
+        "domain": [ -34.6, -32.7 ]
+      },
+      "axis": {
+        "Title": "Latitude",
+        "ticks": false
+      }
+    },
+    "size": {
+      "field": "1/1 Humid",
+      "type": "quantitative",
+      "scale": {
+
+        "range": [ 0, 20 ]
+      }
+    }
+  }
+}
