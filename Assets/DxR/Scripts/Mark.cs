@@ -20,6 +20,8 @@ namespace DxR
         public Vector3 forwardDirection = Vector3.up;
         Vector3 curDirection;
 
+        public bool interactive = false;
+
         public Mark()
         {
 
@@ -1170,6 +1172,11 @@ namespace DxR
             {
                 tooltip.SetActive(false);
             }
+        }
+
+        private void clickDataPoint()
+        {
+            
         }
     }
 }

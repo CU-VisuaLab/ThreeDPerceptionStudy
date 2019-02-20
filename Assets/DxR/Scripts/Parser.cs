@@ -53,7 +53,6 @@ namespace DxR
                 {
                     return;
                 }
-
                 visSpecs["data"].Add("values", CreateValuesSpecs(visSpecs["data"]["url"]));
             } else if(visSpecs["data"]["values"] != null)
             {

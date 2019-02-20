@@ -523,6 +523,7 @@ namespace DxR
         {
             if(visSpecs["data"]["url"] != "inline")
             {
+                Debug.Log(visSpecs["data"]["url"]);
                 visSpecs["data"].Add("values", parser.CreateValuesSpecs(visSpecs["data"]["url"]));
                 data_name = visSpecs["data"]["url"];
             }
