@@ -19,9 +19,9 @@ public class SelectIndividualMark : MonoBehaviour {
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.name);
                 if (hit.transform.parent == transform)
                 {
                     foreach (Transform child in transform)
@@ -58,9 +58,6 @@ public class SelectIndividualMark : MonoBehaviour {
             // Load a message to tell the user they're done
             GameObject CompleteMessagePrefab = Resources.Load("Prefabs/StudyCompleteMessage") as GameObject;
             GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
-        }
-        else
-        {
         }
         Destroy(transform.root.gameObject);
     }

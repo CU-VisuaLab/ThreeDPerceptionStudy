@@ -910,7 +910,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4081595831657886}
-  - component: {fileID: 114010783031238814}
   m_Layer: 0
   m_Name: DxRMarks
   m_TagString: DxRMarks
@@ -1231,17 +1230,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114010783031238814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1886633754143386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc872f5156f7e041bc3cfe137c55560, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114015478711855946
 MonoBehaviour:
   m_ObjectHideFlags: 1

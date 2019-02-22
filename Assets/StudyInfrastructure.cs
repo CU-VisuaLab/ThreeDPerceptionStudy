@@ -28,12 +28,27 @@ public class StudyInfrastructure : MonoBehaviour {
     public bool LoadTrial()
     {
         trialNumber++;
-        string prefabName = "";
         try
         {
-            prefabName = participantOrderingData[participantNumber + 1, trialNumber + 1];
+            // For some reason, the CSVReader class does Col-Row indexing
+            string prefabName = participantOrderingData[trialNumber + 1, participantNumber + 1].Split(' ')[0];
+            string taskName = participantOrderingData[trialNumber + 1, participantNumber + 1].Split(' ')[1];
+
+            Debug.Log(prefabName);
+            Debug.Log(taskName);
+
             GameObject visPrefab = Resources.Load("Prefabs/VisualizationPrefabs/" + prefabName) as GameObject;
             GameObject visObject = Instantiate(visPrefab);
+
+            if (taskName == "Outlier")
+            {
+                visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectIndividualMark>();
+            }
+            else if (taskName == "XYQuadrant")
+            {
+                visObject.AddComponent<SelectQuadrant>();
+                visObject.GetComponent<SelectQuadrant>().selectionPlane = "XY";
+            }
         }
         catch (Exception e)
         {
