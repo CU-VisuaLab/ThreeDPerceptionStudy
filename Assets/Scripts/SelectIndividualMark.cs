@@ -8,14 +8,37 @@ public class SelectIndividualMark : MonoBehaviour {
     // Use this for initialization
     private GameObject menuObject;
     private List<GameObject> marks;
+
+    private bool vrVersion;
+    private bool clicked;
+
     void Start () {
         marks = new List<GameObject>();
-
+        vrVersion = (GameObject.Find("GazeCursor") != null);
+        clicked = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (vrVersion && clicked)
+        {
+            GameObject selectedObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
+            Debug.Log(selectedObject);
+            if (selectedObject != null)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child != selectedObject)
+                    {
+                        marks.Add(child.gameObject);
+                        child.gameObject.SetActive(false);
+                    }
+                }
+                InitializeConfirmationMenu(selectedObject.transform.position);
+            }
+            clicked = false;
+        }
+        else if (!vrVersion && Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -70,5 +93,11 @@ public class SelectIndividualMark : MonoBehaviour {
             mark.SetActive(true);
         }
         Destroy(menuObject);
+    }
+
+    // VR Version: Click passed from Vive Controller
+    public void Click()
+    {
+        clicked = true;
     }
 }
