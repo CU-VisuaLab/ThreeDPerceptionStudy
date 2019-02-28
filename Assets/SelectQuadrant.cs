@@ -7,44 +7,34 @@ using UnityEngine;
 public class SelectQuadrant : MonoBehaviour {
     public string selectionPlane = "XY";
     private float width, height, depth;
-
-    private GameObject highlightedObject;
+    
     private GameObject menuObject;
+    private List<GameObject> marks;
+    private List<Vector3> quadrantCenters;
     private List<GameObject> quadrants;
 
-    private Material quadrantSelectionMaterial;
-    private Material quadrantInvisibleMaterial;
+    ///private Material quadrantSelectionMaterial;
+    //private Material quadrantInvisibleMaterial;
 
-    private bool selecting, confirming;
+    private bool confirming;
 
 	// Use this for initialization
 	void Start () {
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
-        width = GetComponent<Vis>().GetVisSize().x / 1000;
-        height = GetComponent<Vis>().GetVisSize().y / 1000;
-        depth = GetComponent<Vis>().GetVisSize().z / 1000;
-
-        quadrantSelectionMaterial = Resources.Load("Materials/QuadrantSelection") as Material;
-        quadrantInvisibleMaterial = Resources.Load("Materials/Invisible") as Material;
-
-        selecting = false;
+        width = transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
+        height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
+        depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
+        
         confirming = false;
 
         SetQuadrants();
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if (selecting) SetHighlightedQuadrant();
-        if (Input.GetKeyDown("r"))
-        {
-            selecting = true;
-            foreach (GameObject quadrant in quadrants)
-            {
-                quadrant.SetActive(true);
-            }
-        }
-        if (selecting && Input.GetMouseButtonDown(0))
+	void Update ()
+    {
+        if (confirming) return;
+        if (Input.GetMouseButtonDown(0))
         {
             GetSelectedQuadrant();
         }
@@ -52,9 +42,16 @@ public class SelectQuadrant : MonoBehaviour {
 
     private void SetQuadrants()
     {
+        quadrantCenters = new List<Vector3>();
         quadrants = new List<GameObject>();
+
         if (selectionPlane == "XY")
         {
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 4, depth / 2));          // Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 4, depth / 2));      // Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, 3 * height / 4, depth / 2));      // Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, 3 * height / 4, depth / 2)); // Top Right
+
             quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
             quadrants[0].transform.parent = transform;
             quadrants[0].transform.name = "BottomLeft";
@@ -77,33 +74,17 @@ public class SelectQuadrant : MonoBehaviour {
 
             foreach (GameObject quadrant in quadrants)
             {
-                quadrant.GetComponent<Renderer>().material = quadrantInvisibleMaterial;
+                quadrant.GetComponent<Renderer>().enabled = false;
                 quadrant.transform.localScale = new Vector3(width / 2, height / 2, depth);
-                quadrant.SetActive(false);
             }
         }
         
     }
-
-    private void SetHighlightedQuadrant()
-    {
-        if (selectionPlane == "XY")
-        {
-            highlightedObject = GetGazedQuadrant();
-            foreach (GameObject quadrant in quadrants)
-            {
-                quadrant.GetComponent<Renderer>().material = quadrantInvisibleMaterial;
-            }
-            if (highlightedObject != null)  highlightedObject.GetComponent<Renderer>().material = quadrantSelectionMaterial;
-        }
-    }
-
     private GameObject GetGazedQuadrant()
     {
         float shortestDistance = Mathf.Infinity;
         GameObject gazedQuadrant = null;
-
-
+        
         foreach (GameObject quadrantObject in quadrants)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -116,18 +97,23 @@ public class SelectQuadrant : MonoBehaviour {
         }
         return gazedQuadrant;
     }
-
+    
     private void GetSelectedQuadrant()
     {
-        if (highlightedObject == null) return;
+        GameObject selectedQuadrant = GetGazedQuadrant();
+        if (selectedQuadrant == null) return;
+        marks = new List<GameObject>();
 
-        foreach (GameObject quadrant in quadrants)
+        foreach (Transform mark in transform)
         {
-            if (quadrant != highlightedObject) quadrant.SetActive(false);
+            if (closestQuadrant(mark.transform.position) != selectedQuadrant)
+            {
+                marks.Add(mark.gameObject);
+                mark.gameObject.SetActive(false);
+            }
         }
-        selecting = false;
         confirming = true;
-        InitializeConfirmationMenu(highlightedObject.transform.position);
+        InitializeConfirmationMenu(selectedQuadrant.transform.position);
     }
 
     private void InitializeConfirmationMenu(Vector3 pos)
@@ -135,13 +121,28 @@ public class SelectQuadrant : MonoBehaviour {
         GameObject menuPrefab = Resources.Load("Prefabs/ConfirmationMenu") as GameObject;
         menuObject = GameObject.Instantiate(menuPrefab);
 
-        menuObject.transform.parent = transform;
+        menuObject.transform.parent = transform.root;
         menuObject.transform.position = pos + new Vector3(0, 0, -.05f);
         menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Area?";
 
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);
 
         menuObject.transform.Find("NoButton").GetComponent<Button>().onClick.AddListener(NoButton);
+    }
+
+    private GameObject closestQuadrant(Vector3 pos)
+    {
+        GameObject closestQuadrant = null;
+        float closestDistance = Mathf.Infinity;
+        foreach (GameObject quadrant in quadrants) 
+        {
+            if (Vector3.Magnitude(quadrant.transform.position - pos) < closestDistance)
+            {
+                closestDistance = Vector3.Magnitude(quadrant.transform.position - pos);
+                closestQuadrant = quadrant;
+            }
+        }
+        return closestQuadrant;
     }
 
     private void YesButton()
@@ -158,11 +159,10 @@ public class SelectQuadrant : MonoBehaviour {
     private void NoButton()
     {
         // Reset the quadrants 
-        foreach (GameObject quadrant in quadrants)
+        foreach (GameObject mark in marks)
         {
-            quadrant.SetActive(true);
+            mark.SetActive(true);
         }
-        selecting = true;
         confirming = false;
         Destroy(menuObject);
     }

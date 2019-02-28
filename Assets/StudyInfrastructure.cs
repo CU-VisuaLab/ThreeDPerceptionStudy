@@ -46,8 +46,8 @@ public class StudyInfrastructure : MonoBehaviour {
             }
             else if (taskName == "XYQuadrant")
             {
-                visObject.AddComponent<SelectQuadrant>();
-                visObject.GetComponent<SelectQuadrant>().selectionPlane = "XY";
+                visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectQuadrant>();
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>().selectionPlane = "XY";
             }
         }
         catch (Exception e)
