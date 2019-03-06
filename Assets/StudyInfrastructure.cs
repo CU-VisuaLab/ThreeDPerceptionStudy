@@ -47,7 +47,20 @@ public class StudyInfrastructure : MonoBehaviour {
             else if (taskName == "XYQuadrant")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectQuadrant>();
-                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>().selectionPlane = "XY";
+            }
+            else if (taskName == "XZQuadrant")
+            {
+                visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectQuadrant>();
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>().SetPlane("XZ");
+            }
+            else if (taskName == "XYTrend")
+            {
+                visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
+            }
+            else if (taskName == "XZTrend")
+            {
+                visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XZ");
             }
         }
         catch (Exception e)

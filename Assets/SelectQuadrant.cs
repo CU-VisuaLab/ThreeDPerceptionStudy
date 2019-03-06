@@ -12,10 +12,7 @@ public class SelectQuadrant : MonoBehaviour {
     private List<GameObject> marks;
     private List<Vector3> quadrantCenters;
     private List<GameObject> quadrants;
-
-    ///private Material quadrantSelectionMaterial;
-    //private Material quadrantInvisibleMaterial;
-
+    
     private bool confirming;
 
 	// Use this for initialization
@@ -42,6 +39,13 @@ public class SelectQuadrant : MonoBehaviour {
 
     private void SetQuadrants()
     {
+        if (quadrants != null)
+        {
+            foreach (GameObject quad in quadrants)
+            {
+                Destroy(quad);
+            }
+        }
         quadrantCenters = new List<Vector3>();
         quadrants = new List<GameObject>();
 
@@ -78,6 +82,39 @@ public class SelectQuadrant : MonoBehaviour {
                 quadrant.transform.localScale = new Vector3(width / 2, height / 2, depth);
             }
         }
+        else if (selectionPlane == "XZ")
+        {
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 2, depth / 4));          // Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 2, depth / 4));      // Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 2, 3 * depth / 4));      // Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 2, 3 * depth / 4)); // Top Right
+
+            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
+            quadrants[0].transform.parent = transform;
+            quadrants[0].transform.name = "BottomLeft";
+            quadrants[0].transform.position = quadrantCenters[0];
+
+            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
+            quadrants[1].transform.parent = transform;
+            quadrants[1].transform.name = "BottomRight";
+            quadrants[1].transform.position = quadrantCenters[1];
+
+            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
+            quadrants[2].transform.parent = transform;
+            quadrants[2].transform.name = "TopLeft";
+            quadrants[2].transform.position = quadrantCenters[2];
+
+            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
+            quadrants[3].transform.parent = transform;
+            quadrants[3].transform.name = "TopRight";
+            quadrants[3].transform.position = quadrantCenters[3];
+
+            foreach (GameObject quadrant in quadrants)
+            {
+                quadrant.GetComponent<Renderer>().enabled = false;
+                quadrant.transform.localScale = new Vector3(width / 2, height, depth / 2);
+            }
+        }
         
     }
     private GameObject GetGazedQuadrant()
@@ -91,8 +128,12 @@ public class SelectQuadrant : MonoBehaviour {
 
             if (quadrantObject.GetComponent<Collider>().bounds.IntersectRay(ray))
             {
-                shortestDistance = Vector3.Distance(Camera.main.transform.position, quadrantObject.transform.position);
-                gazedQuadrant = quadrantObject;
+                float potentialDistance = Vector3.Distance(Camera.main.transform.position, quadrantObject.transform.position);
+                if (shortestDistance > potentialDistance)
+                {
+                    shortestDistance = potentialDistance;
+                    gazedQuadrant = quadrantObject;
+                }
             }
         }
         return gazedQuadrant;
@@ -165,5 +206,11 @@ public class SelectQuadrant : MonoBehaviour {
         }
         confirming = false;
         Destroy(menuObject);
+    }
+
+    public void SetPlane(string plane)
+    {
+        selectionPlane = plane;
+        SetQuadrants();
     }
 }
