@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using DxR;
 
 public class SelectIndividualMark : MonoBehaviour {
     // Use this for initialization
@@ -11,11 +12,20 @@ public class SelectIndividualMark : MonoBehaviour {
 
     private bool vrVersion;
     private bool clicked;
+    private float width, height, depth;
+    private bool confirming;
 
     void Start () {
+
+        // TODO: 1 / 1000 factor defined as a constant in Vis.cs
+        width = transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
+        height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
+        depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
+
         marks = new List<GameObject>();
         vrVersion = (GameObject.Find("GazeCursor") != null);
         clicked = false;
+        confirming = false;
     }
 	
 	// Update is called once per frame
@@ -23,18 +33,33 @@ public class SelectIndividualMark : MonoBehaviour {
         if (vrVersion && clicked)
         {
             GameObject selectedObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
-            Debug.Log(selectedObject);
+            if (selectedObject != null) Debug.Log(selectedObject.transform.name);
             if (selectedObject != null)
             {
-                foreach (Transform child in transform)
+                if (confirming)
                 {
-                    if (child != selectedObject)
+
+                    if (selectedObject.transform.name.Contains("Yes"))
                     {
-                        marks.Add(child.gameObject);
-                        child.gameObject.SetActive(false);
+                        YesButton();
+                    }
+                    else if (selectedObject.transform.name.Contains("No"))
+                    {
+                        NoButton();
                     }
                 }
-                InitializeConfirmationMenu(selectedObject.transform.position);
+                else
+                {
+                    foreach (Transform child in transform)
+                    {
+                        if (child.gameObject != selectedObject)
+                        {
+                            marks.Add(child.gameObject);
+                            child.gameObject.SetActive(false);
+                        }
+                    }
+                    InitializeConfirmationMenu(selectedObject.transform.position);
+                }
             }
             clicked = false;
         }
@@ -66,8 +91,22 @@ public class SelectIndividualMark : MonoBehaviour {
         GameObject menuPrefab = Resources.Load("Prefabs/ConfirmationMenu") as GameObject;
         menuObject = GameObject.Instantiate(menuPrefab);
 
-        menuObject.transform.parent = transform;
-        menuObject.transform.position = pos + new Vector3(0, 0, -.05f);
+        confirming = true;
+        menuObject.transform.parent = transform.root;
+        if (vrVersion)
+        {
+            menuObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+            /*Vector3 middlePos = transform.root.transform.position + new Vector3(width / 2, height / 2, depth / 2);
+            float distance = Vector3.Distance(Camera.main.transform.position, middlePos);
+            float ratio = 1.02f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / distance;
+
+
+            menuObject.transform.position = ratio * Camera.main.transform.position + new Vector3(0, 0, -.05f) +
+                (1f - ratio) * (transform.root.position + new Vector3(width / 2, height / 2, depth / 2));*/
+            menuObject.transform.localPosition = new Vector3(width / 2, height * 1.1f, depth / 2);
+            menuObject.transform.LookAt(Camera.main.transform);
+        }
+        menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Point?";
 
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);
 
@@ -79,8 +118,19 @@ public class SelectIndividualMark : MonoBehaviour {
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
-            GameObject CompleteMessagePrefab = Resources.Load("Prefabs/StudyCompleteMessage") as GameObject;
-            GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+
+            GameObject CompleteMessagePrefab = null;
+            if (vrVersion)
+            {
+                CompleteMessagePrefab = Resources.Load("Prefabs/VRStudyCompleteMessage") as GameObject;
+                GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+                CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
+            }
+            else
+            {
+                CompleteMessagePrefab = Resources.Load("Prefabs/StudyCompleteMessage") as GameObject;
+                GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+            }
         }
         Destroy(transform.root.gameObject);
     }
@@ -93,6 +143,7 @@ public class SelectIndividualMark : MonoBehaviour {
             mark.SetActive(true);
         }
         Destroy(menuObject);
+        confirming = false;
     }
 
     // VR Version: Click passed from Vive Controller

@@ -13,6 +13,8 @@ public class SelectTrend : MonoBehaviour {
     private List<Vector3> directionalPoints;
     private List<GameObject> arrows;
 
+    private bool vrVersion;
+
     private bool confirming;
 
     // Use this for initialization
@@ -23,6 +25,7 @@ public class SelectTrend : MonoBehaviour {
         depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
 
         confirming = false;
+        vrVersion = (GameObject.Find("GazeCursor") != null);
 
         SetDirections();
     }
@@ -133,8 +136,19 @@ public class SelectTrend : MonoBehaviour {
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
-            GameObject CompleteMessagePrefab = Resources.Load("Prefabs/StudyCompleteMessage") as GameObject;
-            GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+
+            GameObject CompleteMessagePrefab = null;
+            if (vrVersion)
+            {
+                CompleteMessagePrefab = Resources.Load("Prefabs/VRStudyCompleteMessage") as GameObject;
+                GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+                CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
+            }
+            else
+            {
+                CompleteMessagePrefab = Resources.Load("Prefabs/StudyCompleteMessage") as GameObject;
+                GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+            }
         }
         Destroy(transform.root.gameObject);
     }

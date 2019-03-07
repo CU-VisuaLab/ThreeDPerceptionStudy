@@ -20,6 +20,6 @@ public class ViveControllerClickListener : MonoBehaviour {
     private void HandleTriggerClicked(object sender, ClickedEventArgs e)
     {
         if (FindObjectsOfType<SelectIndividualMark>().Length > 0) FindObjectsOfType<SelectIndividualMark>()[0].Click();
-        else if (FindObjectsOfType<SelectQuadrant>().Length > 0) FindObjectsOfType<SelectIndividualMark>()[0].Click();
+        else if (FindObjectsOfType<SelectQuadrant>().Length > 0) FindObjectsOfType<SelectQuadrant>()[0].Click();
     }
 }

@@ -14,9 +14,11 @@ public class SelectQuadrant : MonoBehaviour {
     private List<GameObject> quadrants;
     
     private bool confirming;
+    private bool clicked;
+    private bool vrVersion;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
         width = transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
         height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
@@ -24,14 +26,39 @@ public class SelectQuadrant : MonoBehaviour {
         
         confirming = false;
 
+        clicked = false;
+        vrVersion = (GameObject.Find("GazeCursor") != null);
+
         SetQuadrants();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (confirming) return;
-        if (Input.GetMouseButtonDown(0))
+        if (vrVersion && clicked)
+        {
+            if (confirming)
+            {
+                GameObject hoveredObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
+                if (hoveredObject == null) return;
+
+                if (hoveredObject.transform.name.Contains("Yes"))
+                {
+                    YesButton();
+                }
+                else if (hoveredObject.transform.name.Contains("No"))
+                {
+                    NoButton();
+                }
+            }
+            else
+            {
+                GetSelectedQuadrant();
+            }
+            
+            clicked = false;
+        }
+        else if (!vrVersion && Input.GetMouseButtonDown(0))
         {
             GetSelectedQuadrant();
         }
@@ -39,48 +66,15 @@ public class SelectQuadrant : MonoBehaviour {
 
     private void SetQuadrants()
     {
-        if (quadrants != null)
-        {
-            foreach (GameObject quad in quadrants)
-            {
-                Destroy(quad);
-            }
-        }
         quadrantCenters = new List<Vector3>();
         quadrants = new List<GameObject>();
 
         if (selectionPlane == "XY")
         {
-            quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 4, depth / 2));          // Bottom Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 4, depth / 2));      // Bottom Right
-            quadrantCenters.Add(transform.position + new Vector3(width / 4, 3 * height / 4, depth / 2));      // Top Left
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 4, depth / 2));         // Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 4, depth / 2));     // Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, 3 * height / 4, depth / 2));     // Top Left
             quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, 3 * height / 4, depth / 2)); // Top Right
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[0].transform.parent = transform;
-            quadrants[0].transform.name = "BottomLeft";
-            quadrants[0].transform.localPosition = new Vector3(width / 4, height / 4, depth / 2);
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[1].transform.parent = transform;
-            quadrants[1].transform.name = "BottomRight";
-            quadrants[1].transform.localPosition = new Vector3(3 * width / 4, height / 4, depth / 2);
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[2].transform.parent = transform;
-            quadrants[2].transform.name = "TopLeft";
-            quadrants[2].transform.localPosition = new Vector3(width / 4, 3 * height / 4, depth / 2);
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[3].transform.parent = transform;
-            quadrants[3].transform.name = "TopRight";
-            quadrants[3].transform.localPosition = new Vector3(3 * width / 4, 3 * height / 4, depth / 2);
-
-            foreach (GameObject quadrant in quadrants)
-            {
-                quadrant.GetComponent<Renderer>().enabled = false;
-                quadrant.transform.localScale = new Vector3(width / 2, height / 2, depth);
-            }
         }
         else if (selectionPlane == "XZ")
         {
@@ -88,63 +82,58 @@ public class SelectQuadrant : MonoBehaviour {
             quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 2, depth / 4));      // Bottom Right
             quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 2, 3 * depth / 4));      // Top Left
             quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 2, 3 * depth / 4)); // Top Right
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[0].transform.parent = transform;
-            quadrants[0].transform.name = "BottomLeft";
-            quadrants[0].transform.position = quadrantCenters[0];
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[1].transform.parent = transform;
-            quadrants[1].transform.name = "BottomRight";
-            quadrants[1].transform.position = quadrantCenters[1];
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[2].transform.parent = transform;
-            quadrants[2].transform.name = "TopLeft";
-            quadrants[2].transform.position = quadrantCenters[2];
-
-            quadrants.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-            quadrants[3].transform.parent = transform;
-            quadrants[3].transform.name = "TopRight";
-            quadrants[3].transform.position = quadrantCenters[3];
-
-            foreach (GameObject quadrant in quadrants)
-            {
-                quadrant.GetComponent<Renderer>().enabled = false;
-                quadrant.transform.localScale = new Vector3(width / 2, height, depth / 2);
-            }
         }
         
     }
-    private GameObject GetGazedQuadrant()
+    private Vector3 GetGazedQuadrant()
     {
         float shortestDistance = Mathf.Infinity;
-        GameObject gazedQuadrant = null;
-        
-        foreach (GameObject quadrantObject in quadrants)
+        GameObject gazedObject = null;
+
+        if (vrVersion)
+        {
+            gazedObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
+            Debug.Log(gazedObject);
+            if (gazedObject == null) return Vector3.negativeInfinity;
+        }
+        else
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (quadrantObject.GetComponent<Collider>().bounds.IntersectRay(ray))
+            foreach (Transform child in transform)
             {
-                float potentialDistance = Vector3.Distance(Camera.main.transform.position, quadrantObject.transform.position);
-                if (shortestDistance > potentialDistance)
+                if (child.GetComponent<Collider>().bounds.IntersectRay(ray))
                 {
-                    shortestDistance = potentialDistance;
-                    gazedQuadrant = quadrantObject;
+                    float potentialDistance = Vector3.Distance(Camera.main.transform.position, child.position);
+                    if (shortestDistance > potentialDistance)
+                    {
+                        shortestDistance = potentialDistance;
+                        gazedObject = child.gameObject;
+                    }
                 }
             }
+            if (gazedObject == null) return Vector3.negativeInfinity;
         }
-        return gazedQuadrant;
+
+        float shortestQuadrantDistance = float.PositiveInfinity;
+        Vector3 closestQuadrant = Vector3.zero;
+        foreach (Vector3 quadrantCenter in quadrantCenters)
+        {
+            if (shortestQuadrantDistance > Vector3.Distance(quadrantCenter, gazedObject.transform.position))
+            {
+                shortestQuadrantDistance = Vector3.Distance(quadrantCenter, gazedObject.transform.position);
+                closestQuadrant = quadrantCenter;
+            }
+        }
+
+        return closestQuadrant;
     }
     
     private void GetSelectedQuadrant()
     {
-        GameObject selectedQuadrant = GetGazedQuadrant();
-        if (selectedQuadrant == null) return;
-        marks = new List<GameObject>();
+        Vector3 selectedQuadrant = GetGazedQuadrant();
+        if (selectedQuadrant.x == float.NegativeInfinity) return;
 
+        marks = new List<GameObject>();
         foreach (Transform mark in transform)
         {
             if (closestQuadrant(mark.transform.position) != selectedQuadrant)
@@ -154,16 +143,28 @@ public class SelectQuadrant : MonoBehaviour {
             }
         }
         confirming = true;
-        InitializeConfirmationMenu(selectedQuadrant.transform.position);
+        InitializeConfirmationMenu();
     }
 
-    private void InitializeConfirmationMenu(Vector3 pos)
+    private void InitializeConfirmationMenu()
     {
         GameObject menuPrefab = Resources.Load("Prefabs/ConfirmationMenu") as GameObject;
         menuObject = GameObject.Instantiate(menuPrefab);
 
+
         menuObject.transform.parent = transform.root;
-        menuObject.transform.position = pos + new Vector3(0, 0, -.05f);
+        if (vrVersion)
+        {
+            menuObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+            Vector3 middlePos = transform.root.transform.position + new Vector3(width / 2, height / 2, depth / 2);
+            float distance = Vector3.Distance(Camera.main.transform.position, middlePos);
+            float ratio = 1.02f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / distance;
+
+
+            menuObject.transform.position =  ratio * Camera.main.transform.position + new Vector3(0, 0, -.05f) +
+                (1f - ratio) * (transform.root.position + new Vector3(width / 2, height / 2, depth / 2));
+            menuObject.transform.LookAt(Camera.main.transform);
+        }
         menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Area?";
 
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);
@@ -171,15 +172,15 @@ public class SelectQuadrant : MonoBehaviour {
         menuObject.transform.Find("NoButton").GetComponent<Button>().onClick.AddListener(NoButton);
     }
 
-    private GameObject closestQuadrant(Vector3 pos)
+    private Vector3 closestQuadrant(Vector3 pos)
     {
-        GameObject closestQuadrant = null;
+        Vector3 closestQuadrant = Vector3.negativeInfinity;
         float closestDistance = Mathf.Infinity;
-        foreach (GameObject quadrant in quadrants) 
+        foreach (Vector3 quadrant in quadrantCenters) 
         {
-            if (Vector3.Magnitude(quadrant.transform.position - pos) < closestDistance)
+            if (Vector3.Magnitude(quadrant - pos) < closestDistance)
             {
-                closestDistance = Vector3.Magnitude(quadrant.transform.position - pos);
+                closestDistance = Vector3.Magnitude(quadrant - pos);
                 closestQuadrant = quadrant;
             }
         }
@@ -191,14 +192,26 @@ public class SelectQuadrant : MonoBehaviour {
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
-            GameObject CompleteMessagePrefab = Resources.Load("Prefabs/StudyCompleteMessage") as GameObject;
-            GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+
+            GameObject CompleteMessagePrefab = null;
+            if (vrVersion)
+            {
+                CompleteMessagePrefab = Resources.Load("Prefabs/VRStudyCompleteMessage") as GameObject;
+                GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+                CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
+            }
+            else
+            {
+                CompleteMessagePrefab = Resources.Load("Prefabs/StudyCompleteMessage") as GameObject;
+                GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
+            }
         }
         Destroy(transform.root.gameObject);
     }
 
     private void NoButton()
     {
+
         // Reset the quadrants 
         foreach (GameObject mark in marks)
         {
@@ -212,5 +225,11 @@ public class SelectQuadrant : MonoBehaviour {
     {
         selectionPlane = plane;
         SetQuadrants();
+    }
+
+    // VR Version: Click passed from Vive Controller
+    public void Click()
+    {
+        clicked = true;
     }
 }
