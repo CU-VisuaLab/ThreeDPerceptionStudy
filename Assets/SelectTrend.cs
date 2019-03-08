@@ -16,6 +16,7 @@ public class SelectTrend : MonoBehaviour {
     private bool vrVersion;
 
     private bool confirming;
+    private bool clicked;
 
     // Use this for initialization
     void Start() {
@@ -33,19 +34,33 @@ public class SelectTrend : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (vrVersion && clicked && confirming)
         {
-            Debug.Log("Mouse down");
+            GameObject hoveredObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
+            if (hoveredObject == null) return;
+
+            if (hoveredObject.transform.name.Contains("Yes"))
+            {
+                YesButton();
+            }
+            else if (hoveredObject.transform.name.Contains("No"))
+            {
+                NoButton();
+            }
+            clicked = false;
+        }
+        else if ((!vrVersion && Input.GetMouseButtonDown(0)) || (vrVersion && clicked))
+        {
             int selectedDirection = GetSelectedDirection();
             if (selectedDirection >= 0)
             {
-                Debug.Log("An arrow");
                 for (var i = 0; i < arrows.Count; i++)
                 {
                     if (i != selectedDirection) arrows[i].SetActive(false);
                 }
                 InitializeConfirmationMenu(selectedDirection);
             }
+            clicked = false;
         }
     }
 
@@ -72,15 +87,32 @@ public class SelectTrend : MonoBehaviour {
         {
             scaleVector = new Vector3(width / 2, 0, depth / 2);
         }
+        else if (selectionPlane == "XYZ")
+        {
+            scaleVector = new Vector3(width / 2, height / 2, depth / 2);
+        }
 
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 0, 0)));             // East
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 1.2f, 1.2f)));       // Northeast
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 1.2f, 1.2f)));          // North
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 1.2f, 1.2f)));      // Northwest 
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 0, 0)));            // West
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, -1.2f, -1.2f)));    // Southwest
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, -1.2f, -1.2f)));        // South
-        directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, -1.2f, -1.2f)));     // Southeast
+        if (selectionPlane == "XYZ")
+        {
+            // For XYZ Trend selection 
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 0, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 0, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 1.2f, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, -1.2f, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 0, 1.2f)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 0, -1.2f)));
+        }
+        else
+        {
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 0, 0)));             // East
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 1.2f, 1.2f)));       // Northeast
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 1.2f, 1.2f)));          // North
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 1.2f, 1.2f)));      // Northwest 
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 0, 0)));            // West
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, -1.2f, -1.2f)));    // Southwest
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, -1.2f, -1.2f)));        // South
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, -1.2f, -1.2f)));     // Southeast
+        }
 
         for (var i = 0; i < directionalPoints.Count; i++)
         {
@@ -90,6 +122,12 @@ public class SelectTrend : MonoBehaviour {
             arrow.transform.localPosition = new Vector3(width / 2, height / 2, depth / 2) + directionalPoints[i];
             if (selectionPlane == "XY") arrow.transform.localEulerAngles = new Vector3(0, 0, -90 + 45 * i);
             else if (selectionPlane == "XZ") arrow.transform.localEulerAngles = new Vector3(0, 360 - 45 * i, -90);
+            else if (selectionPlane == "XYZ")
+            {
+                if (i < 2) arrow.transform.localEulerAngles = arrow.transform.localEulerAngles = new Vector3(0, 0, -90 + 180 * i);
+                else if (i < 4) arrow.transform.localEulerAngles = arrow.transform.localEulerAngles = new Vector3(180 * i, 0, 0);
+                else arrow.transform.localEulerAngles = arrow.transform.localEulerAngles = new Vector3(90, 0, 180 * i);
+            }
             arrows.Add(arrow);
         }
     }
@@ -114,20 +152,36 @@ public class SelectTrend : MonoBehaviour {
     // 0: E, 1: NE, 2: N, 3: NW, 4: W, 5: SW, 6: S, 7: SE
     private int GetSelectedDirection()
     {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit))
+        if (vrVersion)
         {
-            Debug.Log("Hit: " + hit.transform.name);
+            GameObject hitObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
+            if (hitObject == null) return -1;
+
             for (var i = 0; i < arrows.Count; i++)
             {
-                if (GameObject.ReferenceEquals(hit.transform.gameObject, arrows[i]))
+                if (GameObject.ReferenceEquals(hitObject, arrows[i]))
                 {
                     return i;
                 }
             }
         }
+        else
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                for (var i = 0; i < arrows.Count; i++)
+                {
+                    if (GameObject.ReferenceEquals(hit.transform.gameObject, arrows[i]))
+                    {
+                        return i;
+                    }
+                }
+            }
+        }
+
         return -1;
     }
 
@@ -168,5 +222,11 @@ public class SelectTrend : MonoBehaviour {
     {
         selectionPlane = plane;
         SetDirections();
+    }
+
+    // VR Version: Click passed from Vive Controller
+    public void Click()
+    {
+        clicked = true;
     }
 }

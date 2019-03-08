@@ -872,6 +872,7 @@ namespace DxR
             float max = min;
             foreach (Dictionary<string, string> dataValue in data.values)
             {
+                Debug.Log(dataValue[field]);
                 float val = float.Parse(dataValue[field]);
                 if(val < min)
                 {

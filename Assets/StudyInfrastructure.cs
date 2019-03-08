@@ -53,6 +53,11 @@ public class StudyInfrastructure : MonoBehaviour {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectQuadrant>();
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>().SetPlane("XZ");
             }
+            else if (taskName == "XYZQuadrant")
+            {
+                visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectQuadrant>();
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>().SetPlane("XYZ");
+            }
             else if (taskName == "XYTrend")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
@@ -61,6 +66,11 @@ public class StudyInfrastructure : MonoBehaviour {
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XZ");
+            }
+            else if (taskName == "XYZTrend")
+            {
+                visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XYZ");
             }
         }
         catch (Exception e)

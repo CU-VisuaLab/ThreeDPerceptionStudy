@@ -81,9 +81,19 @@ public class SelectQuadrant : MonoBehaviour {
             quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 2, depth / 4));          // Bottom Left
             quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 2, depth / 4));      // Bottom Right
             quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 2, 3 * depth / 4));      // Top Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 2, 3 * depth / 4)); // Top Right
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 2, 3 * depth / 4));  // Top Right
         }
-        
+        else if (selectionPlane == "XYZ")
+        {
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 4, depth / 4));              // Front Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 4, depth / 4));          // Front Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, 3 * height / 4, depth / 4));          // Front Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, 3 * height / 4, depth / 4));      // Front Top Right
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, height / 4, 3 * depth / 4));          // Back Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, height / 4, 3 * depth / 4));      // Back Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(width / 4, 3 * height / 4, 3 * depth / 4));      // Back Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, 3 * height / 4, 3 * depth / 4));  // Back Top Right    
+        }
     }
     private Vector3 GetGazedQuadrant()
     {
@@ -133,6 +143,7 @@ public class SelectQuadrant : MonoBehaviour {
         Vector3 selectedQuadrant = GetGazedQuadrant();
         if (selectedQuadrant.x == float.NegativeInfinity) return;
 
+        Debug.Log("Selected: " + selectedQuadrant);
         marks = new List<GameObject>();
         foreach (Transform mark in transform)
         {
@@ -184,6 +195,7 @@ public class SelectQuadrant : MonoBehaviour {
                 closestQuadrant = quadrant;
             }
         }
+        Debug.Log(closestQuadrant);
         return closestQuadrant;
     }
 
