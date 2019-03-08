@@ -172,6 +172,7 @@ public class SelectTrend : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log(hit.transform.name);
                 for (var i = 0; i < arrows.Count; i++)
                 {
                     if (GameObject.ReferenceEquals(hit.transform.gameObject, arrows[i]))
