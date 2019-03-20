@@ -1,0 +1,33 @@
+{
+  "width": 550,
+  "depth": 50,
+  "data": {
+    "url": "ObviousData.csv"
+  },
+  "mark": "arrow",
+  "encoding": {
+    "x": {
+      "field": "Longitude",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Longitude",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "Latitude",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Latitude",
+        "ticks": false
+      }
+    },
+    "zrotation": {
+      "field": "HeatQuad1",
+      "type": "quantitative",
+      "scale": {
+        "range": [90,-90]
+      }
+    }
+  }
+}

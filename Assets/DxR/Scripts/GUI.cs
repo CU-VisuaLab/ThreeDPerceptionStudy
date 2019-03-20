@@ -29,6 +29,8 @@ namespace DxR
         GameObject interactionGUIPrefab = null;
 
         List<string> dataFieldTypeDropdownOptions;
+
+        private bool verbose = false;
         
         // Use this for initialization
         void Start()
@@ -258,7 +260,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
         {
             GameObject channelGUI = AddEmptyChannelGUI();
 
-            Debug.Log("Encoding:" + channelName + "," + channelEncodingSpecs.ToString(2));
+            if (verbose) Debug.Log("Encoding:" + channelName + "," + channelEncodingSpecs.ToString(2));
 
             UpdateChannelGUIChannelDropdownValue(channelName, ref channelGUI);
             UpdateChannelGUIDataFieldDropdownValue(channelEncodingSpecs["field"].Value, ref channelGUI);
@@ -350,7 +352,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
             }
 
             guiVisSpecs["encoding"] = encodingObject;
-            Debug.Log("GUI CHANNEL SPECS: " + guiVisSpecs["encoding"].ToString());
+            if (verbose) Debug.Log("GUI CHANNEL SPECS: " + guiVisSpecs["encoding"].ToString());
 
 #if USE_INTERACTION_GUI
             // Update interaction specs:
@@ -374,7 +376,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
             }
 
             guiVisSpecs["interaction"] = interactionArrayObject;
-            Debug.Log("GUI INTERACTION SPECS: " + guiVisSpecs["interaction"].ToString());
+            if (verbose) Debug.Log("GUI INTERACTION SPECS: " + guiVisSpecs["interaction"].ToString());
 #endif
         }
 
@@ -391,12 +393,12 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
         // TODO:
         public void OnChannelGUIChannelDropdownValueChanged(Dropdown changed)
         {
-            Debug.Log("New data " + changed.options[changed.value].text);
+            if (verbose) Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
             string curValue = changed.options[changed.value].text;
             if (prevValue != curValue)
             {
-                Debug.Log("Updated specs " + curValue);
+                if (verbose) Debug.Log("Updated specs " + curValue);
 
 //                UpdateGUIChannelsList(guiVisSpecs);
             }
@@ -405,12 +407,12 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
         // TODO:
         public void OnChannelGUIDataFieldDropdownValueChanged(Dropdown changed)
         {
-            Debug.Log("New data " + changed.options[changed.value].text);
+            if (verbose) Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
             string curValue = changed.options[changed.value].text;
             if (prevValue != curValue)
             {
-                Debug.Log("Updated specs " + curValue);
+                if (verbose) Debug.Log("Updated specs " + curValue);
 
                 //                UpdateGUIChannelsList(guiVisSpecs);
             }
@@ -418,17 +420,17 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         public void OnInteractionGUIDataFieldDropdownValueChanged(Dropdown changed, GameObject interactionGUI)
         {
-            Debug.Log("New data " + changed.options[changed.value].text);
+            if (verbose) Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
             string curValue = changed.options[changed.value].text;
             if (prevValue != curValue)
             {
-                Debug.Log("Updated specs " + curValue);
+                if (verbose) Debug.Log("Updated specs " + curValue);
 
                 //                UpdateGUIChannelsList(guiVisSpecs);
             }
 
-            Debug.Log("Object name " + interactionGUI.name);
+            if (verbose) Debug.Log("Object name " + interactionGUI.name);
 
             UpdateInteraction(interactionGUI);
         }
@@ -440,28 +442,28 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         public void OnInteractionGUIInteractionTypeDropdownValueChanged(Dropdown changed, GameObject interactionGUI)
         {
-            Debug.Log("New data " + changed.options[changed.value].text);
+            if (verbose) Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
             string curValue = changed.options[changed.value].text;
             if (prevValue != curValue)
             {
-                Debug.Log("Updated specs " + curValue);
+                if (verbose) Debug.Log("Updated specs " + curValue);
 
                 //                UpdateGUIChannelsList(guiVisSpecs);
             }
 
-            Debug.Log("Object name " + interactionGUI.name);
+            if (verbose) Debug.Log("Object name " + interactionGUI.name);
         }
 
         // TODO:
         public void OnChannelGUIDataFieldTypeDropdownValueChanged(Dropdown changed)
         {
-            Debug.Log("New data " + changed.options[changed.value].text);
+            if (verbose) Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = ""; // guiVisSpecs["data"]["url"].Value;
             string curValue = changed.options[changed.value].text;
             if (prevValue != curValue)
             {
-                Debug.Log("Updated specs " + curValue);
+                if (verbose) Debug.Log("Updated specs " + curValue);
 
                 //                UpdateGUIChannelsList(guiVisSpecs);
             }
@@ -469,7 +471,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         public void OnDataDropdownValueChanged(Dropdown changed)
         {
-            Debug.Log("New data " + changed.options[changed.value].text);
+            if (verbose) Debug.Log("New data " + changed.options[changed.value].text);
             string prevValue = guiVisSpecs["data"]["url"].Value;
             string curValue = changed.options[changed.value].text;
             if (prevValue != curValue)
@@ -495,7 +497,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
                     }
                 }
 
-                Debug.Log("Updated specs " + guiVisSpecs["encoding"].ToString());
+                if (verbose) Debug.Log("Updated specs " + guiVisSpecs["encoding"].ToString());
 
                 UpdateGUIChannelsList(guiVisSpecs);
             }
@@ -503,7 +505,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         public void OnMarkDropdownValueChanged(Dropdown changed)
         {
-            Debug.Log("New mark " + changed.options[changed.value].text);
+            if (verbose) Debug.Log("New mark " + changed.options[changed.value].text);
             string prevValue = guiVisSpecs["mark"].Value;
             string curValue = changed.options[changed.value].text;
             if (prevValue != curValue)
@@ -633,7 +635,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
 
         private void DeleteParentOfClickedObjectCallback()
         {
-            Debug.Log("Clicked " + EventSystem.current.currentSelectedGameObject.transform.parent.name);
+            if (verbose) Debug.Log("Clicked " + EventSystem.current.currentSelectedGameObject.transform.parent.name);
             //
             GameObject.Destroy(EventSystem.current.currentSelectedGameObject.transform.parent.gameObject);
         }
@@ -717,7 +719,7 @@ UpdateMarkDropdownValue(guiVisSpecs["mark"].Value);
                 dataDropdown.value = valueIndex;
             }
 
-            Debug.Log("Updated GUI data value to " + value);
+            if (verbose) Debug.Log("Updated GUI data value to " + value);
         }
 
         public void UpdateMarkDropdownValue(string value)

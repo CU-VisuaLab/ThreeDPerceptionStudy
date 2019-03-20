@@ -1,0 +1,38 @@
+{
+  "width": 550,
+  "depth": 550,
+  "height": 550,
+  "data": {
+    "url": "ObviousData.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Longitude",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Longitude",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "Latitude",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Latitude",
+        "ticks": false
+      }
+    },
+    "height": {
+      "field": "HeatQuad3",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "HeatQuad3",
+      "type": "quantitative"
+    },
+    "yoffsetpct": {
+      "value": -0.5
+    }
+  }
+}

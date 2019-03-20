@@ -8,7 +8,7 @@ namespace DxR
 {
     public class ScalePoint : Scale
     {
-        private bool verbose = true;
+        private bool verbose = false;
 
         public static float PADDING_DEFAULT = 0.05f;
 
@@ -67,7 +67,7 @@ namespace DxR
                 rangeValue = rangeValue + ((float)(domainValueIndex) * rangeStep) + (rangeStep / 2.0f); ;
             }
 
-            Debug.Log("Scaling " + domainValue + " to " + rangeValue.ToString());
+            if (verbose) Debug.Log("Scaling " + domainValue + " to " + rangeValue.ToString());
 
             return rangeValue.ToString();
         }

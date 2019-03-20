@@ -22,9 +22,11 @@ namespace DxR
 
         public bool interactive = false;
 
+        private float realValue;
+        private static float maxSizeValue;
+
         public Mark()
         {
-
         }
 
         public void Start()
@@ -35,6 +37,16 @@ namespace DxR
         public virtual List<string> GetChannelsList()
         {
             return new List<string> { "x", "y", "z", "color", "size", "width", "height", "depth", "opacity", "xrotation", "yrotation", "zrotation", "length", "xdirection", "ydirection", "zdirection" };
+        }
+
+        // Method added by Matt to record the encoded value that is then translated to a color, height, size etc.
+        public virtual void SetRealValue(float val)
+        {
+            realValue = val;
+        }
+        public virtual float GetRealValue()
+        {
+            return realValue;
         }
 
         public virtual void SetChannelValue(string channel, string value)
@@ -618,6 +630,7 @@ namespace DxR
             JSONNode scaleSpecs = channelSpecs["scale"];
             JSONObject scaleSpecsObj = (scaleSpecs == null) ? new JSONObject() : scaleSpecs.AsObject;
             
+            
             if(scaleSpecs["type"] == null)
             {
                 InferScaleType(channelEncoding.channel, channelEncoding.fieldDataType, ref scaleSpecsObj);
@@ -654,6 +667,10 @@ namespace DxR
                 {
                     InferRange(channelEncoding, specs, ref scaleSpecsObj);
                 }
+                else if (scaleSpecs["range"] != null && channelEncoding.channel == "size")
+                {
+                    maxSizeValue = float.Parse(scaleSpecs["range"].ToString().Split(',')[1].TrimEnd(']')) / 1000f;
+                }
 
                 if (channelEncoding.channel == "color" && !scaleSpecsObj["range"].IsArray && scaleSpecsObj["scheme"] == null)
                 {
@@ -688,7 +705,6 @@ namespace DxR
             {
                 throw new Exception("Cannot infer color scheme for range " + range);
             }
-
             scaleSpecsObj.Add("scheme", new JSONString(scheme));
         }
 
@@ -786,6 +802,7 @@ namespace DxR
             {
                 scaleSpecsObj.Add("range", range);
             }
+            // Debug.Log(scaleSpecsObj);
         }
 
         private void InferDomain(ChannelEncoding channelEncoding, JSONNode specs, ref JSONObject scaleSpecsObj, Data data)
@@ -872,7 +889,7 @@ namespace DxR
             float max = min;
             foreach (Dictionary<string, string> dataValue in data.values)
             {
-                Debug.Log(dataValue[field]);
+                // Debug.Log(dataValue[field]);
                 float val = float.Parse(dataValue[field]);
                 if(val < min)
                 {
@@ -1051,9 +1068,16 @@ namespace DxR
 
             float origMaxSize = renderSize[maxIndex] / localScale[maxIndex];
             float newLocalScale = (size / origMaxSize);
+            
 
             gameObject.transform.localScale = new Vector3(newLocalScale,
                 newLocalScale, newLocalScale);
+
+            if (maxSizeValue > 0)
+            {
+                gameObject.GetComponent<BoxCollider>().size = 
+                    new Vector3(maxSizeValue / transform.localScale.x, maxSizeValue / transform.localScale.y, maxSizeValue / transform.localScale.z);
+            }
         }
 
         private void ScaleToMaxDim(string value, int maxDim)
@@ -1175,9 +1199,18 @@ namespace DxR
             }
         }
 
-        private void clickDataPoint()
+        public float getColor()
         {
-            
+            return 0.0f;
+        }
+
+        public static void SetMaxSize(float maxSize)
+        {
+            maxSizeValue = maxSize;
+        }
+        public static float GetMaxSize()
+        {
+            return maxSizeValue;
         }
     }
 }

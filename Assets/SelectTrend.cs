@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MathNet.Numerics;
+using System.Linq;
 
 public class SelectTrend : MonoBehaviour {
     public string selectionPlane = "XY";
@@ -18,6 +20,18 @@ public class SelectTrend : MonoBehaviour {
     private bool confirming;
     private bool clicked;
 
+    private int correctDirection;
+    private double correctFit;
+    private int selectedDirection;
+    private double[] directionalFits;
+
+    private float startTime;
+    private float menuTime;
+
+    private bool orientationVersion;
+    private float[] orientationDirectionCounts;
+    private GameObject taskDescription;
+
     // Use this for initialization
     void Start() {
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
@@ -29,6 +43,17 @@ public class SelectTrend : MonoBehaviour {
         vrVersion = (GameObject.Find("GazeCursor") != null);
 
         SetDirections();
+        orientationVersion = transform.GetChild(0).name.Contains("arrow");
+        if (orientationVersion)
+        {
+            CorrectOrientationDirection();
+        }
+        else
+        {
+            CorrectDirection();
+        }
+        HandleTextFile.WriteString("Task Loaded at " + Time.time);
+        startTime = Time.time;
     }
 
     // Update is called once per frame
@@ -49,11 +74,15 @@ public class SelectTrend : MonoBehaviour {
             }
             clicked = false;
         }
-        else if ((!vrVersion && Input.GetMouseButtonDown(0)) || (vrVersion && clicked))
+        else if ((!confirming && !vrVersion && Input.GetMouseButtonDown(0)) || (vrVersion && clicked))
         {
-            int selectedDirection = GetSelectedDirection();
+            selectedDirection = GetSelectedDirection();
             if (selectedDirection >= 0)
             {
+
+                HandleTextFile.WriteString("Selected " + selectedDirection + "; Menu Loaded at " + Time.time);
+                HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
+                menuTime = Time.time;
                 for (var i = 0; i < arrows.Count; i++)
                 {
                     if (i != selectedDirection) arrows[i].SetActive(false);
@@ -66,7 +95,6 @@ public class SelectTrend : MonoBehaviour {
 
     private void SetDirections()
     {
-        Debug.Log(selectionPlane);
         if (arrows != null)
         {
             foreach (GameObject arrow in arrows)
@@ -186,8 +214,158 @@ public class SelectTrend : MonoBehaviour {
         return -1;
     }
 
+    private void CorrectDirection()
+    {
+        int numVals = transform.childCount;
+        double[] xVals = new double[numVals];
+        double[] yVals = new double[numVals];
+        double[] zVals = new double[numVals];
+        double[] xPlusYVals = new double[numVals];
+        double[] xMinusYVals = new double[numVals];
+        double[] realVals = new double[numVals];
+        int i = 0;
+        foreach (Transform child in transform)
+        {
+            realVals[i] = child.GetComponent<Mark>().GetRealValue();
+            //Debug.Log(realVals[i]);
+            xVals[i] = child.localPosition.x;
+            if (selectionPlane == "XY")
+            {
+                yVals[i] = child.localPosition.y;
+                xPlusYVals[i] = child.localPosition.x + child.localPosition.y;
+                xMinusYVals[i++] = child.localPosition.x - child.localPosition.y;
+            }
+            else if (selectionPlane == "XZ") // Abstract Z value to get treated as the Y does for XY
+            {
+                yVals[i] = child.localPosition.z;
+                xPlusYVals[i] = child.localPosition.x + child.localPosition.z;
+                xMinusYVals[i++] = child.localPosition.x - child.localPosition.z;
+            }
+            else
+            {
+                yVals[i] = child.localPosition.y;
+                zVals[i++] = child.localPosition.z;
+            }
+        }
+        List<double> fits = new List<double>();
+        double xFit = GoodnessOfFit.RSquared(xVals, realVals);
+        double yFit = GoodnessOfFit.RSquared(yVals, realVals);
+        double zFit = -1;
+        double xPlusYFit = -1;
+        double xMinusYFit = -1;
+
+        double maxFit = -1;
+        if (selectionPlane == "XY" || selectionPlane == "XZ")
+        {
+            directionalFits = new double[8];
+            xPlusYFit = GoodnessOfFit.RSquared(xPlusYVals, realVals);
+            xMinusYFit = GoodnessOfFit.RSquared(xMinusYVals, realVals);
+            maxFit = new[] { xFit, yFit, xPlusYFit, xMinusYFit }.Max();
+        }
+        else
+        {
+            directionalFits = new double[6];
+            zFit = GoodnessOfFit.RSquared(zVals, realVals);
+            maxFit = new[] { xFit, yFit, zFit }.Max();
+            Debug.Log(maxFit);
+        }
+
+        correctDirection = -1;
+        if (selectionPlane == "XY" || selectionPlane == "XZ")
+        {
+            directionalFits[0] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xVals, realVals).Item2) * xFit;
+            directionalFits[4] = -directionalFits[0];
+            directionalFits[2] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(yVals, realVals).Item2) * yFit;
+            directionalFits[6] = -directionalFits[2];
+            directionalFits[1] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xPlusYVals, realVals).Item2) * xPlusYFit;
+            directionalFits[5] = -directionalFits[1];
+            directionalFits[7] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xMinusYVals, realVals).Item2) * xMinusYFit;
+            directionalFits[3] = -directionalFits[7];
+            if (maxFit == xFit)
+            {
+                correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xVals, realVals).Item2 >= 0 ? 0 : 4;
+                //correctFit = correctDirection == 0 ? xFit : -xFit; 
+            }
+            else if (maxFit == yFit)
+            {
+                correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(yVals, realVals).Item2 >= 0 ? 2 : 6;
+                //correctFit = correctDirection == 2 ? yFit : -yFit;
+            }
+            else if (maxFit == xPlusYFit)
+            {
+                correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xPlusYVals, realVals).Item2 >= 0 ? 1 : 5;
+                //correctFit = correctDirection == 1 ? xPlusYFit : -xPlusYFit;
+            }
+            else
+            {
+                correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xMinusYVals, realVals).Item2 >= 0 ? 7 : 3;
+                //correctFit = correctDirection == 7 ? xMinusYFit : -xMinusYFit;
+            }
+        }
+        else
+        {
+            directionalFits[0] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xVals, realVals).Item2) * xFit;
+            directionalFits[1] = -directionalFits[0];
+            directionalFits[2] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(yVals, realVals).Item2) * yFit;
+            directionalFits[3] = -directionalFits[2];
+            directionalFits[4] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(zVals, realVals).Item2) * zFit;
+            directionalFits[5] = -directionalFits[4];
+            if (maxFit == xFit)
+            {
+                correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xVals, realVals).Item2 >= 0 ? 0 : 1;
+                //correctFit = correctDirection == 0 ? xFit : -xFit;
+            }
+            else if (maxFit == yFit)
+            {
+                correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(yVals, realVals).Item2 >= 0 ? 2 : 3;
+                //correctFit = correctDirection == 2 ? yFit : -yFit;
+            }
+            else if (maxFit == zFit)
+            {
+                correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(zVals, realVals).Item2 >= 0 ? 4 : 5;
+                //correctFit = correctDirection == 4 ? zFit : -zFit;
+            }
+        }
+        Debug.Log(correctDirection);
+    }
+
+    private void CorrectOrientationDirection()
+    {
+        if (selectionPlane == "XY")
+        {
+            orientationDirectionCounts = new float[8];
+            foreach (Transform child in transform)
+            {
+                float val = child.GetComponent<Mark>().GetRealValue();
+                for (var i = 0; i < 8; i++)
+                {
+                    if (Mathf.Abs(val - 45 * i) < 22.5f || Mathf.Abs(val - 360 - 45 * i) < 22.5f)
+                    {
+                        orientationDirectionCounts[(i + 2) % 8]++;
+                    }
+                }
+            }
+            correctFit = orientationDirectionCounts.Max();
+            correctDirection = orientationDirectionCounts.ToList().IndexOf((int)correctFit);
+        }
+    }
+
     private void YesButton()
     {
+        HandleTextFile.WriteString("Selection confirmed at " + Time.time);
+        if (selectedDirection == correctDirection) HandleTextFile.WriteString("> Correct Direction: " + selectedDirection);
+        else if(orientationVersion)
+        {
+            HandleTextFile.WriteString("Incorrect Direction: Selected=(" + selectedDirection + "," + orientationDirectionCounts[selectedDirection] + "); Correct=(" +
+                correctDirection + "," + orientationDirectionCounts[correctDirection] + ")");
+            HandleTextFile.WriteString("> Delta: " + (orientationDirectionCounts[correctDirection] - orientationDirectionCounts[selectedDirection]) + " (correct - select)");
+        }
+        else
+        {
+            HandleTextFile.WriteString("Incorrect Direction: Selected=(" + selectedDirection + "," + directionalFits[selectedDirection] + "); Correct=(" +
+            correctDirection + "," + directionalFits[correctDirection] + ")");
+            HandleTextFile.WriteString("> Delta: " + (directionalFits[correctDirection] - directionalFits[selectedDirection]) + " (correct - select)");
+        }
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
@@ -210,7 +388,10 @@ public class SelectTrend : MonoBehaviour {
 
     private void NoButton()
     {
-        // Reset the quadrants 
+        // Reset the arrows
+
+        HandleTextFile.WriteString("Selection rejected at " + Time.time);
+        startTime = Time.time;
         foreach (GameObject arrow in arrows)
         {
             arrow.SetActive(true);

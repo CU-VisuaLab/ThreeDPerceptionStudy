@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DxR;
+using System.Linq;
 
 public class SelectIndividualMark : MonoBehaviour {
     // Use this for initialization
@@ -15,6 +16,16 @@ public class SelectIndividualMark : MonoBehaviour {
     private float width, height, depth;
     private bool confirming;
 
+    private float minValue;
+    private float maxValue;
+    private string task; // Either "min" or "max"
+    private GameObject taskDescription;
+
+    private float startTime;
+    private float menuTime;
+
+    GameObject selectedObject;
+
     void Start () {
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
@@ -22,17 +33,24 @@ public class SelectIndividualMark : MonoBehaviour {
         height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
         depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
 
+        if (taskDescription != null) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+
         marks = new List<GameObject>();
         vrVersion = (GameObject.Find("GazeCursor") != null);
         clicked = false;
         confirming = false;
+
+        SetMinMaxValues();
+
+        HandleTextFile.WriteString("Task Loaded at " + Time.time);
+        startTime = Time.time;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (vrVersion && clicked)
         {
-            GameObject selectedObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
+            selectedObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
             if (selectedObject != null) Debug.Log(selectedObject.transform.name);
             if (selectedObject != null)
             {
@@ -50,6 +68,8 @@ public class SelectIndividualMark : MonoBehaviour {
                 }
                 else
                 {
+                    HandleTextFile.WriteString("Selected Value " + transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
+                    HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject != selectedObject)
@@ -72,6 +92,10 @@ public class SelectIndividualMark : MonoBehaviour {
             {
                 if (hit.transform.parent == transform)
                 {
+                    HandleTextFile.WriteString("Selected Value " + hit.transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
+                    HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
+                    menuTime = Time.time;
+                    selectedObject = hit.transform.gameObject;
                     foreach (Transform child in transform)
                     {
                         if (child != hit.transform)
@@ -96,13 +120,6 @@ public class SelectIndividualMark : MonoBehaviour {
         if (vrVersion)
         {
             menuObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
-            /*Vector3 middlePos = transform.root.transform.position + new Vector3(width / 2, height / 2, depth / 2);
-            float distance = Vector3.Distance(Camera.main.transform.position, middlePos);
-            float ratio = 1.02f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / distance;
-
-
-            menuObject.transform.position = ratio * Camera.main.transform.position + new Vector3(0, 0, -.05f) +
-                (1f - ratio) * (transform.root.position + new Vector3(width / 2, height / 2, depth / 2));*/
             menuObject.transform.localPosition = new Vector3(width / 2, height * 1.1f, depth / 2);
             menuObject.transform.LookAt(Camera.main.transform);
         }
@@ -113,8 +130,23 @@ public class SelectIndividualMark : MonoBehaviour {
         menuObject.transform.Find("NoButton").GetComponent<Button>().onClick.AddListener(NoButton);
     }
 
+    private void SetMinMaxValues()
+    {
+        List<float> values = new List<float>();
+        foreach (Transform child in transform)
+        {
+            values.Add(child.GetComponent<Mark>().GetRealValue());
+        }
+        minValue = values.Min();
+        maxValue = values.Max();
+    }
+
     private void YesButton()
     {
+        HandleTextFile.WriteString("Selection confirmed at " + Time.time);
+        HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
+        HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
+            maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
@@ -137,8 +169,10 @@ public class SelectIndividualMark : MonoBehaviour {
 
     private void NoButton()
     {
+        HandleTextFile.WriteString("Selection rejected at " + Time.time);
+        startTime = Time.time;
         // Reset the marks 
-        foreach(GameObject mark in marks)
+        foreach (GameObject mark in marks)
         {
             mark.SetActive(true);
         }
@@ -150,5 +184,21 @@ public class SelectIndividualMark : MonoBehaviour {
     public void Click()
     {
         clicked = true;
+    }
+
+    public void setTask(string taskName)
+    {
+        GameObject taskDescriptionPrefab = Resources.Load("Prefabs/TaskDescription") as GameObject;
+        taskDescription = Instantiate(taskDescriptionPrefab);
+        taskDescription.transform.parent = transform.root;
+        if (width > 0) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+        if (taskName == "min")
+        {
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "SMALLEST";
+        }
+        else if (taskName == "max")
+        {
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "LARGEST";
+        }
     }
 }

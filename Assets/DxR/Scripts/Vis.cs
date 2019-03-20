@@ -62,7 +62,8 @@ namespace DxR
 
         private int frameCount = 0;
         public int FrameCount { get { return frameCount; } set { frameCount = value; } }
-
+        
+        private float maxSizeValue;
 
         private void Awake()
         {
@@ -93,6 +94,7 @@ namespace DxR
             // Update vis based on the vis specs.
             UpdateVis();
             isReady = true;
+
         }
 
         private void Update()
@@ -326,6 +328,11 @@ namespace DxR
                 else
                 {
                     string channelValue = channelEncoding.scale.ApplyScale(markComponent.datum[channelEncoding.field]);
+                    float realValue;
+                    if (float.TryParse(markComponent.datum[channelEncoding.field], out realValue))
+                    {
+                        markComponent.SetRealValue(realValue);
+                    }
                     markComponent.SetChannelValue(channelEncoding.channel, channelValue);
                 }
             }
@@ -493,6 +500,7 @@ namespace DxR
         private GameObject LoadMarkPrefab(string markName)
         {
             string markNameLowerCase = markName.ToLower();
+            Debug.Log(markNameLowerCase);
             GameObject markPrefabResult = Resources.Load("Marks/" + markNameLowerCase + "/" + markNameLowerCase) as GameObject;
 
             if (markPrefabResult == null)
@@ -523,14 +531,14 @@ namespace DxR
         {
             if(visSpecs["data"]["url"] != "inline")
             {
-                Debug.Log(visSpecs["data"]["url"]);
+                if (verbose) Debug.Log(visSpecs["data"]["url"]);
                 visSpecs["data"].Add("values", parser.CreateValuesSpecs(visSpecs["data"]["url"]));
                 data_name = visSpecs["data"]["url"];
             }
             
             JSONNode valuesSpecs = visSpecs["data"]["values"];
 
-            Debug.Log("Data update " + visSpecs["data"]["values"].ToString());
+            if (verbose) Debug.Log("Data update " + visSpecs["data"]["values"].ToString());
 
             data = new Data();
 
@@ -1012,6 +1020,31 @@ namespace DxR
         public Vector3 GetVisSize()
         {
             return new Vector3(width, height, depth);
+        }
+
+        public void SetMaxSize(float maxSize)
+        {
+            maxSizeValue = maxSize;
+        }
+        public float GetMaxSize()
+        {
+            return maxSizeValue;
+        }
+
+        // Need to load a legend for arrow orientation
+        public void LoadArrowLegend()
+        {
+            if (markInstances[0].transform.name.Contains("arrow"))
+            {
+                if (transform.Find("DxRView/DxRMarks").GetComponent<SelectIndividualMark>() != null ||
+                    transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>() != null)
+                {
+                    GameObject legendPrefab = Resources.Load("Prefabs/ArrowLegend") as GameObject;
+                    GameObject legend = Instantiate(legendPrefab);
+                    legend.transform.parent = transform;
+                    legend.transform.localPosition = new Vector3(width / 1000, 1.15f * height / 1000, 0);
+                }
+            }
         }
     }
 

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SelectQuadrant : MonoBehaviour {
     public string selectionPlane = "XY";
@@ -12,10 +13,19 @@ public class SelectQuadrant : MonoBehaviour {
     private List<GameObject> marks;
     private List<Vector3> quadrantCenters;
     private List<GameObject> quadrants;
+    private Vector3 selectedQuadrant;
     
     private bool confirming;
     private bool clicked;
     private bool vrVersion;
+    
+    private string task; // Either "min" or "max"
+    private GameObject taskDescription;
+
+    private Dictionary<Vector3,float> quadrantAverages;
+
+    private float startTime;
+    private float menuTime;
 
     // Use this for initialization
     void Start () {
@@ -23,13 +33,19 @@ public class SelectQuadrant : MonoBehaviour {
         width = transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
         height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
         depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
-        
+
+        if (taskDescription != null) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+
         confirming = false;
 
         clicked = false;
         vrVersion = (GameObject.Find("GazeCursor") != null);
 
         SetQuadrants();
+        CalculateAverages();
+
+        HandleTextFile.WriteString("Task Loaded at " + Time.time);
+        startTime = Time.time;
     }
 	
 	// Update is called once per frame
@@ -53,14 +69,21 @@ public class SelectQuadrant : MonoBehaviour {
             }
             else
             {
-                GetSelectedQuadrant();
+                selectedQuadrant = GetSelectedQuadrant();
+                if (selectedQuadrant.x == Mathf.NegativeInfinity) return;
+                HandleTextFile.WriteString("Selected Quadrant " + selectedQuadrant + " with Average " + quadrantAverages[selectedQuadrant] + "; Menu Loaded at " + Time.time);
+                HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
+                
             }
             
             clicked = false;
         }
-        else if (!vrVersion && Input.GetMouseButtonDown(0))
+        else if (!vrVersion && Input.GetMouseButtonDown(0) && !confirming)
         {
-            GetSelectedQuadrant();
+            selectedQuadrant = GetSelectedQuadrant();
+            if (selectedQuadrant.x == Mathf.NegativeInfinity) return;
+            HandleTextFile.WriteString("Selected Quadrant " + selectedQuadrant + " with Average " + quadrantAverages[selectedQuadrant] + "; Menu Loaded at " + Time.time);
+            HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
         }
 	}
 
@@ -94,6 +117,7 @@ public class SelectQuadrant : MonoBehaviour {
             quadrantCenters.Add(transform.position + new Vector3(width / 4, 3 * height / 4, 3 * depth / 4));      // Back Top Left
             quadrantCenters.Add(transform.position + new Vector3(3 * width / 4, 3 * height / 4, 3 * depth / 4));  // Back Top Right    
         }
+
     }
     private Vector3 GetGazedQuadrant()
     {
@@ -103,7 +127,6 @@ public class SelectQuadrant : MonoBehaviour {
         if (vrVersion)
         {
             gazedObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
-            Debug.Log(gazedObject);
             if (gazedObject == null) return Vector3.negativeInfinity;
         }
         else
@@ -138,12 +161,11 @@ public class SelectQuadrant : MonoBehaviour {
         return closestQuadrant;
     }
     
-    private void GetSelectedQuadrant()
+    private Vector3 GetSelectedQuadrant()
     {
         Vector3 selectedQuadrant = GetGazedQuadrant();
-        if (selectedQuadrant.x == float.NegativeInfinity) return;
-
-        Debug.Log("Selected: " + selectedQuadrant);
+        if (selectedQuadrant.x == float.NegativeInfinity) return Vector3.negativeInfinity;
+        
         marks = new List<GameObject>();
         foreach (Transform mark in transform)
         {
@@ -155,13 +177,13 @@ public class SelectQuadrant : MonoBehaviour {
         }
         confirming = true;
         InitializeConfirmationMenu();
+        return selectedQuadrant;
     }
 
     private void InitializeConfirmationMenu()
     {
         GameObject menuPrefab = Resources.Load("Prefabs/ConfirmationMenu") as GameObject;
         menuObject = GameObject.Instantiate(menuPrefab);
-
 
         menuObject.transform.parent = transform.root;
         if (vrVersion)
@@ -195,12 +217,28 @@ public class SelectQuadrant : MonoBehaviour {
                 closestQuadrant = quadrant;
             }
         }
-        Debug.Log(closestQuadrant);
         return closestQuadrant;
     }
 
     private void YesButton()
     {
+        HandleTextFile.WriteString("Selection confirmed at " + Time.time);
+        float maxVal = quadrantAverages.Values.Max();
+        float minVal = quadrantAverages.Values.Min();
+
+        if (quadrantAverages[selectedQuadrant] == maxVal)
+        {
+            HandleTextFile.WriteString("> Selected MAX" + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+        }
+        else if (quadrantAverages[selectedQuadrant] == minVal)
+        {
+            HandleTextFile.WriteString("> Selected MIN" + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+        }
+        else
+        {
+            HandleTextFile.WriteString("> Incorrect Selection " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+            HandleTextFile.WriteString("> MIN Delta=" + (quadrantAverages[selectedQuadrant] - minVal) + "; MAX Delta=" + (quadrantAverages[selectedQuadrant] - maxVal));
+        }
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
@@ -223,7 +261,8 @@ public class SelectQuadrant : MonoBehaviour {
 
     private void NoButton()
     {
-
+        HandleTextFile.WriteString("Selection rejected at " + Time.time);
+        startTime = Time.time;
         // Reset the quadrants 
         foreach (GameObject mark in marks)
         {
@@ -231,6 +270,37 @@ public class SelectQuadrant : MonoBehaviour {
         }
         confirming = false;
         Destroy(menuObject);
+    }
+
+    private void CalculateAverages()
+    {
+        List<List<float>> quadrantTotals = new List<List<float>>();
+        foreach (Vector3 quad in quadrantCenters)
+        {
+            quadrantTotals.Add(new List<float>());
+        }
+
+        foreach (Transform child in transform)
+        {
+            Vector3 closestQuad = closestQuadrant(child.transform.position);
+            for (var i = 0; i < quadrantCenters.Count; i++)
+            {
+                if (quadrantCenters[i] == closestQuad)
+                {
+                    quadrantTotals[i].Add(child.GetComponent<Mark>().GetRealValue());
+
+                    continue;
+                }
+            }
+        }
+        quadrantAverages = new Dictionary<Vector3, float>();
+
+        for (var i = 0; i < quadrantTotals.Count; i++)
+        {
+            List<float> valueSet = quadrantTotals[i];
+            float average = valueSet.Count > 0 ? valueSet.Average() : 0.0f;
+            quadrantAverages.Add(quadrantCenters[i], average);
+        }
     }
 
     public void SetPlane(string plane)
@@ -243,5 +313,22 @@ public class SelectQuadrant : MonoBehaviour {
     public void Click()
     {
         clicked = true;
+    }
+
+    public void setTask(string taskName)
+    {
+        GameObject taskDescriptionPrefab = Resources.Load("Prefabs/TaskDescription") as GameObject;
+        taskDescription = Instantiate(taskDescriptionPrefab);
+        taskDescription.transform.parent = transform.root;
+        if (width > 0) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+        if (taskName == "min")
+        {
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "SMALLEST";
+        }
+        else if (taskName == "max")
+        {
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "LARGEST";
+        }
+        taskDescription.transform.Find("Title2").GetComponent<Text>().text = "quadrant";
     }
 }

@@ -1,0 +1,39 @@
+{
+  "width": 550,
+  "height": 550,
+  "depth": 550,
+  "data": {
+    "url": "ObviousData4D.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "X",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Longitude",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "Y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Height",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "Z",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Latitude",
+        "ticks": false
+      }
+    },
+    "color": {
+      "field": "TempQuadSm1",
+      "type": "quantitative"
+    }
+  }
+}

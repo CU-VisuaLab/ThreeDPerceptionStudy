@@ -25,7 +25,8 @@ public class Legend : MonoBehaviour {
         // Create title:
         if (legendSpecs["title"] != null)
         {
-            gameObject.GetComponent<Legend>().SetTitle(legendSpecs["title"].Value);
+            //gameObject.GetComponent<Legend>().SetTitle(legendSpecs["title"].Value); Matt Commenting out--call everything temperature
+            gameObject.GetComponent<Legend>().SetTitle("Temperature");
         }
 
         if(legendSpecs["type"] == "symbol")
@@ -199,7 +200,7 @@ public class Legend : MonoBehaviour {
     internal void SetOrientation(string orient, string face, float x, float y, float z)
     {
         gameObject.GetComponentInChildren<TextMesh>().anchor = TextAnchor.UpperLeft;
-        gameObject.transform.localPosition = new Vector3(x, y, z) * DxR.Vis.SIZE_UNIT_SCALE_FACTOR;
+        gameObject.transform.localPosition = new Vector3(1.1f * x, 0.9f * y, z) * DxR.Vis.SIZE_UNIT_SCALE_FACTOR;
     }
 
     internal void Init(Interactions interactions)

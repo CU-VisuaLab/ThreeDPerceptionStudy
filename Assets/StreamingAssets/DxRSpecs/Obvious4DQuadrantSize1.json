@@ -1,0 +1,42 @@
+{
+  "width": 550,
+  "height": 500,
+  "depth": 550,
+  "data": {
+    "url": "ObviousData4D.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "X",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Longitude",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "Y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Latitude",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "Z",
+      "type": "quantitative",
+      "axis": {
+        "Title": "Latitude",
+        "ticks": false
+      }
+    },
+    "size": {
+      "field": "TempQuadLg1",
+      "type": "quantitative",
+      "scale": {
+        "range": [0,15]
+      }
+    }
+  }
+}
