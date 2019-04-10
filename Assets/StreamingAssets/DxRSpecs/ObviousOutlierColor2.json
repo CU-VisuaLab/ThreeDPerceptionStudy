@@ -7,18 +7,18 @@
   "mark": "bar",
   "encoding": {
     "x": {
-      "field": "Longitude",
+      "field": "X",
       "type": "quantitative",
       "axis": {
-        "Title": "Longitude",
+        "Title": "X",
         "ticks": false
       }
     },
     "y": {
-      "field": "Latitude",
+      "field": "Y",
       "type": "quantitative",
       "axis": {
-        "Title": "Latitude",
+        "Title": "Y",
         "ticks": false
       }
     },

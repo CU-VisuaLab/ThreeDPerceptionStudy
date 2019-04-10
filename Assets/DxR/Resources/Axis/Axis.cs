@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SimpleJSON;
 using UnityEngine;
+using HoloToolkit.Unity;
 
 namespace DxR
 {
@@ -25,7 +26,7 @@ namespace DxR
         // Update is called once per frame
         void Update()
         {
-
+            //gameObject.transform.Find("Title").LookAt(Camera.main.transform);
         }
 
         internal void Init(Interactions interactions, string field)
@@ -134,25 +135,28 @@ namespace DxR
             {
                 OrientAlongPositiveZ();
             }
+            gameObject.transform.Find("Title").gameObject.AddComponent<Billboard>();
+            gameObject.transform.Find("Title").GetComponent<Billboard>().PivotAxis = PivotAxis.Y;
         }
 
         private void OrientAlongPositiveX()
         {
             gameObject.transform.localPosition = new Vector3(GetLength() / 2.0f, 0.0f, 0.0f);
-            gameObject.transform.Find("Title").Translate(0, -titleOffset, 0);
+            gameObject.transform.Find("Title").Translate(GetLength() - 2.75f * titleOffset, 0, 0);
         }
 
         private void OrientAlongPositiveY()
         {
             gameObject.transform.Rotate(0, 0, 90.0f);
-            gameObject.transform.Find("Title").Translate(0, titleOffset, 0);
+            gameObject.transform.Find("Title").Translate(GetLength() - 2.75f * titleOffset, 0, 0);
+            gameObject.transform.Find("Title").Rotate(0, 0, -90);
             gameObject.transform.localPosition = new Vector3(0.0f, GetLength() / 2.0f, 0.0f);
         }
 
         private void OrientAlongPositiveZ()
         {
             gameObject.transform.Rotate(0, -90.0f, 0);
-            gameObject.transform.Find("Title").Translate(0, -titleOffset, 0);
+            gameObject.transform.Find("Title").Translate(GetLength() - 2.75f * titleOffset, 0, 0);
             gameObject.transform.Find("Title").Rotate(0, 180, 0);
             gameObject.transform.localPosition = new Vector3(0.0f, 0.0f, GetLength() / 2.0f);
         }

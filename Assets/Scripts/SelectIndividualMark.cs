@@ -68,7 +68,7 @@ public class SelectIndividualMark : MonoBehaviour {
                 }
                 else
                 {
-                    HandleTextFile.WriteString("Selected Value " + transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
+                    //HandleTextFile.WriteString("Selected Value " + transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
                     HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
                     foreach (Transform child in transform)
                     {
@@ -92,7 +92,7 @@ public class SelectIndividualMark : MonoBehaviour {
             {
                 if (hit.transform.parent == transform)
                 {
-                    HandleTextFile.WriteString("Selected Value " + hit.transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
+                    //HandleTextFile.WriteString("Selected Value " + hit.transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
                     HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
                     menuTime = Time.time;
                     selectedObject = hit.transform.gameObject;
@@ -144,9 +144,9 @@ public class SelectIndividualMark : MonoBehaviour {
     private void YesButton()
     {
         HandleTextFile.WriteString("Selection confirmed at " + Time.time);
-        HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
-        HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
-            maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
+        //HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
+        //HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
+        //    maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
