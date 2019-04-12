@@ -14,7 +14,8 @@ public class GazeCursor : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        cameraObject = Camera.main.gameObject;
+        if (Camera.main != null) cameraObject = Camera.main.gameObject;
+        else cameraObject = GameObject.Find("Camera_eyes");
         transform.parent = cameraObject.transform;
         transform.Find("CursorObject").GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
         Debug.Log(cameraObject.transform.name);
