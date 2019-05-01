@@ -1,0 +1,37 @@
+{
+  "width": 550,
+  "depth": 550,
+  "data": {
+    "url": "TrendData/Trend3dLgEasy1.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "height": {
+      "field": "d",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "d",
+      "type": "quantitative"
+    },
+    "yoffsetpct": {
+      "value": -0.5
+    }
+  }
+}

@@ -25,18 +25,25 @@ public class SelectIndividualMark : MonoBehaviour {
     private float menuTime;
 
     GameObject selectedObject;
+    GameObject cameraObject;
 
-    void Start () {
+    void Awake () {
+
+        vrVersion = (GameObject.Find("GazeCursor") != null);
+
+        if (Camera.main != null) cameraObject = Camera.main.gameObject;
+        else cameraObject = GameObject.Find("Camera_eyes");
+
+        if (vrVersion) transform.root.localScale = new Vector3(2, 2, 2);
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
-        width = transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
-        height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
-        depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
+        width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
+        height = transform.root.localScale.y * transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
+        depth = transform.root.localScale.z * transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
 
         if (taskDescription != null) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
 
         marks = new List<GameObject>();
-        vrVersion = (GameObject.Find("GazeCursor") != null);
         clicked = false;
         confirming = false;
 
@@ -50,18 +57,17 @@ public class SelectIndividualMark : MonoBehaviour {
 	void Update () {
         if (vrVersion && clicked)
         {
-            selectedObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
-            if (selectedObject != null) Debug.Log(selectedObject.transform.name);
-            if (selectedObject != null)
+            GameObject tempObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
+            clicked = false;
+            if (tempObject != null)
             {
                 if (confirming)
                 {
-
-                    if (selectedObject.transform.name.Contains("Yes"))
+                    if (tempObject.transform.name.Contains("Yes"))
                     {
                         YesButton();
                     }
-                    else if (selectedObject.transform.name.Contains("No"))
+                    else if (tempObject.transform.name.Contains("No"))
                     {
                         NoButton();
                     }
@@ -69,6 +75,7 @@ public class SelectIndividualMark : MonoBehaviour {
                 else
                 {
                     //HandleTextFile.WriteString("Selected Value " + transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
+                    selectedObject = tempObject;
                     HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
                     foreach (Transform child in transform)
                     {
@@ -81,7 +88,6 @@ public class SelectIndividualMark : MonoBehaviour {
                     InitializeConfirmationMenu(selectedObject.transform.position);
                 }
             }
-            clicked = false;
         }
         else if (!vrVersion && Input.GetMouseButtonDown(0))
         {
@@ -120,9 +126,12 @@ public class SelectIndividualMark : MonoBehaviour {
         if (vrVersion)
         {
             menuObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
-            menuObject.transform.localPosition = new Vector3(width / 2, height * 1.1f, depth / 2);
-            menuObject.transform.LookAt(Camera.main.transform);
+            //menuObject.transform.localPosition = new Vector3(width / 2, height * 1.1f, depth / 2);
+            menuObject.transform.LookAt(cameraObject.transform);
         }
+        Vector3 center = transform.position + new Vector3(width / 2, height / 2, depth / 2);
+        float a = 1.05f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / Vector3.Distance(cameraObject.transform.position, center);
+        menuObject.transform.position = a * cameraObject.transform.position + (1 - a) * center;
         menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Point?";
 
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);
@@ -144,9 +153,9 @@ public class SelectIndividualMark : MonoBehaviour {
     private void YesButton()
     {
         HandleTextFile.WriteString("Selection confirmed at " + Time.time);
-        //HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
-        //HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
-        //    maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
+        HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
+        HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
+            maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
         {
             // Load a message to tell the user they're done
@@ -156,7 +165,7 @@ public class SelectIndividualMark : MonoBehaviour {
             {
                 CompleteMessagePrefab = Resources.Load("Prefabs/VRStudyCompleteMessage") as GameObject;
                 GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
-                CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
+                CompleteMessageObject.GetComponent<Canvas>().worldCamera = cameraObject.GetComponentInChildren<Camera>();
             }
             else
             {
@@ -192,13 +201,15 @@ public class SelectIndividualMark : MonoBehaviour {
         taskDescription = Instantiate(taskDescriptionPrefab);
         taskDescription.transform.parent = transform.root;
         if (width > 0) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+        taskDescription.transform.localScale = taskDescription.transform.localScale * transform.root.localScale.x;
         if (taskName == "min")
         {
-            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "SMALLEST";
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "LOWEST";
         }
         else if (taskName == "max")
         {
-            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "LARGEST";
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "HIGHEST";
         }
+
     }
 }

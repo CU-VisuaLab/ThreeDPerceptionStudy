@@ -1,0 +1,41 @@
+{
+  "width": 550,
+  "depth": 550,
+  "data": {
+    "url": "TrendData/Trend4dLgHard1.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "z",
+      "type": "quantitative",
+      "axis": {
+        "Title": "z",
+        "ticks": false
+      }
+    },
+    "size": {
+      "field": "d",
+      "type": "quantitative",
+      "scale": {
+        "range": [ 0, 15 ]
+      }
+    }
+  }
+}

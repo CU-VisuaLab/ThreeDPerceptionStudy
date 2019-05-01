@@ -31,7 +31,8 @@ namespace HoloToolkit.Unity
         {
             if (TargetTransform == null)
             {
-                TargetTransform = CameraCache.Main.transform;
+                if (CameraCache.Main != null) TargetTransform = CameraCache.Main.transform;
+                else TargetTransform = GameObject.Find("Camera_eyes").transform;
             }
 
             Update();

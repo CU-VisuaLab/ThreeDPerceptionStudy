@@ -18,7 +18,6 @@ public class GazeCursor : MonoBehaviour {
         else cameraObject = GameObject.Find("Camera_eyes");
         transform.parent = cameraObject.transform;
         transform.Find("CursorObject").GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
-        Debug.Log(cameraObject.transform.name);
     }
 
     // Update is called once per frame
@@ -47,7 +46,7 @@ public class GazeCursor : MonoBehaviour {
         }
         else
         {
-            transform.localPosition = new Vector3(0, 0, defaultDistance) / transform.lossyScale.z;
+            transform.localPosition = new Vector3(0, 0, defaultDistance);// / transform.lossyScale.z;
             transform.Find("CursorObject").GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
             hoveredObject = null;
         }

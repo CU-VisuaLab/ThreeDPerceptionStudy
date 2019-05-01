@@ -255,6 +255,56 @@ Prefab:
       propertyPath: m_ClearFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114504390558679740, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: CameraClearFlags_OpaqueDisplay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504390558679740, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: CameraClearFlags_TransparentDisplay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690106885971528, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: UseUnscaledTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690106885971528, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: axisType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690106885971528, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: InputManagerHorizontalAxisName
+      value: Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690106885971528, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: InputManagerVerticalAxisName
+      value: Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690106885971528, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: Axis0Destination
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114690106885971528, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: Axis1Destination
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114982334573009450, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: axisType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755176645041546, guid: d29bc40b7f3df26479d6a0aac211c355,
+        type: 2}
+      propertyPath: buttonType
+      value: 21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d29bc40b7f3df26479d6a0aac211c355, type: 2}
   m_IsPrefabParent: 0

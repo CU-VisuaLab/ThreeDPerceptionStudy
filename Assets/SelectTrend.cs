@@ -32,26 +32,27 @@ public class SelectTrend : MonoBehaviour {
     private float[] orientationDirectionCounts;
     private GameObject taskDescription;
 
-    // Use this for initialization
-    void Start() {
-        // TODO: 1 / 1000 factor defined as a constant in Vis.cs
-        width = transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
-        height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
-        depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
+    private GameObject cameraObject;
 
-        confirming = false;
+    // Use this for initialization
+    void Awake()
+    {
+        if (Camera.main != null) cameraObject = Camera.main.gameObject;
+        else cameraObject = GameObject.Find("Camera_eyes");
+
         vrVersion = (GameObject.Find("GazeCursor") != null);
 
-        SetDirections();
-        orientationVersion = transform.GetChild(0).name.Contains("arrow");
-        if (orientationVersion)
-        {
-            CorrectOrientationDirection();
-        }
-        else
-        {
-            CorrectDirection();
-        }
+        if (vrVersion) transform.root.localScale = new Vector3(2, 2, 2);
+
+        // TODO: 1 / 1000 factor defined as a constant in Vis.cs
+        width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
+        height = transform.root.localScale.y * transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
+        depth = transform.root.localScale.z * transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
+
+        confirming = false;
+        
+        orientationVersion = false;
+
         HandleTextFile.WriteString("Task Loaded at " + Time.time);
         startTime = Time.time;
     }
@@ -61,6 +62,7 @@ public class SelectTrend : MonoBehaviour {
     {
         if (vrVersion && clicked && confirming)
         {
+            clicked = false;
             GameObject hoveredObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
             if (hoveredObject == null) return;
 
@@ -72,7 +74,6 @@ public class SelectTrend : MonoBehaviour {
             {
                 NoButton();
             }
-            clicked = false;
         }
         else if ((!confirming && !vrVersion && Input.GetMouseButtonDown(0)) || (vrVersion && clicked))
         {
@@ -91,6 +92,10 @@ public class SelectTrend : MonoBehaviour {
             }
             clicked = false;
         }
+        else if (clicked && !confirming)
+        {
+            HandleTextFile.WriteString("Missed click at " + Time.time);
+        }
     }
 
     private void SetDirections()
@@ -105,7 +110,7 @@ public class SelectTrend : MonoBehaviour {
         directionalPoints = new List<Vector3>();
         arrows = new List<GameObject>();
         Vector3 scaleVector = Vector3.zero;
-
+        Debug.Log("HAI");
         // Scale factor of 1 / 1000
         if (selectionPlane == "XY")
         {
@@ -119,6 +124,8 @@ public class SelectTrend : MonoBehaviour {
         {
             scaleVector = new Vector3(width / 2, height / 2, depth / 2);
         }
+
+        scaleVector = scaleVector / transform.root.localScale.x;
 
         if (selectionPlane == "XYZ")
         {
@@ -147,7 +154,7 @@ public class SelectTrend : MonoBehaviour {
             GameObject arrowPrefab = Resources.Load("Prefabs/Arrow") as GameObject;
             GameObject arrow = GameObject.Instantiate(arrowPrefab);
             arrow.transform.parent = transform;
-            arrow.transform.localPosition = new Vector3(width / 2, height / 2, depth / 2) + directionalPoints[i];
+            arrow.transform.localPosition = new Vector3(width / 2, height / 2, depth / 2) / transform.root.localScale.x + directionalPoints[i];
             if (selectionPlane == "XY") arrow.transform.localEulerAngles = new Vector3(0, 0, -90 + 45 * i);
             else if (selectionPlane == "XZ") arrow.transform.localEulerAngles = new Vector3(0, 360 - 45 * i, -90);
             else if (selectionPlane == "XYZ")
@@ -166,7 +173,13 @@ public class SelectTrend : MonoBehaviour {
         menuObject = GameObject.Instantiate(menuPrefab);
 
         menuObject.transform.parent = transform.root;
-        menuObject.transform.position = arrows[directionIndex].transform.position + new Vector3(0, 0, -.05f);
+
+
+        Vector3 center = arrows[directionIndex].transform.position;
+        float a = 1.05f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / Vector3.Distance(cameraObject.transform.position, center);
+        menuObject.transform.position = a * cameraObject.transform.position + (1 - a) * center;
+
+        //menuObject.transform.position = arrows[directionIndex].transform.position + new Vector3(0, 0, -.05f);
         menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Direction?";
 
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);
@@ -267,7 +280,6 @@ public class SelectTrend : MonoBehaviour {
             directionalFits = new double[6];
             zFit = GoodnessOfFit.RSquared(zVals, realVals);
             maxFit = new[] { xFit, yFit, zFit }.Max();
-            Debug.Log(maxFit);
         }
 
         correctDirection = -1;
@@ -375,7 +387,7 @@ public class SelectTrend : MonoBehaviour {
             {
                 CompleteMessagePrefab = Resources.Load("Prefabs/VRStudyCompleteMessage") as GameObject;
                 GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
-                CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
+                //CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
             }
             else
             {
@@ -384,6 +396,28 @@ public class SelectTrend : MonoBehaviour {
             }
         }
         Destroy(transform.root.gameObject);
+    }
+
+    public void setTask(string taskName)
+    {
+        GameObject taskDescriptionPrefab = Resources.Load("Prefabs/TaskDescription") as GameObject;
+        taskDescription = Instantiate(taskDescriptionPrefab);
+        taskDescription.transform.parent = transform.root;
+        taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+
+        taskDescription.transform.Find("Title1").GetComponent<Text>().text = "In which direction is the temperature";
+
+        taskDescription.transform.localScale = taskDescription.transform.localScale * transform.root.localScale.x;
+
+        if (taskName == "increasing")
+        {
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "INCREASING";
+        }
+        else if (taskName == "decreasing")
+        {
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "DECREASING";
+        }
+        taskDescription.transform.Find("Title2").GetComponent<Text>().text = "";
     }
 
     private void NoButton()
@@ -402,7 +436,17 @@ public class SelectTrend : MonoBehaviour {
 
     public void SetPlane(string plane)
     {
-        selectionPlane = plane;
+        selectionPlane = plane;        
+        // UNCOMMENT HERE TO EVALUATE TREND AS MOST ARROWS POINTING THAT WAY
+        //orientationVersion = transform.GetChild(0).name.Contains("arrow");
+        if (orientationVersion)
+        {
+            CorrectOrientationDirection();
+        }
+        else
+        {
+            CorrectDirection();
+        }
         SetDirections();
     }
 

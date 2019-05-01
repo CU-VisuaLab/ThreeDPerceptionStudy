@@ -1,0 +1,33 @@
+{
+  "width": 550,
+  "depth": 50,
+  "data": {
+    "url": "QuadrantData/Quadrant3dLgMedium2.csv"
+  },
+  "mark": "arrow",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "zrotation": {
+      "field": "d",
+      "type": "quantitative",
+      "scale": {
+        "range": [ 90, -90 ]
+      }
+    }
+  }
+}

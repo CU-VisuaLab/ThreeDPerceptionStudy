@@ -27,22 +27,28 @@ public class SelectQuadrant : MonoBehaviour {
     private float startTime;
     private float menuTime;
 
+    private GameObject cameraObject;
+
     // Use this for initialization
-    void Start () {
+    void Awake ()
+    {
+        vrVersion = (GameObject.Find("GazeCursor") != null);
+
+        if (Camera.main != null) cameraObject = Camera.main.gameObject;
+        else cameraObject = GameObject.Find("Camera_eyes");
+
+        if (vrVersion) transform.root.localScale = new Vector3(2, 2, 2);
+
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
-        width = transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
-        height = transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
-        depth = transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
+        width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
+        height = transform.root.localScale.y * transform.parent.parent.GetComponent<Vis>().GetVisSize().y / 1000;
+        depth = transform.root.localScale.z * transform.parent.parent.GetComponent<Vis>().GetVisSize().z / 1000;
 
         if (taskDescription != null) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
 
         confirming = false;
 
         clicked = false;
-        vrVersion = (GameObject.Find("GazeCursor") != null);
-
-        SetQuadrants();
-        CalculateAverages();
 
         HandleTextFile.WriteString("Task Loaded at " + Time.time);
         startTime = Time.time;
@@ -53,6 +59,7 @@ public class SelectQuadrant : MonoBehaviour {
     {
         if (vrVersion && clicked)
         {
+            clicked = false;
             if (confirming)
             {
                 GameObject hoveredObject = FindObjectsOfType<GazeCursor>()[0].getHoveredObject();
@@ -75,12 +82,11 @@ public class SelectQuadrant : MonoBehaviour {
                 HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
                 
             }
-            
-            clicked = false;
         }
         else if (!vrVersion && Input.GetMouseButtonDown(0) && !confirming)
         {
             selectedQuadrant = GetSelectedQuadrant();
+            Debug.Log(selectedQuadrant);
             if (selectedQuadrant.x == Mathf.NegativeInfinity) return;
             HandleTextFile.WriteString("Selected Quadrant " + selectedQuadrant + " with Average " + quadrantAverages[selectedQuadrant] + "; Menu Loaded at " + Time.time);
             HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
@@ -136,7 +142,7 @@ public class SelectQuadrant : MonoBehaviour {
             {
                 if (child.GetComponent<Collider>().bounds.IntersectRay(ray))
                 {
-                    float potentialDistance = Vector3.Distance(Camera.main.transform.position, child.position);
+                    float potentialDistance = Vector3.Distance(cameraObject.transform.position, child.position);
                     if (shortestDistance > potentialDistance)
                     {
                         shortestDistance = potentialDistance;
@@ -189,15 +195,20 @@ public class SelectQuadrant : MonoBehaviour {
         if (vrVersion)
         {
             menuObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
-            Vector3 middlePos = transform.root.transform.position + new Vector3(width / 2, height / 2, depth / 2);
+            /*Vector3 middlePos = transform.root.transform.position + new Vector3(width / 2, height / 2, depth / 2);
             float distance = Vector3.Distance(Camera.main.transform.position, middlePos);
             float ratio = 1.02f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / distance;
 
 
             menuObject.transform.position =  ratio * Camera.main.transform.position + new Vector3(0, 0, -.05f) +
-                (1f - ratio) * (transform.root.position + new Vector3(width / 2, height / 2, depth / 2));
-            menuObject.transform.LookAt(Camera.main.transform);
+                (1f - ratio) * (transform.root.position + new Vector3(width / 2, height / 2, depth / 2));*/
         }
+
+        Vector3 center = transform.position + new Vector3(width / 2, height / 2, depth / 2);
+        float a = 1.05f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / Vector3.Distance(cameraObject.transform.position, center);
+        menuObject.transform.position = a * cameraObject.transform.position + (1 - a) * center;
+        menuObject.transform.LookAt(cameraObject.transform);
+
         menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Area?";
 
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);
@@ -248,7 +259,7 @@ public class SelectQuadrant : MonoBehaviour {
             {
                 CompleteMessagePrefab = Resources.Load("Prefabs/VRStudyCompleteMessage") as GameObject;
                 GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
-                CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
+                //CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
             }
             else
             {
@@ -299,6 +310,7 @@ public class SelectQuadrant : MonoBehaviour {
         {
             List<float> valueSet = quadrantTotals[i];
             float average = valueSet.Count > 0 ? valueSet.Average() : 0.0f;
+            Debug.Log(quadrantCenters[i]);
             quadrantAverages.Add(quadrantCenters[i], average);
         }
     }
@@ -307,6 +319,7 @@ public class SelectQuadrant : MonoBehaviour {
     {
         selectionPlane = plane;
         SetQuadrants();
+        CalculateAverages();
     }
 
     // VR Version: Click passed from Vive Controller
@@ -320,14 +333,15 @@ public class SelectQuadrant : MonoBehaviour {
         GameObject taskDescriptionPrefab = Resources.Load("Prefabs/TaskDescription") as GameObject;
         taskDescription = Instantiate(taskDescriptionPrefab);
         taskDescription.transform.parent = transform.root;
-        if (width > 0) taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+        taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+        taskDescription.transform.localScale = taskDescription.transform.localScale * transform.root.localScale.x;
         if (taskName == "min")
         {
-            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "SMALLEST";
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "LOWEST";
         }
         else if (taskName == "max")
         {
-            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "LARGEST";
+            taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "HIGHEST";
         }
         taskDescription.transform.Find("Title2").GetComponent<Text>().text = "quadrant";
     }

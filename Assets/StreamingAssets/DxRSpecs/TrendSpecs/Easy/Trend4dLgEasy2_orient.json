@@ -1,0 +1,41 @@
+{
+  "width": 550,
+  "depth": 550,
+  "data": {
+    "url": "TrendData/Trend4dLgEasy2.csv"
+  },
+  "mark": "arrow",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "z",
+      "type": "quantitative",
+      "axis": {
+        "Title": "z",
+        "ticks": false
+      }
+    },
+    "zrotation": {
+      "field": "d",
+      "type": "quantitative",
+      "scale": {
+        "range": [ 90, -90 ]
+      }
+    }
+  }
+}

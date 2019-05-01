@@ -61,6 +61,7 @@ public class StudyInfrastructure : MonoBehaviour {
             else if (taskName == "XYQuadrant")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectQuadrant>();
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>().SetPlane("XY");
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>().setTask(taskType);
             }
             else if (taskName == "XZQuadrant")
@@ -78,16 +79,20 @@ public class StudyInfrastructure : MonoBehaviour {
             else if (taskName == "XYTrend")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XY");
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
             }
             else if (taskName == "XZTrend")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XZ");
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
             }
             else if (taskName == "XYZTrend")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XYZ");
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
             }
             visObject.GetComponent<Vis>().LoadArrowLegend();
         }
