@@ -34,7 +34,7 @@ public class SelectIndividualMark : MonoBehaviour {
         if (Camera.main != null) cameraObject = Camera.main.gameObject;
         else cameraObject = GameObject.Find("Camera_eyes");
 
-        if (vrVersion) transform.root.localScale = new Vector3(2, 2, 2);
+        transform.root.localScale = new Vector3(2, 2, 2);
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
         width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
@@ -130,8 +130,19 @@ public class SelectIndividualMark : MonoBehaviour {
             menuObject.transform.LookAt(cameraObject.transform);
         }
         Vector3 center = transform.position + new Vector3(width / 2, height / 2, depth / 2);
-        float a = 1.05f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / Vector3.Distance(cameraObject.transform.position, center);
-        menuObject.transform.position = a * cameraObject.transform.position + (1 - a) * center;
+
+        // If you're close, you want to render the menu next to the point
+        if (Vector3.Distance(cameraObject.transform.position, center) < 1f)
+        {
+            float a = 0.05f;
+            menuObject.transform.position = a * cameraObject.transform.position + (1 - a) * pos;
+        }
+        // If you're far, you want to render closer to the camera
+        else
+        {
+            float a = 0.75f;
+            menuObject.transform.position = a * cameraObject.transform.position + (1 - a) * center;
+        }
         menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Point?";
 
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);

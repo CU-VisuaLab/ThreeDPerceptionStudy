@@ -42,7 +42,7 @@ public class SelectTrend : MonoBehaviour {
 
         vrVersion = (GameObject.Find("GazeCursor") != null);
 
-        if (vrVersion) transform.root.localScale = new Vector3(2, 2, 2);
+        transform.root.localScale = new Vector3(2, 2, 2);
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
         width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
@@ -173,7 +173,6 @@ public class SelectTrend : MonoBehaviour {
         menuObject = GameObject.Instantiate(menuPrefab);
 
         menuObject.transform.parent = transform.root;
-
 
         Vector3 center = arrows[directionIndex].transform.position;
         float a = 1.05f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / Vector3.Distance(cameraObject.transform.position, center);

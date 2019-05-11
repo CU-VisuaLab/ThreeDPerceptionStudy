@@ -37,7 +37,9 @@ public class SelectQuadrant : MonoBehaviour {
         if (Camera.main != null) cameraObject = Camera.main.gameObject;
         else cameraObject = GameObject.Find("Camera_eyes");
 
-        if (vrVersion) transform.root.localScale = new Vector3(2, 2, 2);
+        vrVersion = (GameObject.Find("GazeCursor") != null);
+
+        transform.root.localScale = new Vector3(2, 2, 2);
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
         width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
@@ -335,6 +337,8 @@ public class SelectQuadrant : MonoBehaviour {
         taskDescription.transform.parent = transform.root;
         taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
         taskDescription.transform.localScale = taskDescription.transform.localScale * transform.root.localScale.x;
+
+        taskDescription.transform.Find("Title1").GetComponent<Text>().text = "Select the quadrant with the";
         if (taskName == "min")
         {
             taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "LOWEST";
@@ -343,6 +347,7 @@ public class SelectQuadrant : MonoBehaviour {
         {
             taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "HIGHEST";
         }
-        taskDescription.transform.Find("Title2").GetComponent<Text>().text = "quadrant";
+        taskDescription.transform.Find("TaskSpecs").localPosition = new Vector3(0, -5, 0);
+        taskDescription.transform.Find("Title2").GetComponent<Text>().text = "average value";
     }
 }
