@@ -27,14 +27,15 @@ public class SelectIndividualMark : MonoBehaviour {
     GameObject selectedObject;
     GameObject cameraObject;
 
+    private bool training;
+    private float incorrectTime;
+
     void Awake () {
 
         vrVersion = (GameObject.Find("GazeCursor") != null);
 
         if (Camera.main != null) cameraObject = Camera.main.gameObject;
         else cameraObject = GameObject.Find("Camera_eyes");
-
-        transform.root.localScale = new Vector3(2, 2, 2);
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
         width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
@@ -51,6 +52,7 @@ public class SelectIndividualMark : MonoBehaviour {
 
         HandleTextFile.WriteString("Task Loaded at " + Time.time);
         startTime = Time.time;
+        training = FindObjectOfType<CSVReader>().csvFile.name.ToLower().Contains("train");
     }
 	
 	// Update is called once per frame
@@ -114,6 +116,10 @@ public class SelectIndividualMark : MonoBehaviour {
                 }
             }
         }
+        if (training && GameObject.Find("TaskHUD").GetComponent<Text>().text.Contains("Incorrect") && Time.time > incorrectTime)
+        {
+            GameObject.Find("TaskHUD").GetComponent<Text>().text = "";
+        }
     }
 
     private void InitializeConfirmationMenu(Vector3 pos)
@@ -123,6 +129,9 @@ public class SelectIndividualMark : MonoBehaviour {
 
         confirming = true;
         menuObject.transform.parent = transform.root;
+
+        menuObject.transform.localScale = new Vector3(.001f, .001f, .001f);
+
         if (vrVersion)
         {
             menuObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
@@ -145,6 +154,7 @@ public class SelectIndividualMark : MonoBehaviour {
         }
         menuObject.transform.Find("Title").GetComponent<Text>().text = "Select this Point?";
 
+        Debug.Log("Setting buttons");
         menuObject.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(YesButton);
 
         menuObject.transform.Find("NoButton").GetComponent<Button>().onClick.AddListener(NoButton);
@@ -167,7 +177,20 @@ public class SelectIndividualMark : MonoBehaviour {
         HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
         HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
             maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
-        if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
+        
+        // If the user makes the wrong selection in training, force them to make the right selection
+        if (training && ((taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("low") && 
+            selectedObject.GetComponent<Mark>().GetRealValue() != minValue) ||
+            (taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("high") &&
+            selectedObject.GetComponent<Mark>().GetRealValue() != maxValue)))
+        {
+            GameObject.Find("TaskHUD").GetComponent<Text>().text = "Incorrect, try again";
+            incorrectTime = Time.time + 2;
+            NoButton();
+            return;
+        }
+
+        if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().TrialFinished())
         {
             // Load a message to tell the user they're done
 

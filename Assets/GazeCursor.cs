@@ -8,7 +8,7 @@ public class GazeCursor : MonoBehaviour {
 
     public Color defaultColor;
     public Color highlightColor;
-    public float defaultDistance = 3;
+    public float defaultDistance = 1;
     private GameObject cameraObject;
     private GameObject hoveredObject;
 
@@ -18,6 +18,7 @@ public class GazeCursor : MonoBehaviour {
         else cameraObject = GameObject.Find("Camera_eyes");
         transform.parent = cameraObject.transform;
         transform.Find("CursorObject").GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
+        transform.localEulerAngles = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -33,20 +34,17 @@ public class GazeCursor : MonoBehaviour {
         var layerMask = (1 << 8); // Ignore the "Cursor"--intersections with the cursor don't count
         layerMask = ~layerMask;
 
-        if (Physics.Raycast(forwardRay, out hit, defaultDistance, layerMask))
+        if (Physics.Raycast(forwardRay, out hit, Mathf.Infinity, layerMask))
         {
             transform.position = hit.point;
+            transform.rotation = Quaternion.FromToRotation(Vector3.forward, hit.normal);
             transform.Find("CursorObject").GetComponent<Renderer>().material.SetColor("_Color", highlightColor);
-            Vector3 incomingVec = hit.point - cameraObject.transform.position;
-            Vector3 reflectVec = Vector3.Reflect(incomingVec, hit.normal);
-
-            transform.eulerAngles = reflectVec;
-
             hoveredObject = hit.transform.gameObject;
         }
         else
         {
-            transform.localPosition = new Vector3(0, 0, defaultDistance);// / transform.lossyScale.z;
+            transform.localPosition = new Vector3(0, 0, defaultDistance);
+            transform.localEulerAngles = Vector3.zero;
             transform.Find("CursorObject").GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
             hoveredObject = null;
         }

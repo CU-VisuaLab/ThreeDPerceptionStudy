@@ -1,0 +1,34 @@
+{
+  "width": 500,
+  "height": 500,
+  "depth": 50,
+  "data": {
+    "url": "QuadrantData/Quadrant3dSmHard1.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "size": {
+      "field": "d",
+      "type": "quantitative",
+      "scale": {
+        "range": [ 3, 8 ]
+      }
+    }
+  }
+}

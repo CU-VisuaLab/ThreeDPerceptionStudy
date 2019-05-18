@@ -1,6 +1,7 @@
 {
-  "width": 550,
-  "depth": 550,
+  "width": 500,
+  "height": 500,
+  "depth": 500,
   "data": {
     "url": "TrendData/Trend4dLgHard1.csv"
   },
@@ -34,7 +35,7 @@
       "field": "d",
       "type": "quantitative",
       "scale": {
-        "range": [ 0, 15 ]
+        "range": [ 3, 8 ]
       }
     }
   }

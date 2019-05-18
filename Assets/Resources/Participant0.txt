@@ -1,2146 +1,1453 @@
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
 *** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
 Task Loaded at 0
-> Time to Completion: 13.59068
-Selection rejected at 19.85636
-> Time to Completion: 2.13463
-Selection rejected at 23.2331
-> Time to Completion: 1.373484
-Selection confirmed at 25.71786
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 25.71786
-> Time to Completion: 28.81198
-Selection confirmed at 55.84899
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 55.84899
-> Time to Completion: 5.744221
-Selection confirmed at 62.69366
-*** Trial 3 ***
-* Vis: ObviousOutlierDepth4 Task:  Outlier*
-Task Loaded at 62.69366
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
 *** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
 Task Loaded at 0
-> Time to Completion: 7.345251
-Selection rejected at 9.193423
-> Time to Completion: 3.329506
-Selection rejected at 13.8384
-> Time to Completion: 163.4438
-Selection rejected at 178.4846
-> Time to Completion: 4.20401
-Selection rejected at 184.5858
-> Time to Completion: 1.521667
-Selection rejected at 187.4181
-> Time to Completion: 28.31264
-Selection confirmed at 217.7538
+Selected 4; Menu Loaded at 156.0859
+> Time to Completion: 156.0859
+Selection confirmed at 168.4201
+Incorrect Direction: Selected=(4,-0.999964484938977); Correct=(0,0.999964484938977)
+> Delta: 1.99992896987795 (correct - select)
+Positional Distance Traveled: 1.273114
+Rotational Distance Traveled: 3109.349
 *** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 217.7538
-> Time to Completion: 25.63074
-Selection confirmed at 246.9914
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+Task Loaded at 168.4201
+Selected 5; Menu Loaded at 184.4374
+> Time to Completion: 16.01726
+Selection confirmed at 185.4763
+> Correct Direction: 5
+Positional Distance Traveled: 0.03599652
+Rotational Distance Traveled: 79.1072
 *** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 246.9914
-> Time to Completion: 3.335938
-Selection confirmed at 251.8827
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_height Task:  XZTrend*
+Task Loaded at 185.4763
+Selected 3; Menu Loaded at 197.1557
+> Time to Completion: 11.67932
+Selection confirmed at 198.3393
+Incorrect Direction: Selected=(3,-0.997379511627661); Correct=(7,0.997379511627661)
+> Delta: 1.99475902325532 (correct - select)
+Positional Distance Traveled: 0.0339486
+Rotational Distance Traveled: 115.9794
 *** Trial 3 ***
-* Vis: ObviousOutlierDepth4 Task:  Outlier*
-Task Loaded at 251.8827
-> Time to Completion: 24.13727
-Selection confirmed at 277.2368
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_orient Task:  XYTrend*
+Task Loaded at 198.3393
+Selected 3; Menu Loaded at 224.1942
+> Time to Completion: 25.85492
+Selection confirmed at 224.7607
+Incorrect Direction: Selected=(3,0.499855890129513); Correct=(2,0.999990662799305)
+> Delta: 0.500134772669792 (correct - select)
+Positional Distance Traveled: 0.07460368
+Rotational Distance Traveled: 305.7083
 *** Trial 4 ***
-* Vis: ObviousOutlierOrientation5 Task:  Outlier*
-Task Loaded at 277.2368
-> Time to Completion: 4.27652
-Selection rejected at 284.397
-> Time to Completion: 6.440002
-Selection confirmed at 292.9178
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_size Task:  XYTrend*
+Task Loaded at 224.7607
+Selected 3; Menu Loaded at 235.9585
+> Time to Completion: 11.1978
+Selection confirmed at 236.6098
+Incorrect Direction: Selected=(3,-0.50023913132379); Correct=(0,0.999964484938977)
+> Delta: 1.50020361626277 (correct - select)
+Positional Distance Traveled: 0.05607169
+Rotational Distance Traveled: 237.3289
 *** Trial 5 ***
-Total Resets: 0
-Total Time: 292.9178
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 23.43258
-Selection confirmed at 24.83736
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 24.83736
-> Time to Completion: 17.67247
-Selection confirmed at 44.41069
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 44.41069
-> Time to Completion: 3.191185
-Selection confirmed at 50.83357
-*** Trial 3 ***
-* Vis: ObviousOutlierDepth4 Task:  Outlier*
-Task Loaded at 50.83357
-> Time to Completion: 14.10125
-Selection confirmed at 66.1634
-*** Trial 4 ***
-* Vis: ObviousOutlierOrientation5 Task:  Outlier*
-Task Loaded at 66.1634
-> Time to Completion: 10.32041
-Selection rejected at 85.86785
-> Time to Completion: 25.57892
-Selection confirmed at 112.8519
-*** Trial 5 ***
-Total Resets: 0
-Total Time: 112.8519
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 118.0546
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 6.123343
-Selection rejected at 7.818771
-> Time to Completion: 2.454434
-Selection rejected at 12.07358
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Total Resets: 0
-Total Time: 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 9.086038
-Selection confirmed at 9.896173
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 9.896173
-> Time to Completion: 1.920049
-Selection confirmed at 12.68177
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Total Resets: 0
-Total Time: 12.68177
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 4.624125
-Selection confirmed at 5.126775
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 5.126775
-> Time to Completion: 2.668353
-Selection confirmed at 8.667397
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 8.667397
-> Time to Completion: 3.339932
-Selection confirmed at 17.96845
-*** Trial 3 ***
-* Vis: ObviousOutlierDepth4 Task:  Outlier*
-Total Resets: 0
-Total Time: 17.96845
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 2.823166
-Selection confirmed at 3.518286
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 3.518286
-> Time to Completion: 1.647439
-Selection confirmed at 5.843907
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 5.843907
-> Time to Completion: 26.97206
-Selection confirmed at 33.78687
-*** Trial 3 ***
-* Vis: ObviousOutlierDepth4 Task:  Outlier*
-Task Loaded at 33.78687
-> Time to Completion: 29.06839
-Selection confirmed at 63.83743
-*** Trial 4 ***
-* Vis: ObviousOutlierOrientation5 Task:  Outlier*
-Task Loaded at 63.83743
-> Time to Completion: 3.054382
-Selection confirmed at 67.69573
-*** Trial 5 ***
-Total Resets: 0
-Total Time: 67.69573
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 14.38657
-Selection confirmed at 15.24773
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 15.24773
-> Time to Completion: 2.522365
-Selection confirmed at 18.84765
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 18.84765
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 1.881139
-Selection confirmed at 2.990489
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 2.990489
-> Time to Completion: 1.75851
-Selection confirmed at 5.63414
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 5.63414
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 2.841463
-Selection confirmed at 3.963165
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 3.963165
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 7.009234
-Selection confirmed at 7.938771
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 7.938771
-> Time to Completion: 2.302811
-Selection confirmed at 16.36864
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 16.36864
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 3.34897
-Selection confirmed at 4.03063
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 4.03063
-> Time to Completion: 1.636182
-Selection confirmed at 6.826065
-*** Trial 2 ***
-* Vis: ObviousOutlierHeight3 Task:  Outlier*
-Task Loaded at 6.826065
-*** Trial 0 ***
-* Vis: ObviousQuadrantSize1 Task:  XYQuadrant*
-Total Resets: 0
-Total Time: 0
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousQuadrantSize1 Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (-0.1, -0.1, 1.0) with Average 18.49622; Menu Loaded at 3.17523
-> Time to Completion: 3.17523
-Selection confirmed at 4.468269
-> Selected MAX(-0.1, -0.1, 1.0); Mean=18.49622
-*** Trial 1 ***
-* Vis: ObviousQuadrantColor2 Task:  XYQuadrant*
-Task Loaded at 4.468269
-Selected Quadrant (-0.1, 0.2, 1.0) with Average 17.40724; Menu Loaded at 10.68406
-> Time to Completion: 6.215796
-Selection confirmed at 11.53824
-> Selected MAX(-0.1, 0.2, 1.0); Mean=17.40724
-*** Trial 2 ***
-* Vis: ObviousQuadrantHeight3 Task:  XZQuadrant*
-Task Loaded at 11.53824
-Selected Quadrant (0.2, 0.1, 1.1) with Average 16.41844; Menu Loaded at 19.00427
-> Time to Completion: 7.466031
-Selection confirmed at 24.43496
-> Selected MAX(0.2, 0.1, 1.1); Mean=16.41844
-*** Trial 3 ***
-* Vis: ObviousQuadrantDepth4 Task:  XYQuadrant*
-Task Loaded at 24.43496
-Selected Quadrant (0.2, -0.1, 1.3) with Average 5.374729; Menu Loaded at 29.44612
-> Time to Completion: 5.011164
-Selection confirmed at 31.52726
-> Selected MIN(0.2, -0.1, 1.3); Mean=5.374729
-*** Trial 4 ***
-* Vis: ObviousQuadrantOrientation5 Task:  XYQuadrant*
-Task Loaded at 31.52726
-Selected Quadrant (0.2, -0.1, 1.0) with Average 4.42867; Menu Loaded at 38.58705
-> Time to Completion: 7.059795
-Selection confirmed at 59.89919
-> Selected MIN(0.2, -0.1, 1.0); Mean=4.42867
-*** Trial 5 ***
-Total Resets: 0
-Total Time: 59.89919
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Total Resets: 0
-Total Time: 0
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-Selected 7; Menu Loaded at 8.281574
-> Time to Completion: 8.281574
-Selection confirmed at 10.30806
-Incorrect Direction: Selected=(7,-0.00202638484637862); Correct=(5,0.853450432253657)
-> Delta: 0.855476817100036 (correct - select)
-*** Trial 1 ***
-* Vis: ObviousTrendColor2 Task:  XYTrend*
-Total Resets: 0
-Total Time: 10.30806
-Task Loaded at 10.30806
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-Selected 4; Menu Loaded at 2.957347
-> Time to Completion: 2.957347
-Selection confirmed at 3.740379
-Incorrect Direction: Selected=(4,0.428598162348182); Correct=(5,0.853450432253657)
-> Delta: 0.424852269905475 (correct - select)
-*** Trial 1 ***
-* Vis: ObviousTrendColor2 Task:  XYTrend*
-Task Loaded at 3.740379
-Selected 4; Menu Loaded at 7.53229
-> Time to Completion: 3.791912
-Selection confirmed at 8.158701
-Incorrect Direction: Selected=(4,-0.904761820631223); Correct=(0,0.904761820631223)
-> Delta: 1.80952364126245 (correct - select)
-*** Trial 2 ***
-* Vis: ObviousTrendHeight3 Task:  XZTrend*
-Task Loaded at 8.158701
-Selected 5; Menu Loaded at 9.778141
-> Time to Completion: 1.61944
-Selection confirmed at 10.48653
-Incorrect Direction: Selected=(5,-0.0266895194144394); Correct=(7,0.342939585542445)
-> Delta: 0.369629104956885 (correct - select)
-*** Trial 3 ***
-* Vis: ObviousTrendDepth4 Task:  XYTrend*
-Total Resets: 0
-Total Time: 10.48653
-Task Loaded at 10.48653
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-Selected 4; Menu Loaded at 2.464362
-> Time to Completion: 2.464362
-Selection confirmed at 3.178648
-Incorrect Direction: Selected=(4,0.428598162348182); Correct=(5,0.853450432253657)
-> Delta: 0.424852269905475 (correct - select)
-*** Trial 1 ***
-* Vis: ObviousTrendColor2 Task:  XYTrend*
-Task Loaded at 3.178648
-Selected 4; Menu Loaded at 4.730652
-> Time to Completion: 1.552004
-Selection confirmed at 5.274662
-Incorrect Direction: Selected=(4,-0.904761820631223); Correct=(0,0.904761820631223)
-> Delta: 1.80952364126245 (correct - select)
-*** Trial 2 ***
-* Vis: ObviousTrendHeight3 Task:  XZTrend*
-Task Loaded at 5.274662
-Selected 5; Menu Loaded at 6.365351
-> Time to Completion: 1.09069
-Selection confirmed at 6.985983
-Incorrect Direction: Selected=(5,-0.0266895194144394); Correct=(7,0.342939585542445)
-> Delta: 0.369629104956885 (correct - select)
-*** Trial 3 ***
-* Vis: ObviousTrendDepth4 Task:  XYTrend*
-Task Loaded at 6.985983
-Selected 4; Menu Loaded at 8.451939
-> Time to Completion: 1.465955
-Selection confirmed at 9.04155
-Incorrect Direction: Selected=(4,-1.76002822028749E-08); Correct=(2,0.905022077471808)
-> Delta: 0.905022095072091 (correct - select)
-*** Trial 4 ***
-* Vis: ObviousTrendOreintation5 Task:  XYTrend*
-Task Loaded at 9.04155
-Selected 4; Menu Loaded at 11.16313
-> Time to Completion: 2.121578
-Selection confirmed at 11.92035
-Incorrect Direction: Selected=(4,73); Correct=(3,288)
-> Delta: 215 (correct - select)
-*** Trial 5 ***
-Total Resets: 0
-Total Time: 11.92035
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 21.70267
-Selection confirmed at 28.99877
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 28.99877
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 139.838
-Selection rejected at 149.9409
-> Time to Completion: 5.423447
-Selection rejected at 167.4239
-> Time to Completion: 27.37308
-Selection rejected at 199.4793
-> Time to Completion: 6.824554
-Selection rejected at 210.9242
-> Time to Completion: 3.141373
-Selection rejected at 216.814
-> Time to Completion: 11.40965
-Selection rejected at 232.9654
-> Time to Completion: 3.231216
-Selection rejected at 246.5568
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 2.239314
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 3.079843
-Selection rejected at 6.201788
-> Time to Completion: 6.757186
-Selection rejected at 14.58814
-> Time to Completion: 6.599083
-Selection rejected at 23.7954
-> Time to Completion: 3.89938
-Selection rejected at 29.98095
-> Time to Completion: 3.298996
-Selection rejected at 34.92942
-> Time to Completion: 17.63317
-Selection rejected at 55.7901
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-Selected 7; Menu Loaded at 4.433458
-> Time to Completion: 4.433458
-Selection rejected at 5.881076
-Selected 1; Menu Loaded at 7.570196
-> Time to Completion: 1.68912
-Selection rejected at 8.803652
-Selected 1; Menu Loaded at 20.82804
-> Time to Completion: 12.02439
-Selection rejected at 21.72175
-Selected 0; Menu Loaded at 27.65622
-> Time to Completion: 5.934469
-Selection rejected at 28.55086
-Selected 4; Menu Loaded at 29.38358
-> Time to Completion: 0.8327236
-Selection rejected at 30.006
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 2.275798
-Selection confirmed at 4.842122
-> Selected 4.840145
-> Min: 0.00108241 (delta=4.839063); Max: 20 (delta=-15.15985)
-*** Trial 1 ***
-* Vis: ObviousOutlierColor2 Task:  Outlier*
-Task Loaded at 4.842122
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousQuadrantSize1 Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousQuadrantSize1 Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousTrendSize1 Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: Outlier3dLgEasy1_color Task:  Outlier*
-Total Resets: 0
-Total Time: 0
-*** Trial 0 ***
-* Vis: Outlier3dLgEasy1_color Task:  Outlier*
-Total Resets: 0
-Total Time: 0
-*** Trial 0 ***
-* Vis: OutlierPrebfabs/Outlier3dLgEasy1_color Task:  Outlier*
-Total Resets: 0
-Total Time: 0
-*** Trial 0 ***
-* Vis: OutlierPrebfabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Total Resets: 0
-Total Time: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 17.15318
-Selection confirmed at 18.20176
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-*** Trial 1 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_depth Task:  Outlier*
-Task Loaded at 18.20176
-> Time to Completion: 22.30562
-Selection confirmed at 41.28074
-> Selected 22.92545
-> Min: 2.577961 (delta=20.34748); Max: 22.92545 (delta=0)
-*** Trial 2 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard1_height Task:  Outlier*
-Task Loaded at 41.28074
-> Time to Completion: 5.578789
-Selection confirmed at 47.60409
-> Selected 20.32404
-> Min: 3.920151 (delta=16.40389); Max: 20.32404 (delta=0)
-*** Trial 3 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_size Task:  Outlier*
-Task Loaded at 47.60409
-> Time to Completion: 9.701565
-Selection confirmed at 57.94944
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-*** Trial 4 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_size Task:  Outlier*
-Task Loaded at 57.94944
-> Time to Completion: 6.50877
-Selection confirmed at 65.47367
-> Selected 22.92545
-> Min: 2.577961 (delta=20.34748); Max: 22.92545 (delta=0)
-*** Trial 5 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard2_color Task:  Outlier*
-Task Loaded at 65.47367
-> Time to Completion: 12.89088
-Selection confirmed at 79.24451
-> Selected 21.44069
-> Min: 3.949431 (delta=17.49125); Max: 21.44069 (delta=0)
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_color Task:  XYZTrend*
+Task Loaded at 236.6098
+Selected 5; Menu Loaded at 263.1682
+> Time to Completion: 26.55843
+Selection confirmed at 266.7629
+> Correct Direction: 5
+Positional Distance Traveled: 0.1761547
+Rotational Distance Traveled: 327.8878
 *** Trial 6 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy2_depth Task:  Outlier*
-Task Loaded at 79.24451
-> Time to Completion: 17.73422
-Selection confirmed at 106.6288
-> Selected 16.21851
-> Min: 3.239175 (delta=12.97933); Max: 26.41198 (delta=-10.19347)
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_orient Task:  XYZTrend*
+Task Loaded at 266.7629
+Selected 0; Menu Loaded at 280.2788
+> Time to Completion: 13.5159
+Selection confirmed at 281.3927
+Incorrect Direction: Selected=(0,-0.982525752414859); Correct=(1,0.982525752414859)
+> Delta: 1.96505150482972 (correct - select)
+Positional Distance Traveled: 0.1172047
+Rotational Distance Traveled: 387.3509
 *** Trial 7 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium2_height Task:  Outlier*
-Task Loaded at 106.6288
-> Time to Completion: 9.581436
-Selection confirmed at 117.2294
-> Selected 22.67618
-> Min: 3.802572 (delta=18.87361); Max: 22.67618 (delta=0)
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_size Task:  XYZTrend*
+Task Loaded at 281.3927
+Selected 2; Menu Loaded at 297.0691
+> Time to Completion: 15.67642
+Selection confirmed at 297.6482
+> Correct Direction: 2
+Positional Distance Traveled: 0.08643531
+Rotational Distance Traveled: 178.3179
 *** Trial 8 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard2_size Task:  Outlier*
-Task Loaded at 117.2294
-> Time to Completion: 12.06496
-Selection confirmed at 129.9761
-> Selected 20.17096
-> Min: 3.139738 (delta=17.03123); Max: 20.17096 (delta=0)
-*** Trial 9 ***
-* Vis: OutlierPrefabs/Easy/Outlier4dLgEasy1_orient Task:  Outlier*
-Task Loaded at 129.9761
-> Time to Completion: 20.52899
-Selection confirmed at 151.979
-> Selected 26.75154
-> Min: 2.733317 (delta=24.01822); Max: 26.75154 (delta=0)
-*** Trial 10 ***
+Total Time: 297.6482
 Total Resets: 0
-Total Time: 151.979
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
 *** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
 Task Loaded at 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
 *** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
 Task Loaded at 0
-> Time to Completion: 15.10356
-Selection confirmed at 16.06553
-Selection confirmed at 16.06611
-Selection confirmed at 16.06651
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 14.82038
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 4.892661
-Selection confirmed at 5.727819
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 85.4948
+> Time to Completion: 85.4948
+Selection confirmed at 86.78756
+> Selected MAX(0.0, -0.1, 0.0); Mean=15.89546
+Positional Distance Traveled: 3.014209
+Rotational Distance Traveled: 4149.7
 *** Trial 1 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_depth Task:  Outlier*
-Task Loaded at 5.727819
-> Time to Completion: 4.75697
-Selection confirmed at 11.5606
-> Selected 6.054966
-> Min: 2.577961 (delta=3.477005); Max: 22.92545 (delta=-16.87048)
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_depth Task:  XYQuadrant*
+Task Loaded at 86.78756
+Selected Quadrant (0.0, -0.1, 0.0) with Average 16.94728; Menu Loaded at 122.3716
+> Time to Completion: 35.58399
+Selection confirmed at 123.7889
+> Selected MAX(0.0, -0.1, 0.0); Mean=16.94728
+Positional Distance Traveled: 0.3861252
+Rotational Distance Traveled: 546.7733
 *** Trial 2 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard1_height Task:  Outlier*
-Task Loaded at 11.5606
-> Time to Completion: 1.48459
-Selection confirmed at 13.88082
-> Selected 20.32404
-> Min: 3.920151 (delta=16.40389); Max: 20.32404 (delta=0)
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_height Task:  XZQuadrant*
+Task Loaded at 123.7889
+Selected Quadrant (0.0, -0.1, 0.0) with Average 18.48935; Menu Loaded at 131.5005
+> Time to Completion: 7.711601
+Selection confirmed at 132.1736
+> Selected MAX(0.0, -0.1, 0.0); Mean=18.48935
+Positional Distance Traveled: 0.1683927
+Rotational Distance Traveled: 230.5285
 *** Trial 3 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_orient Task:  Outlier*
-Task Loaded at 13.88082
-> Time to Completion: 2.318036
-Selection confirmed at 16.7625
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_orient Task:  XYQuadrant*
+Task Loaded at 132.1736
+Selected Quadrant (0.0, -0.1, 0.0) with Average 5.659277; Menu Loaded at 139.7406
+> Time to Completion: 7.566925
+Selection confirmed at 140.8028
+> Selected MIN(0.0, -0.1, 0.0); Mean=5.659277
+Positional Distance Traveled: 0.06043995
+Rotational Distance Traveled: 159.9634
 *** Trial 4 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_size Task:  Outlier*
-Task Loaded at 16.7625
-> Time to Completion: 3.853165
-Selection confirmed at 21.71302
-> Selected 22.92545
-> Min: 2.577961 (delta=20.34748); Max: 22.92545 (delta=0)
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_size Task:  XYQuadrant*
+Task Loaded at 140.8028
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 149.0542
+> Time to Completion: 8.251358
+Selection confirmed at 149.9469
+> Selected MAX(0.0, -0.1, 0.0); Mean=15.89546
+Positional Distance Traveled: 0.05709593
+Rotational Distance Traveled: 178.3854
 *** Trial 5 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard2_color Task:  Outlier*
-Task Loaded at 21.71302
-> Time to Completion: 2.289089
-Selection confirmed at 25.00758
-> Selected 9.361009
-> Min: 3.949431 (delta=5.411578); Max: 21.44069 (delta=-12.07968)
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_color Task:  XYZQuadrant*
+Task Loaded at 149.9469
+Selected Quadrant (0.0, -0.1, 0.0) with Average 8.24657; Menu Loaded at 191.8566
+> Time to Completion: 41.90968
+Selection confirmed at 192.9405
+> Selected MAX(0.0, -0.1, 0.0); Mean=8.24657
+Positional Distance Traveled: 0.7228488
+Rotational Distance Traveled: 887.6085
 *** Trial 6 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy2_depth Task:  Outlier*
-Task Loaded at 25.00758
-> Time to Completion: 4.511021
-Selection rejected at 30.82615
-> Time to Completion: 5.887602
-Selection rejected at 38.79076
-> Time to Completion: 1.95612
-Selection confirmed at 41.46136
-> Selected 6.426645
-> Min: 3.239175 (delta=3.18747); Max: 26.41198 (delta=-19.98533)
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_orient Task:  XYZQuadrant*
+Task Loaded at 192.9405
+Selected Quadrant (0.0, -0.1, 0.0) with Average 8.24657; Menu Loaded at 208.8261
+> Time to Completion: 15.88562
+Selection confirmed at 209.6837
+> Selected MAX(0.0, -0.1, 0.0); Mean=8.24657
+Positional Distance Traveled: 0.2112648
+Rotational Distance Traveled: 340.7726
 *** Trial 7 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium2_height Task:  Outlier*
-Task Loaded at 41.46136
-> Time to Completion: 2.544483
-Selection confirmed at 44.75584
-> Selected 22.67618
-> Min: 3.802572 (delta=18.87361); Max: 22.67618 (delta=0)
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_size Task:  XYZQuadrant*
+Task Loaded at 209.6837
+Selected Quadrant (0.0, -0.1, 0.0) with Average 8.24657; Menu Loaded at 244.5683
+> Time to Completion: 34.88464
+Selection confirmed at 245.774
+> Selected MAX(0.0, -0.1, 0.0); Mean=8.24657
+Positional Distance Traveled: 0.5419385
+Rotational Distance Traveled: 817.2326
 *** Trial 8 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard2_size Task:  Outlier*
-Task Loaded at 44.75584
-> Time to Completion: 2.728996
-Selection confirmed at 48.34722
-> Selected 20.17096
-> Min: 3.139738 (delta=17.03123); Max: 20.17096 (delta=0)
-*** Trial 9 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_orient Task:  Outlier*
-Task Loaded at 48.34722
-> Time to Completion: 6.306644
-Selection confirmed at 55.31009
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-*** Trial 10 ***
-* Vis: OutlierPrefabs/Medium/Outlier4dLgMedium1_color Task:  Outlier*
-Task Loaded at 55.31009
-> Time to Completion: 5.022423
-Selection confirmed at 61.08728
-> Selected 16.091
-> Min: 2.931767 (delta=13.15923); Max: 23.02704 (delta=-6.936041)
-*** Trial 11 ***
-* Vis: OutlierPrefabs/Hard/Outlier4dLgHard1_orient Task:  Outlier*
-Task Loaded at 61.08728
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 32.15396
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 64.58895
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 26.70275
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 68.88425
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 48.0382
-Selection confirmed at 60.42989
-> Selected 3.860913
-> Min: 3.239175 (delta=0.621738); Max: 26.41198 (delta=-22.55106)
-*** Trial 1 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_depth Task:  Outlier*
-Task Loaded at 60.42989
-> Time to Completion: 8.645241
-Selection rejected at 70.91393
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 15.31159
-Selection confirmed at 17.97946
-> Selected 14.08368
-> Min: 3.239175 (delta=10.84451); Max: 26.41198 (delta=-12.32829)
-*** Trial 1 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_depth Task:  Outlier*
-Task Loaded at 17.97946
-> Time to Completion: 6.081095
-Selection confirmed at 25.24031
-> Selected 3.057273
-> Min: 2.577961 (delta=0.4793119); Max: 22.92545 (delta=-19.86817)
-*** Trial 2 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard1_height Task:  Outlier*
-Task Loaded at 25.24031
-> Time to Completion: 2.068275
-Selection confirmed at 29.24615
-> Selected 20.32404
-> Min: 3.920151 (delta=16.40389); Max: 20.32404 (delta=0)
-*** Trial 3 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_orient Task:  Outlier*
-Task Loaded at 29.24615
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 5.115626
-> Time to Completion: 5.115626
-Selection confirmed at 6.278857
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 6.278857
-Selected Quadrant (0.2, -0.1, 1.3) with Average 11.98701; Menu Loaded at 12.50446
-> Time to Completion: 6.225604
-Selection confirmed at 13.9016
-> Selected MAX(0.2, -0.1, 1.3); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 13.9016
-Selection rejected at 22.46551
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 3.952748
-> Time to Completion: 3.952748
-Selection confirmed at 5.515912
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 5.515912
-Selected Quadrant (0.2, -0.1, 1.3) with Average 11.98701; Menu Loaded at 6.905574
-> Time to Completion: 1.389663
-Selection confirmed at 7.867444
-> Selected MAX(0.2, -0.1, 1.3); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 7.867444
-Selection rejected at 14.8451
-Selection confirmed at 17.50812
-Selection confirmed at 18.64583
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 2.005536
-> Time to Completion: 2.005536
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 16.42813
-> Time to Completion: 16.42813
-Selection confirmed at 17.50603
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 17.50603
-Selected Quadrant (0.2, -0.1, 1.3) with Average 11.98701; Menu Loaded at 19.54874
-> Time to Completion: 2.042711
-Selection confirmed at 26.59875
-> Selected MAX(0.2, -0.1, 1.3); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 26.59875
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 2.76306
-> Time to Completion: 2.76306
-Selection confirmed at 3.557176
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 3.557176
-Selected Quadrant (0.2, -0.1, 1.3) with Average 11.98701; Menu Loaded at 6.495437
-> Time to Completion: 2.938261
-Selection confirmed at 7.325369
-> Selected MAX(0.2, -0.1, 1.3); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 7.325369
-Selection rejected at 23.84198
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 3.249001
-> Time to Completion: 3.249001
-Selection confirmed at 4.903021
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 4.903021
-Selected Quadrant (0.2, -0.1, 1.3) with Average 11.98701; Menu Loaded at 7.063133
-> Time to Completion: 2.160112
-Selection confirmed at 7.694131
-> Selected MAX(0.2, -0.1, 1.3); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 7.694131
-Selected Quadrant (0.2, 0.1, 1.1) with Average 15.69805; Menu Loaded at 9.136237
-> Time to Completion: 1.442106
-Selection confirmed at 10.12834
-> Selected MAX(0.2, 0.1, 1.1); Mean=15.69805
-*** Trial 3 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_orient Task:  XYQuadrant*
-Task Loaded at 10.12834
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 5.156009
-> Time to Completion: 5.156009
-Selection confirmed at 5.745861
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 5.745861
-Selected Quadrant (0.2, -0.1, 1.3) with Average 11.98701; Menu Loaded at 6.815743
-> Time to Completion: 1.069882
-Selection confirmed at 7.38511
-> Selected MAX(0.2, -0.1, 1.3); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 7.38511
-Selected Quadrant (0.2, 0.1, 1.1) with Average 15.69805; Menu Loaded at 8.315097
-> Time to Completion: 0.929987
-Selection confirmed at 9.044899
-> Selected MAX(0.2, 0.1, 1.1); Mean=15.69805
-*** Trial 3 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_orient Task:  XYQuadrant*
-Task Loaded at 9.044899
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 12.85027
-> Time to Completion: 3.805369
-Selection confirmed at 14.08559
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 4 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_size Task:  XYQuadrant*
-Task Loaded at 14.08559
-Selected Quadrant (0.2, -0.1, 1.0) with Average 11.98701; Menu Loaded at 25.79415
-> Time to Completion: 11.70856
-Selection confirmed at 27.31494
-> Selected MAX(0.2, -0.1, 1.0); Mean=11.98701
-*** Trial 5 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard2_color Task:  XYQuadrant*
-Task Loaded at 27.31494
-Selected Quadrant (0.2, -0.1, 1.0) with Average 15.77833; Menu Loaded at 32.33803
-> Time to Completion: 5.02309
-Selection confirmed at 33.22605
-> Selected MAX(0.2, -0.1, 1.0); Mean=15.77833
-*** Trial 6 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy2_depth Task:  XYQuadrant*
-Task Loaded at 33.22605
-Selected Quadrant (0.2, -0.1, 1.3) with Average 7.710415; Menu Loaded at 37.49829
-> Time to Completion: 4.27224
-Selection confirmed at 38.39572
-> Selected MAX(0.2, -0.1, 1.3); Mean=7.710415
-*** Trial 7 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium2_height Task:  XZQuadrant*
-Task Loaded at 38.39572
-Selected Quadrant (0.2, 0.1, 1.1) with Average 11.86974; Menu Loaded at 40.7536
-> Time to Completion: 2.357883
-Selection confirmed at 42.70266
-> Selected MAX(0.2, 0.1, 1.1); Mean=11.86974
-*** Trial 8 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard2_size Task:  XYQuadrant*
-Task Loaded at 42.70266
-Selected Quadrant (0.2, -0.1, 1.0) with Average 15.77833; Menu Loaded at 46.26254
-> Time to Completion: 3.559875
-Selection confirmed at 47.33669
-> Selected MAX(0.2, -0.1, 1.0); Mean=15.77833
-*** Trial 9 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_orient Task:  XYQuadrant*
-Task Loaded at 47.33669
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 50.17873
-> Time to Completion: 2.842037
-Selection confirmed at 51.07928
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 10 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant4dLgMedium1_color Task:  XYZQuadrant*
+Total Time: 245.774
 Total Resets: 0
-Total Time: 51.07928
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
 *** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
 Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 11.76049
-Selection rejected at 13.11357
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (-0.1, -0.1, 1.0) with Average 5.175677; Menu Loaded at 42.59836
-> Time to Completion: 42.59836
-Selection rejected at 44.3686
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 45.90042
-> Time to Completion: 1.531818
-Selection confirmed at 46.652
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
+> Time to Completion: 56.02432
+Selection confirmed at 56.86139
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 2.346002
+Rotational Distance Traveled: 2136.729
 *** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 46.652
-Selected Quadrant (0.2, 0.2, 1.3) with Average 11.27755; Menu Loaded at 47.99651
-> Time to Completion: 1.344513
-Selection confirmed at 48.11391
-> Incorrect Selection (0.2, 0.2, 1.3); Mean=11.27755
-> MIN Delta=2.573091; MAX Delta=-0.7094526
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+Task Loaded at 56.86139
+> Time to Completion: 8.807407
+Selection confirmed at 66.67339
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.1555463
+Rotational Distance Traveled: 148.4367
 *** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 48.11391
-Selected Quadrant (0.2, 0.1, 1.1) with Average 15.69805; Menu Loaded at 49.08455
-> Time to Completion: 0.9706345
-Selection confirmed at 49.82268
-> Selected MAX(0.2, 0.1, 1.1); Mean=15.69805
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_height Task:  Outlier*
+Task Loaded at 66.67339
+> Time to Completion: 4.240433
+Selection confirmed at 71.87383
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 0.01080126
+Rotational Distance Traveled: 20.77416
 *** Trial 3 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_orient Task:  XYQuadrant*
-Task Loaded at 49.82268
-Selected Quadrant (-0.1, 0.2, 1.0) with Average 5.883578; Menu Loaded at 51.00027
-> Time to Completion: 1.177593
-Selection confirmed at 51.46375
-> Incorrect Selection (-0.1, 0.2, 1.0); Mean=5.883578
-> MIN Delta=0.7079005; MAX Delta=-2.109042
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_orient Task:  Outlier*
+Task Loaded at 71.87383
+> Time to Completion: 4.85685
+Selection confirmed at 78.02557
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.08169158
+Rotational Distance Traveled: 86.44357
 *** Trial 4 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_size Task:  XYQuadrant*
-Task Loaded at 51.46375
-Selected Quadrant (0.2, -0.1, 1.0) with Average 11.98701; Menu Loaded at 52.9581
-> Time to Completion: 1.49435
-Selection confirmed at 53.61815
-> Selected MAX(0.2, -0.1, 1.0); Mean=11.98701
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_size Task:  Outlier*
+Task Loaded at 78.02557
+> Time to Completion: 12.88866
+Selection confirmed at 92.73463
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.1066982
+Rotational Distance Traveled: 111.4398
 *** Trial 5 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard2_color Task:  XYQuadrant*
-Task Loaded at 53.61815
-Selected Quadrant (0.2, -0.1, 1.0) with Average 15.77833; Menu Loaded at 55.3997
-> Time to Completion: 1.781551
-Selection confirmed at 56.13205
-> Selected MAX(0.2, -0.1, 1.0); Mean=15.77833
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_color Task:  Outlier*
+Task Loaded at 92.73463
+> Time to Completion: 9.428925
+Selection confirmed at 104.6976
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0.0384334
+Rotational Distance Traveled: 46.51944
 *** Trial 6 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy2_depth Task:  XYQuadrant*
-Task Loaded at 56.13205
-Selected Quadrant (0.2, 0.2, 1.3) with Average 7.02369; Menu Loaded at 57.47866
-> Time to Completion: 1.346619
-Selection confirmed at 58.01956
-> Incorrect Selection (0.2, 0.2, 1.3); Mean=7.02369
-> MIN Delta=1.820239; MAX Delta=-0.6867247
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_orient Task:  Outlier*
+Task Loaded at 104.6976
+> Time to Completion: 7.48877
+Selection confirmed at 112.8664
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0.02572774
+Rotational Distance Traveled: 22.30242
 *** Trial 7 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium2_height Task:  XZQuadrant*
-Task Loaded at 58.01956
-Selected Quadrant (0.2, 0.1, 1.1) with Average 11.86974; Menu Loaded at 59.31652
-> Time to Completion: 1.296955
-Selection confirmed at 59.85959
-> Selected MAX(0.2, 0.1, 1.1); Mean=11.86974
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_size Task:  Outlier*
+Task Loaded at 112.8664
+> Time to Completion: 15.43104
+Selection confirmed at 131.9837
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0.1438107
+Rotational Distance Traveled: 90.00301
 *** Trial 8 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard2_size Task:  XYQuadrant*
-Task Loaded at 59.85959
-Selected Quadrant (0.2, 0.2, 1.0) with Average 14.85002; Menu Loaded at 60.89104
-> Time to Completion: 1.031452
-Selection confirmed at 61.35327
-> Incorrect Selection (0.2, 0.2, 1.0); Mean=14.85002
-> MIN Delta=1.798181; MAX Delta=-0.9283152
-*** Trial 9 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_orient Task:  XYQuadrant*
-Task Loaded at 61.35327
-Selected Quadrant (0.2, 0.2, 1.0) with Average 6.858259; Menu Loaded at 62.2076
-> Time to Completion: 0.8543282
-Selection confirmed at 62.63397
-> Incorrect Selection (0.2, 0.2, 1.0); Mean=6.858259
-> MIN Delta=1.682581; MAX Delta=-1.134361
-*** Trial 10 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant4dLgMedium1_color Task:  XYZQuadrant*
+Total Time: 131.9837
 Total Resets: 0
-Total Time: 62.63397
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (-0.1, -0.1, 1.0) with Average 5.175677; Menu Loaded at 15.22116
-> Time to Completion: 15.22116
-Selection rejected at 16.06913
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 7.99262; Menu Loaded at 10.15632
-> Time to Completion: 10.15632
-Selection confirmed at 38.55408
-> Selected MAX(0.2, -0.1, 1.0); Mean=7.99262
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 38.55408
-Selected Quadrant (0.2, -0.1, 1.3) with Average 11.98701; Menu Loaded at 46.89828
-> Time to Completion: 8.344196
-Selection confirmed at 47.72291
-> Selected MAX(0.2, -0.1, 1.3); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 47.72291
-Selected Quadrant (0.2, 0.1, 1.1) with Average 15.69805; Menu Loaded at 50.11798
-> Time to Completion: 2.395073
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
 *** Trial 0 ***
 * Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
 Task Loaded at 0
-Selected 0; Menu Loaded at 9.959309
-> Time to Completion: 9.959309
-Selection rejected at 13.86053
-Selected 3; Menu Loaded at 16.1348
-> Time to Completion: 2.274273
-Selection confirmed at 16.75068
-> Correct Direction: 3
-*** Trial 1 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_depth Task:  XYTrend*
-Task Loaded at 16.75068
-Selected 2; Menu Loaded at 27.32998
-> Time to Completion: 10.5793
-Selection confirmed at 29.86622
-> Correct Direction: 2
-*** Trial 2 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard1_height Task:  XZTrend*
-Task Loaded at 29.86622
-Total Resets: 0
-Total Time: 29.86622
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
 *** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
 Task Loaded at 0
-Selected 3; Menu Loaded at 2.629763
-> Time to Completion: 2.629763
-Selection confirmed at 5.052413
-> Correct Direction: 3
+Selected Quadrant (0.1, 0.0, -0.1) with Average 12.80696; Menu Loaded at 29.56532
+> Time to Completion: 29.56532
+Selection rejected at 32.88715
+Selected Quadrant (0.1, 0.0, -0.1) with Average 12.80696; Menu Loaded at 37.24
+> Time to Completion: 4.352852
+Selection rejected at 38.64305
+Selected Quadrant (0.1, 0.1, -0.1) with Average 7.357746; Menu Loaded at 41.54783
+> Time to Completion: 2.904785
+Selection rejected at 48.02545
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+Task Loaded at 0
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 130.813
+> Time to Completion: 130.813
+Selection rejected at 135.7683
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 136.6221
+> Time to Completion: 0.8537903
+Selection rejected at 137.2409
+Selected Quadrant (0.0, -0.1, 0.0) with Average 9.438514; Menu Loaded at 137.898
+> Time to Completion: 0.6570435
+Selection rejected at 138.7193
+Selected Quadrant (0.0, -0.1, 0.0) with Average 11.17782; Menu Loaded at 140.1796
+> Time to Completion: 1.460327
+Selection rejected at 142.3482
+Selected Quadrant (0.0, -0.1, 0.0) with Average 4.09463; Menu Loaded at 144.1077
+> Time to Completion: 1.759552
+Selection rejected at 148.6039
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 156.6945
+> Time to Completion: 8.090683
+Selection rejected at 162.9815
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+Task Loaded at 0
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 5.610561
+> Time to Completion: 5.610561
+Selection rejected at 6.499903
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+Task Loaded at 0
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 23.64592
+> Time to Completion: 23.64592
+Selection confirmed at 25.30609
+> Selected MAX(0.0, -0.1, 0.0); Mean=15.89546
+Positional Distance Traveled: 0.6198296
+Rotational Distance Traveled: 828.382
 *** Trial 1 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_depth Task:  XYTrend*
-Task Loaded at 5.052413
-Selected 2; Menu Loaded at 7.398678
-> Time to Completion: 2.346265
-Selection confirmed at 8.388949
-> Correct Direction: 2
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_depth Task:  XYQuadrant*
+Task Loaded at 25.30609
+Selected Quadrant (0.0, -0.1, 0.0) with Average 16.94728; Menu Loaded at 62.7937
+> Time to Completion: 37.48762
+Selection confirmed at 67.02621
+> Selected MAX(0.0, -0.1, 0.0); Mean=16.94728
+Positional Distance Traveled: 0.3161018
+Rotational Distance Traveled: 487.3654
 *** Trial 2 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard1_height Task:  XZTrend*
-Task Loaded at 8.388949
-Selected 1; Menu Loaded at 23.44747
-> Time to Completion: 15.05852
-Selection confirmed at 24.36367
-Incorrect Direction: Selected=(1,0.27451449489834); Correct=(0,0.284584953829395)
-> Delta: 0.0100704589310551 (correct - select)
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_height Task:  XZQuadrant*
+Task Loaded at 67.02621
+Selected Quadrant (0.0, -0.1, 0.0) with Average 18.48935; Menu Loaded at 72.94454
+> Time to Completion: 5.918335
+Selection confirmed at 75.49251
+> Selected MAX(0.0, -0.1, 0.0); Mean=18.48935
+Positional Distance Traveled: 0.2119929
+Rotational Distance Traveled: 127.4205
 *** Trial 3 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_orient Task:  XYTrend*
-Task Loaded at 24.36367
-Selected 3; Menu Loaded at 94.44698
-> Time to Completion: 70.08331
-Selection confirmed at 96.7372
-> Correct Direction: 3
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_orient Task:  XYQuadrant*
+Task Loaded at 75.49251
+Selected Quadrant (0.0, -0.1, 0.0) with Average 5.659277; Menu Loaded at 86.21294
+> Time to Completion: 10.72043
+Selection confirmed at 87.6089
+> Selected MIN(0.0, -0.1, 0.0); Mean=5.659277
+Positional Distance Traveled: 0.1025157
+Rotational Distance Traveled: 185.987
 *** Trial 4 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_size Task:  XYTrend*
-Task Loaded at 96.7372
-Selected 2; Menu Loaded at 98.93661
-> Time to Completion: 2.199409
-Selection confirmed at 99.88007
-> Correct Direction: 2
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_size Task:  XYQuadrant*
+Task Loaded at 87.6089
+Selected Quadrant (0.0, -0.1, 0.0) with Average 15.89546; Menu Loaded at 92.12335
+> Time to Completion: 4.51445
+Selection confirmed at 93.78712
+> Selected MAX(0.0, -0.1, 0.0); Mean=15.89546
+Positional Distance Traveled: 0.01491726
+Rotational Distance Traveled: 44.87574
 *** Trial 5 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard2_color Task:  XYTrend*
-Task Loaded at 99.88007
-Selected 1; Menu Loaded at 102.3997
-> Time to Completion: 2.519608
-Selection confirmed at 103.237
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_color Task:  XYZQuadrant*
+Task Loaded at 93.78712
+Selected Quadrant (0.0, -0.1, 0.0) with Average 8.24657; Menu Loaded at 112.3177
+> Time to Completion: 18.53059
+Selection confirmed at 113.7815
+> Selected MAX(0.0, -0.1, 0.0); Mean=8.24657
+Positional Distance Traveled: 0.2340092
+Rotational Distance Traveled: 249.0119
+*** Trial 6 ***
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_orient Task:  XYZQuadrant*
+Task Loaded at 113.7815
+Selected Quadrant (0.0, -0.1, 0.0) with Average 8.24657; Menu Loaded at 203.1645
+> Time to Completion: 89.38305
+Selection confirmed at 207.0949
+> Selected MAX(0.0, -0.1, 0.0); Mean=8.24657
+Positional Distance Traveled: 1.121654
+Rotational Distance Traveled: 1443.949
+*** Trial 7 ***
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_size Task:  XYZQuadrant*
+Task Loaded at 207.0949
+Selected Quadrant (0.0, -0.1, 0.0) with Average 8.24657; Menu Loaded at 215.4398
+> Time to Completion: 8.344894
+Selection confirmed at 216.8914
+> Selected MAX(0.0, -0.1, 0.0); Mean=8.24657
+Positional Distance Traveled: 0.2027575
+Rotational Distance Traveled: 158.571
+*** Trial 8 ***
+Total Time: 216.8914
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 0
+Selected 4; Menu Loaded at 50.10097
+> Time to Completion: 50.10097
+Selection confirmed at 54.24876
+Incorrect Direction: Selected=(4,-0.999964484938977); Correct=(0,0.999964484938977)
+> Delta: 1.99992896987795 (correct - select)
+Positional Distance Traveled: 0.57132
+Rotational Distance Traveled: 828.3454
+*** Trial 1 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+Task Loaded at 54.24876
+Selected 5; Menu Loaded at 65.76202
+> Time to Completion: 11.51326
+Selection confirmed at 68.74554
+> Correct Direction: 5
+Positional Distance Traveled: 0.05658367
+Rotational Distance Traveled: 129.8361
+*** Trial 2 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_height Task:  XZTrend*
+Task Loaded at 68.74554
+Selected 3; Menu Loaded at 103.9273
+> Time to Completion: 35.18179
+Selection confirmed at 104.9083
+Incorrect Direction: Selected=(3,-0.997379511627661); Correct=(7,0.997379511627661)
+> Delta: 1.99475902325532 (correct - select)
+Positional Distance Traveled: 0.9126207
+Rotational Distance Traveled: 985.6923
+*** Trial 3 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_orient Task:  XYTrend*
+Task Loaded at 104.9083
+Selected 2; Menu Loaded at 125.243
+> Time to Completion: 20.33473
+Selection confirmed at 126.3809
+> Correct Direction: 2
+Positional Distance Traveled: 0.4610963
+Rotational Distance Traveled: 745.0532
+*** Trial 4 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_size Task:  XYTrend*
+Task Loaded at 126.3809
+Selected 4; Menu Loaded at 132.2984
+> Time to Completion: 5.917458
+Selection confirmed at 133.0934
+Incorrect Direction: Selected=(4,-0.999964484938977); Correct=(0,0.999964484938977)
+> Delta: 1.99992896987795 (correct - select)
+Positional Distance Traveled: 0.02026862
+Rotational Distance Traveled: 110.026
+*** Trial 5 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_color Task:  XYZTrend*
+Task Loaded at 133.0934
+Selected 5; Menu Loaded at 153.2937
+> Time to Completion: 20.20023
+Selection confirmed at 155.1689
+> Correct Direction: 5
+Positional Distance Traveled: 0.4699873
+Rotational Distance Traveled: 547.3068
+*** Trial 6 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_orient Task:  XYZTrend*
+Task Loaded at 155.1689
+Selected 0; Menu Loaded at 165.8775
+> Time to Completion: 10.70857
+Selection confirmed at 169.0771
+Incorrect Direction: Selected=(0,-0.982525752414859); Correct=(1,0.982525752414859)
+> Delta: 1.96505150482972 (correct - select)
+Positional Distance Traveled: 0.172393
+Rotational Distance Traveled: 262.7592
+*** Trial 7 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_size Task:  XYZTrend*
+Task Loaded at 169.0771
+Selected 2; Menu Loaded at 176.463
+> Time to Completion: 7.38588
+Selection confirmed at 177.8714
+> Correct Direction: 2
+Positional Distance Traveled: 0.1162238
+Rotational Distance Traveled: 179.1359
+*** Trial 8 ***
+Total Time: 177.8714
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 0
+> Time to Completion: 27.17703
+Selection confirmed at 28.77886
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 1.727442
+Rotational Distance Traveled: 77.77398
+*** Trial 1 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+Task Loaded at 28.77886
+> Time to Completion: 8.315203
+Selection confirmed at 38.13317
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.8098542
+Rotational Distance Traveled: 139.4952
+*** Trial 2 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_height Task:  Outlier*
+Task Loaded at 38.13317
+> Time to Completion: 4.835697
+Selection confirmed at 43.76958
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 0.6174081
+Rotational Distance Traveled: 65.67999
+*** Trial 3 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_orient Task:  Outlier*
+Task Loaded at 43.76958
+> Time to Completion: 38.1435
+Selection confirmed at 87.05675
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 3.698352
+Rotational Distance Traveled: 955.3886
+*** Trial 4 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_size Task:  Outlier*
+Task Loaded at 87.05675
+> Time to Completion: 12.31879
+Selection confirmed at 100.0422
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.6903113
+Rotational Distance Traveled: 46.54304
+*** Trial 5 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_color Task:  Outlier*
+Task Loaded at 100.0422
+> Time to Completion: 2.970291
+Selection confirmed at 103.7166
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0.1050456
+Rotational Distance Traveled: 2.679115
+*** Trial 6 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_orient Task:  Outlier*
+Task Loaded at 103.7166
+> Time to Completion: 2.033424
+Selection confirmed at 106.4569
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 7 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_size Task:  Outlier*
+Task Loaded at 106.4569
+> Time to Completion: 21.797
+Selection confirmed at 129.1355
+> Selected 4.816749
+> Min: 0.004599895 (delta=4.812149); Max: 15 (delta=-10.18325)
+Positional Distance Traveled: 4.081412
+Rotational Distance Traveled: 265.6199
+*** Trial 8 ***
+Total Time: 129.1355
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 0
+Selected 4; Menu Loaded at 49.54132
+> Time to Completion: 49.54132
+Selection confirmed at 50.79434
+Incorrect Direction: Selected=(4,-0.999964484938977); Correct=(0,0.999964484938977)
+> Delta: 1.99992896987795 (correct - select)
+Positional Distance Traveled: 7.861438
+Rotational Distance Traveled: 36.5512
+*** Trial 1 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+Task Loaded at 50.79434
+Selected 5; Menu Loaded at 59.18559
+> Time to Completion: 8.391247
+Selection confirmed at 59.96555
+> Correct Direction: 5
+Positional Distance Traveled: 0.1352479
+Rotational Distance Traveled: 0
+*** Trial 2 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_height Task:  XZTrend*
+Task Loaded at 59.96555
+Selected 7; Menu Loaded at 137.8686
+> Time to Completion: 77.90303
+Selection confirmed at 138.5306
+> Correct Direction: 7
+Positional Distance Traveled: 26.25124
+Rotational Distance Traveled: 949.4238
+*** Trial 3 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_orient Task:  XYTrend*
+Task Loaded at 138.5306
+Selected 2; Menu Loaded at 143.0062
+> Time to Completion: 4.475616
+Selection confirmed at 144.4085
+> Correct Direction: 2
+Positional Distance Traveled: 0.2807024
+Rotational Distance Traveled: 32.67486
+*** Trial 4 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_size Task:  XYTrend*
+Task Loaded at 144.4085
+Selected 4; Menu Loaded at 149.2301
+> Time to Completion: 4.821564
+Selection confirmed at 150.4843
+Incorrect Direction: Selected=(4,-0.999964484938977); Correct=(0,0.999964484938977)
+> Delta: 1.99992896987795 (correct - select)
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 5 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_color Task:  XYZTrend*
+Task Loaded at 150.4843
+Selected 5; Menu Loaded at 160.1355
+> Time to Completion: 9.65126
+Selection confirmed at 161.0666
+> Correct Direction: 5
+Positional Distance Traveled: 6.455951
+Rotational Distance Traveled: 340.4323
+*** Trial 6 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_orient Task:  XYZTrend*
+Task Loaded at 161.0666
+Selected 1; Menu Loaded at 186.5206
+> Time to Completion: 25.45406
+Selection confirmed at 187.2344
 > Correct Direction: 1
-*** Trial 6 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy2_depth Task:  XYTrend*
-Task Loaded at 103.237
-Selected 3; Menu Loaded at 113.5966
-> Time to Completion: 10.35956
-Selection confirmed at 114.1732
-> Correct Direction: 3
+Positional Distance Traveled: 11.08806
+Rotational Distance Traveled: 591.562
 *** Trial 7 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium2_height Task:  XZTrend*
-Task Loaded at 114.1732
-User Reset to Home at 119.3455
-Selected 3; Menu Loaded at 130.4213
-> Time to Completion: 16.24809
-Selection confirmed at 131.0752
-Incorrect Direction: Selected=(3,0.0510744651817512); Correct=(2,0.222709189510983)
-> Delta: 0.171634724329231 (correct - select)
-*** Trial 8 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard2_size Task:  XYTrend*
-Task Loaded at 131.0752
-User Reset to Home at 133.405
-Selected 1; Menu Loaded at 139.4476
-> Time to Completion: 8.372482
-Selection confirmed at 140.3276
-> Correct Direction: 1
-*** Trial 9 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_orient Task:  XYTrend*
-Task Loaded at 140.3276
-Selected 3; Menu Loaded at 148.5271
-> Time to Completion: 8.199585
-Selection confirmed at 149.2196
-> Correct Direction: 3
-*** Trial 10 ***
-* Vis: TrendPrefabs/Medium/Trend4dLgMedium1_color Task:  XYZTrend*
-Total Resets: 2
-Total Time: 149.2196
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-Selected 4; Menu Loaded at 1.350215
-> Time to Completion: 1.350215
-Selection confirmed at 1.913099
-Incorrect Direction: Selected=(4,0.282272344638862); Correct=(3,0.558352784328536)
-> Delta: 0.276080439689674 (correct - select)
-*** Trial 1 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_depth Task:  XYTrend*
-Task Loaded at 1.913099
-Selected 4; Menu Loaded at 2.826945
-> Time to Completion: 0.9138461
-Selection confirmed at 3.261288
-Incorrect Direction: Selected=(4,-0.00566961771894631); Correct=(2,0.646137626984731)
-> Delta: 0.651807244703677 (correct - select)
-*** Trial 2 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard1_height Task:  XZTrend*
-Task Loaded at 3.261288
-Selected 5; Menu Loaded at 3.96258
-> Time to Completion: 0.7012916
-Selection confirmed at 4.50841
-Incorrect Direction: Selected=(5,-0.27451449489834); Correct=(0,0.284584953829395)
-> Delta: 0.559099448727735 (correct - select)
-*** Trial 3 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_orient Task:  XYTrend*
-Task Loaded at 4.50841
-Selected 4; Menu Loaded at 4.979121
-> Time to Completion: 0.4707117
-Selection confirmed at 5.470831
-Incorrect Direction: Selected=(4,0.282272344638862); Correct=(3,0.558352784328536)
-> Delta: 0.276080439689674 (correct - select)
-*** Trial 4 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_size Task:  XYTrend*
-Task Loaded at 5.470831
-Selected 4; Menu Loaded at 5.93419
-> Time to Completion: 0.4633584
-Selection confirmed at 6.405609
-Incorrect Direction: Selected=(4,-0.00566961771894631); Correct=(2,0.646137631110993)
-> Delta: 0.65180724882994 (correct - select)
-*** Trial 5 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard2_color Task:  XYTrend*
-Task Loaded at 6.405609
-Selected 4; Menu Loaded at 12.71025
-> Time to Completion: 6.304641
-Selection confirmed at 13.709
-Incorrect Direction: Selected=(4,-0.243700537592091); Correct=(1,0.50300402027155)
-> Delta: 0.746704557863641 (correct - select)
-*** Trial 6 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy2_depth Task:  XYTrend*
-Task Loaded at 13.709
-Selected 4; Menu Loaded at 15.31346
-> Time to Completion: 1.604456
-Selection confirmed at 15.8589
-Incorrect Direction: Selected=(4,0.271809161224854); Correct=(3,0.545378365513935)
-> Delta: 0.273569204289081 (correct - select)
-*** Trial 7 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium2_height Task:  XZTrend*
-Task Loaded at 15.8589
-Selected 5; Menu Loaded at 18.0623
-> Time to Completion: 2.2034
-Selection confirmed at 18.84957
-Incorrect Direction: Selected=(5,-0.0706821308930017); Correct=(2,0.222709189510983)
-> Delta: 0.293391320403984 (correct - select)
-*** Trial 8 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard2_size Task:  XYTrend*
-Task Loaded at 18.84957
-Selected 4; Menu Loaded at 26.01015
-> Time to Completion: 7.160582
-Selection confirmed at 26.8752
-Incorrect Direction: Selected=(4,-0.243700537592091); Correct=(1,0.50300402027155)
-> Delta: 0.746704557863641 (correct - select)
-*** Trial 9 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_orient Task:  XYTrend*
-Task Loaded at 26.8752
-Selected 4; Menu Loaded at 28.53257
-> Time to Completion: 1.657373
-Selection confirmed at 29.07587
-Incorrect Direction: Selected=(4,0.282272344638862); Correct=(3,0.558352784328536)
-> Delta: 0.276080439689674 (correct - select)
-*** Trial 10 ***
-* Vis: TrendPrefabs/Medium/Trend4dLgMedium1_color Task:  XYZTrend*
-Total Resets: 0
-Total Time: 29.07587
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-Selected 4; Menu Loaded at 2.317964
-> Time to Completion: 2.317964
-Selection confirmed at 3.006764
-Incorrect Direction: Selected=(4,0.282272344638862); Correct=(3,0.558352784328536)
-> Delta: 0.276080439689674 (correct - select)
-*** Trial 1 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_depth Task:  XYTrend*
-Task Loaded at 3.006764
-Selected 4; Menu Loaded at 3.711167
-> Time to Completion: 0.7044029
-Selection confirmed at 4.244004
-Incorrect Direction: Selected=(4,-0.00566961771894631); Correct=(2,0.646137626984731)
-> Delta: 0.651807244703677 (correct - select)
-*** Trial 2 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard1_height Task:  XZTrend*
-Task Loaded at 4.244004
-Selected 7; Menu Loaded at 5.987663
-> Time to Completion: 1.743659
-Selection confirmed at 6.619837
-Incorrect Direction: Selected=(7,0.163263962594674); Correct=(0,0.284584953829395)
-> Delta: 0.121320991234721 (correct - select)
-*** Trial 3 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_orient Task:  XYTrend*
-Task Loaded at 6.619837
-Selected 3; Menu Loaded at 14.14171
-> Time to Completion: 7.521876
-Selection confirmed at 15.26419
-> Correct Direction: 3
-*** Trial 4 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_size Task:  XYTrend*
-Task Loaded at 15.26419
-Selected 1; Menu Loaded at 22.5087
-> Time to Completion: 7.244517
-Selection rejected at 24.6527
-Selected 2; Menu Loaded at 25.74297
-> Time to Completion: 1.090269
-Selection confirmed at 26.23787
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_size Task:  XYZTrend*
+Task Loaded at 187.2344
+Selected 2; Menu Loaded at 195.231
+> Time to Completion: 7.996613
+Selection confirmed at 195.9069
 > Correct Direction: 2
+Positional Distance Traveled: 3.718893
+Rotational Distance Traveled: 274.6328
+*** Trial 8 ***
+Total Time: 195.9069
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+Task Loaded at 0
+Selected Quadrant (0.1, -0.1, 0.4) with Average 16.41844; Menu Loaded at 6.123796
+> Time to Completion: 6.123796
+Selection confirmed at 7.272427
+> Selected MAX(0.1, -0.1, 0.4); Mean=16.41844
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 1 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_depth Task:  XYQuadrant*
+Task Loaded at 7.272427
+Selected Quadrant (-0.1, 0.0, 0.5) with Average 17.40724; Menu Loaded at 15.70858
+> Time to Completion: 8.43615
+Selection confirmed at 16.42867
+> Selected MAX(-0.1, 0.0, 0.5); Mean=17.40724
+Positional Distance Traveled: 1.298504
+Rotational Distance Traveled: 101.4437
+*** Trial 2 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_height Task:  XZQuadrant*
+Task Loaded at 16.42867
+Selected Quadrant (-0.1, 0.0, 0.5) with Average 18.49622; Menu Loaded at 66.40819
+> Time to Completion: 49.97952
+Selection confirmed at 67.09708
+> Selected MAX(-0.1, 0.0, 0.5); Mean=18.49622
+Positional Distance Traveled: 10.72483
+Rotational Distance Traveled: 906.8855
+*** Trial 3 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_orient Task:  XYQuadrant*
+Task Loaded at 67.09708
+Selected Quadrant (0.1, -0.1, 0.4) with Average 5.374729; Menu Loaded at 71.99986
+> Time to Completion: 4.902779
+Selection confirmed at 73.50302
+> Selected MIN(0.1, -0.1, 0.4); Mean=5.374729
+Positional Distance Traveled: 0.7435675
+Rotational Distance Traveled: 68.05595
+*** Trial 4 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_size Task:  XYQuadrant*
+Task Loaded at 73.50302
+Selected Quadrant (0.1, -0.1, 0.4) with Average 16.41844; Menu Loaded at 76.13467
+> Time to Completion: 2.631653
+Selection confirmed at 77.33236
+> Selected MAX(0.1, -0.1, 0.4); Mean=16.41844
+Positional Distance Traveled: 0.08884293
+Rotational Distance Traveled: 0
 *** Trial 5 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard2_color Task:  XYTrend*
-Task Loaded at 26.23787
-Selected 1; Menu Loaded at 27.51508
-> Time to Completion: 1.27721
-Selection confirmed at 28.49634
-> Correct Direction: 1
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_color Task:  XYZQuadrant*
+Task Loaded at 77.33236
+Selected Quadrant (-0.1, -0.1, 0.5) with Average 8.24657; Menu Loaded at 109.6473
+> Time to Completion: 32.3149
+Selection confirmed at 110.5166
+> Selected MAX(-0.1, -0.1, 0.5); Mean=8.24657
+Positional Distance Traveled: 16.12715
+Rotational Distance Traveled: 792.1045
 *** Trial 6 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy2_depth Task:  XYTrend*
-Task Loaded at 28.49634
-Selected 2; Menu Loaded at 34.0433
-> Time to Completion: 5.546955
-Selection confirmed at 34.90819
-Incorrect Direction: Selected=(2,0.272928224397676); Correct=(3,0.545378365513935)
-> Delta: 0.272450141116259 (correct - select)
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_orient Task:  XYZQuadrant*
+Task Loaded at 110.5166
+Selected Quadrant (-0.1, -0.1, 0.5) with Average 8.24657; Menu Loaded at 207.6543
+> Time to Completion: 97.1377
+Selection confirmed at 208.4551
+> Selected MAX(-0.1, -0.1, 0.5); Mean=8.24657
+Positional Distance Traveled: 25.59106
+Rotational Distance Traveled: 2027.816
 *** Trial 7 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium2_height Task:  XZTrend*
-Task Loaded at 34.90819
-Selected 2; Menu Loaded at 51.1732
-> Time to Completion: 16.26501
-Selection confirmed at 52.11045
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_size Task:  XYZQuadrant*
+Task Loaded at 208.4551
+Selected Quadrant (-0.1, -0.1, 0.5) with Average 8.24657; Menu Loaded at 217.037
+> Time to Completion: 8.581818
+Selection confirmed at 217.6699
+> Selected MAX(-0.1, -0.1, 0.5); Mean=8.24657
+Positional Distance Traveled: 2.614764
+Rotational Distance Traveled: 229.7729
+*** Trial 8 ***
+Total Time: 217.6699
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 0
+> Time to Completion: 151.7737
+Selection confirmed at 152.4496
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 4.306925
+Rotational Distance Traveled: 9476.777
+*** Trial 1 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+Task Loaded at 152.4496
+> Time to Completion: 10.65675
+Selection confirmed at 163.8534
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.08860374
+Rotational Distance Traveled: 294.8978
+*** Trial 2 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_height Task:  Outlier*
+Task Loaded at 163.8534
+> Time to Completion: 2.243103
+Selection confirmed at 167.157
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 0.04211557
+Rotational Distance Traveled: 65.58575
+*** Trial 3 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_orient Task:  Outlier*
+Task Loaded at 167.157
+> Time to Completion: 4.8228
+Selection confirmed at 172.4116
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.03988723
+Rotational Distance Traveled: 159.4323
+*** Trial 4 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_size Task:  Outlier*
+Task Loaded at 172.4116
+> Time to Completion: 3.395828
+Selection confirmed at 176.1595
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.06133131
+Rotational Distance Traveled: 239.0694
+*** Trial 5 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_color Task:  Outlier*
+Task Loaded at 176.1595
+> Time to Completion: 3.574158
+Selection confirmed at 180.2089
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0.03154648
+Rotational Distance Traveled: 141.6184
+*** Trial 6 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_orient Task:  Outlier*
+Task Loaded at 180.2089
+> Time to Completion: 2.098679
+Selection confirmed at 182.6064
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0.02410714
+Rotational Distance Traveled: 54.19659
+*** Trial 7 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_size Task:  Outlier*
+Task Loaded at 182.6064
+> Time to Completion: 12.5101
+Selection confirmed at 195.5102
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0.1944928
+Rotational Distance Traveled: 459.2809
+*** Trial 8 ***
+Total Time: 195.5102
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.011959
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.005664
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.001633
+> Time to Completion: 3.166831
+Selection confirmed at 8.94486
+> Selected 4.027579
+> Min: 0.00108241 (delta=4.026496); Max: 20 (delta=-15.97242)
+Selection rejected at 8.94486
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.005293
+> Time to Completion: 4.159956
+Selection confirmed at 10.37714
+> Selected 3.946582
+> Min: 0.00108241 (delta=3.9455); Max: 20 (delta=-16.05342)
+Selection rejected at 10.37714
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.010027
+> Time to Completion: 2.940449
+Selection confirmed at 10.84215
+> Selected 3.625448
+> Min: 0.00108241 (delta=3.624366); Max: 20 (delta=-16.37455)
+Selection rejected at 10.84215
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+*** Trial 1 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+Task Loaded at 15.84513
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.00948
+> Time to Completion: 2.947692
+Selection confirmed at 8.60432
+> Selected 4.560834
+> Min: 0.00108241 (delta=4.559752); Max: 20 (delta=-15.43917)
+Selection rejected at 8.60432
+> Time to Completion: 5.930113
+Selection confirmed at 15.77347
+> Selected 1.055302
+> Min: 0.00108241 (delta=1.054219); Max: 20 (delta=-18.9447)
+Selection rejected at 15.77347
+> Time to Completion: 4.420938
+Selection confirmed at 22.32224
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 180.0859
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+*** Trial 1 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_depth Task:  Outlier*
+Task Loaded at 27.33515
+> Time to Completion: 6.113461
+Selection confirmed at 34.06958
+> Selected 2.2154
+> Min: 0.03032561 (delta=2.185074); Max: 50 (delta=-47.7846)
+Selection rejected at 34.06958
+> Time to Completion: 6.633064
+Selection confirmed at 41.67745
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.9842443
+Rotational Distance Traveled: 119.0267
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_height Task:  Outlier*
+*** Trial 2 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_height Task:  Outlier*
+Task Loaded at 46.67758
+> Time to Completion: 12.81925
+Selection confirmed at 60.27192
+> Selected 20
+> Min: 0.00108241 (delta=19.99892); Max: 20 (delta=0)
+Positional Distance Traveled: 3.054243
+Rotational Distance Traveled: 75.89342
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_orient Task:  Outlier*
+*** Trial 3 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_orient Task:  Outlier*
+Task Loaded at 65.27742
+> Time to Completion: 7.185928
+Selection confirmed at 73.19246
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_size Task:  Outlier*
+*** Trial 4 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_size Task:  Outlier*
+Task Loaded at 78.20581
+> Time to Completion: 38.58239
+Selection confirmed at 117.4383
+> Selected 14.30136
+> Min: 0.03032561 (delta=14.27103); Max: 50 (delta=-35.69864)
+Selection rejected at 117.4383
+> Time to Completion: 2.920296
+Selection confirmed at 121.5796
+> Selected 11.49455
+> Min: 0.03032561 (delta=11.46422); Max: 50 (delta=-38.50545)
+Selection rejected at 121.5796
+> Time to Completion: 4.559006
+Selection confirmed at 126.6521
+> Selected 50
+> Min: 0.03032561 (delta=49.96967); Max: 50 (delta=0)
+Positional Distance Traveled: 0.6455409
+Rotational Distance Traveled: 29.20658
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_color Task:  Outlier*
+*** Trial 5 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_color Task:  Outlier*
+Task Loaded at 131.6641
+> Time to Completion: 10.92586
+Selection confirmed at 143.6107
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 1.651953
+Rotational Distance Traveled: 115.8154
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_orient Task:  Outlier*
+*** Trial 6 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_orient Task:  Outlier*
+Task Loaded at 148.6184
+> Time to Completion: 6.58461
+Selection confirmed at 155.8887
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 92.36958
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_size Task:  Outlier*
+*** Trial 7 ***
+* Vis: OutlierPrefabs/Training/Outlier4dLgTrain_size Task:  Outlier*
+Task Loaded at 160.8915
+> Time to Completion: 13.6718
+Selection confirmed at 175.047
+> Selected 15
+> Min: 0.004599895 (delta=14.9954); Max: 15 (delta=0)
+Positional Distance Traveled: 1.612866
+Rotational Distance Traveled: 103.2878
+-----------------------------------
+Total Time: 175.047
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+*** Trial 0 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+Task Loaded at 5.010973
+Selected Quadrant (0.1, 0.0, 0.4) with Average 11.43201; Menu Loaded at 8.861609
+> Time to Completion: 3.850636
+Selection confirmed at 9.867392
+Selection rejected at 9.867392
+Selected Quadrant (-0.1, -0.1, 0.4) with Average 9.482128; Menu Loaded at 12.13937
+> Time to Completion: 2.27198
+Selection confirmed at 13.16096
+Selection rejected at 13.16096
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+*** Trial 0 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+Task Loaded at 5.007086
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+*** Trial 0 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_color Task:  XYQuadrant*
+Task Loaded at 5.007491
+Selected Quadrant (0.1, -0.1, 0.4) with Average 16.41844; Menu Loaded at 30.22535
+> Time to Completion: 25.21786
+Selection confirmed at 30.98856
+> Selected MAX(0.1, -0.1, 0.4); Mean=16.41844
+Positional Distance Traveled: 10.2175
+Rotational Distance Traveled: 1007.889
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_depth Task:  XYQuadrant*
+*** Trial 1 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_depth Task:  XYQuadrant*
+Task Loaded at 36.00522
+Selected Quadrant (0.1, 0.0, 0.5) with Average 8.600107; Menu Loaded at 39.98099
+> Time to Completion: 3.975773
+Selection confirmed at 40.80353
+Selection rejected at 40.80353
+Selected Quadrant (-0.1, 0.0, 0.5) with Average 17.40724; Menu Loaded at 48.57714
+> Time to Completion: 7.773613
+Selection confirmed at 54.41847
+> Selected MAX(-0.1, 0.0, 0.5); Mean=17.40724
+Positional Distance Traveled: 0.8125021
+Rotational Distance Traveled: 226.8093
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_height Task:  XZQuadrant*
+*** Trial 2 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_height Task:  XZQuadrant*
+Task Loaded at 59.43189
+Selected Quadrant (-0.1, 0.0, 0.5) with Average 18.49622; Menu Loaded at 66.4376
+> Time to Completion: 7.005707
+Selection confirmed at 69.19199
+> Selected MAX(-0.1, 0.0, 0.5); Mean=18.49622
+Positional Distance Traveled: 1.441483
+Rotational Distance Traveled: 168.5977
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_orient Task:  XYQuadrant*
+*** Trial 3 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_orient Task:  XYQuadrant*
+Task Loaded at 74.19647
+Selected Quadrant (0.1, -0.1, 0.4) with Average 5.374729; Menu Loaded at 76.8489
+> Time to Completion: 2.652428
+Selection confirmed at 77.9649
+Selection rejected at 77.9649
+Selected Quadrant (-0.1, -0.1, 0.4) with Average 8.479834; Menu Loaded at 87.938
+> Time to Completion: 9.973091
+Selection confirmed at 88.65424
+Selection rejected at 88.65424
+Selected Quadrant (-0.1, 0.0, 0.4) with Average 12.61904; Menu Loaded at 89.38912
+> Time to Completion: 0.7348785
+Selection confirmed at 90.21623
+Selection rejected at 90.21623
+Selected Quadrant (0.1, 0.0, 0.4) with Average 17.3489; Menu Loaded at 91.24926
+> Time to Completion: 1.033028
+Selection confirmed at 92.13222
+> Selected MAX(0.1, 0.0, 0.4); Mean=17.3489
+Positional Distance Traveled: 1.485049
+Rotational Distance Traveled: 36.6533
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_size Task:  XYQuadrant*
+*** Trial 4 ***
+* Vis: QuadrantPrefabs/Training/Quadrant3dLgTrain_size Task:  XYQuadrant*
+Task Loaded at 97.13833
+Selected Quadrant (0.1, -0.1, 0.4) with Average 16.41844; Menu Loaded at 102.9042
+> Time to Completion: 5.765823
+Selection confirmed at 103.8148
+> Selected MAX(0.1, -0.1, 0.4); Mean=16.41844
+Positional Distance Traveled: 0.3942906
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_color Task:  XYZQuadrant*
+*** Trial 5 ***
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_color Task:  XYZQuadrant*
+Task Loaded at 108.8183
+Selected Quadrant (-0.1, -0.1, 0.5) with Average 8.24657; Menu Loaded at 113.597
+> Time to Completion: 4.77874
+Selection confirmed at 114.3321
+> Selected MAX(-0.1, -0.1, 0.5); Mean=8.24657
+Positional Distance Traveled: 0.9394016
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_orient Task:  XYZQuadrant*
+*** Trial 6 ***
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_orient Task:  XYZQuadrant*
+Task Loaded at 119.3367
+Selected Quadrant (-0.1, -0.1, 0.5) with Average 8.24657; Menu Loaded at 124.4551
+> Time to Completion: 5.118385
+Selection confirmed at 125.3248
+> Selected MAX(-0.1, -0.1, 0.5); Mean=8.24657
+Positional Distance Traveled: 0.6542485
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_size Task:  XYZQuadrant*
+*** Trial 7 ***
+* Vis: QuadrantPrefabs/Training/Quadrant4dLgTrain_size Task:  XYZQuadrant*
+Task Loaded at 130.3251
+Selected Quadrant (-0.1, -0.1, 0.5) with Average 8.24657; Menu Loaded at 137.7815
+> Time to Completion: 7.45639
+Selection confirmed at 138.4463
+> Selected MAX(-0.1, -0.1, 0.5); Mean=8.24657
+Positional Distance Traveled: 1.328711
+Rotational Distance Traveled: 48.20188
+-----------------------------------
+Total Time: 138.4463
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.004285
+Total Time: 5.004285
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.000143
+Total Time: 5.000143
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.007615
+Total Time: 5.007615
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.000329
+Total Time: 5.000329
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.008568
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.000998
+Selected 2; Menu Loaded at 41.5476
+> Time to Completion: 36.5466
+Selection rejected at 42.4035
+Selected 0; Menu Loaded at 47.56669
+> Time to Completion: 5.163193
+Selection confirmed at 48.28996
+> Correct Direction: 0
+Positional Distance Traveled: 9.966265
+Rotational Distance Traveled: 348.1919
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+*** Trial 1 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+Task Loaded at 53.29043
+Selected 2; Menu Loaded at 57.62495
+> Time to Completion: 4.334518
+Selection rejected at 58.29941
+Selected 6; Menu Loaded at 59.50512
+> Time to Completion: 1.205711
+Selection rejected at 60.17421
+Selected 1; Menu Loaded at 66.20984
+> Time to Completion: 6.035625
+Selection rejected at 67.02127
+Selected 5; Menu Loaded at 68.36246
+> Time to Completion: 1.341194
+Selection confirmed at 69.14476
+> Correct Direction: 5
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 29.35849
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_height Task:  XZTrend*
+*** Trial 2 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_height Task:  XZTrend*
+Task Loaded at 74.14602
+Selected 7; Menu Loaded at 81.37817
+> Time to Completion: 7.232155
+Selection confirmed at 84.64738
+> Correct Direction: 7
+Positional Distance Traveled: 1.419809
+Rotational Distance Traveled: 74.2133
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_orient Task:  XYTrend*
+*** Trial 3 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_orient Task:  XYTrend*
+Task Loaded at 89.6592
+User Reset to Home at 118.3469
+Selected 6; Menu Loaded at 121.8826
+> Time to Completion: 32.22336
+Selection rejected at 123.1004
+Selected 4; Menu Loaded at 124.6946
+> Time to Completion: 1.594276
+Selection rejected at 125.2771
+Selected 6; Menu Loaded at 126.1576
+> Time to Completion: 0.8804703
+Selection rejected at 126.8115
+Selected 2; Menu Loaded at 133.5725
+> Time to Completion: 6.760918
+Selection confirmed at 134.8568
 > Correct Direction: 2
-*** Trial 8 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard2_size Task:  XYTrend*
-Task Loaded at 52.11045
-Selected 1; Menu Loaded at 64.47862
-> Time to Completion: 12.36817
-Selection confirmed at 64.98721
+Positional Distance Traveled: 7.6358
+Rotational Distance Traveled: 2047.89
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_size Task:  XYTrend*
+*** Trial 4 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_size Task:  XYTrend*
+Task Loaded at 139.8574
+Selected 1; Menu Loaded at 143.7154
+> Time to Completion: 3.857941
+Selection rejected at 144.3662
+Selected 0; Menu Loaded at 144.9156
+> Time to Completion: 0.5493469
+Selection confirmed at 145.6758
+> Correct Direction: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_color Task:  XYZTrend*
+*** Trial 5 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_color Task:  XYZTrend*
+Task Loaded at 150.679
+Selected 4; Menu Loaded at 162.324
+> Time to Completion: 11.64502
+Selection rejected at 163.2353
+Selected 2; Menu Loaded at 165.7642
+> Time to Completion: 2.5289
+Selection rejected at 166.2924
+Selected 0; Menu Loaded at 169.1243
+> Time to Completion: 2.831833
+Selection rejected at 169.9376
+Selected 5; Menu Loaded at 170.7205
+> Time to Completion: 0.7829132
+Selection confirmed at 171.2823
+> Correct Direction: 5
+Positional Distance Traveled: 2.441257
+Rotational Distance Traveled: 180.3591
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_orient Task:  XYZTrend*
+*** Trial 6 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_orient Task:  XYZTrend*
+Task Loaded at 176.2858
+Selected 1; Menu Loaded at 180.7897
+> Time to Completion: 4.503906
+Selection confirmed at 181.2907
 > Correct Direction: 1
-*** Trial 9 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_orient Task:  XYTrend*
-Task Loaded at 64.98721
-Selected 3; Menu Loaded at 67.79871
-> Time to Completion: 2.811501
-Selection confirmed at 68.34371
-> Correct Direction: 3
-*** Trial 10 ***
-* Vis: TrendPrefabs/Medium/Trend4dLgMedium1_color Task:  XYZTrend*
-Task Loaded at 68.34371
-Total Resets: 0
-Total Time: 68.34371
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, -0.1, 1.0) with Average 6.384244; Menu Loaded at 32.80737
-> Time to Completion: 32.80737
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, 0.2, 1.0) with Average 6.644126; Menu Loaded at 6.905085
-> Time to Completion: 6.905085
-Selection rejected at 10.52766
-Selected Quadrant (0.2, 0.2, 1.0) with Average 6.644126; Menu Loaded at 18.26148
-> Time to Completion: 7.733819
-Selection confirmed at 59.45187
-> Selected MAX(0.2, 0.2, 1.0); Mean=6.644126
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 59.45187
-Selected Quadrant (0.2, 0.2, 1.3) with Average 10.76977; Menu Loaded at 69.15395
-> Time to Completion: 9.702084
-Selection confirmed at 75.04243
-> Selected MAX(0.2, 0.2, 1.3); Mean=10.76977
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 75.04243
-Selected Quadrant (0.2, 0.1, 1.1) with Average 14.36456; Menu Loaded at 77.41496
-> Time to Completion: 2.372528
-Selection rejected at 80.32217
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: ObviousOutlierSize1 Task:  Outlier*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, 0.2, 1.0) with Average 6.644126; Menu Loaded at 12.28657
-> Time to Completion: 12.28657
-Selection rejected at 15.36045
-Selected Quadrant (-0.1, -0.1, 1.0) with Average 5.688356; Menu Loaded at 16.61083
-> Time to Completion: 1.250385
-Selection rejected at 17.63733
-Selected Quadrant (0.2, -0.1, 1.0) with Average 6.384244; Menu Loaded at 23.21291
-> Time to Completion: 5.575584
-Selection rejected at 24.0521
-Selected Quadrant (-0.1, 0.2, 1.0) with Average 5.795118; Menu Loaded at 27.84925
-> Time to Completion: 3.797153
-Selection rejected at 28.85225
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, 0.9, 1.1) with Average 5.883578; Menu Loaded at 107.0158
-> Time to Completion: 107.0158
-Selection rejected at 108.9404
-Selected Quadrant (1.0, 0.9, 1.1) with Average 6.858259; Menu Loaded at 110.4693
-> Time to Completion: 1.528946
-Selection rejected at 117.2482
-Selected Quadrant (0.2, 0.9, 1.1) with Average 5.883578; Menu Loaded at 119.7857
-> Time to Completion: 2.537468
-Selection confirmed at 121.616
-> Incorrect Selection (0.2, 0.9, 1.1); Mean=5.883578
-> MIN Delta=0.7079005; MAX Delta=-2.109042
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 121.616
-Selected Quadrant (0.2, 0.2, 1.8) with Average 8.704462; Menu Loaded at 127.4257
-> Time to Completion: 5.8097
-Selection rejected at 128.161
-Selected Quadrant (0.2, 0.2, 1.8) with Average 8.704462; Menu Loaded at 129.5455
-> Time to Completion: 1.384491
-Selection rejected at 130.1942
-Selected Quadrant (1.0, 0.2, 1.8) with Average 11.98701; Menu Loaded at 131.6139
-> Time to Completion: 1.419724
-Selection rejected at 132.3156
-Selected Quadrant (1.0, 0.2, 1.8) with Average 11.98701; Menu Loaded at 133.9126
-> Time to Completion: 1.596954
-Selection confirmed at 134.8979
-> Selected MAX(1.0, 0.2, 1.8); Mean=11.98701
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 134.8979
-Selected Quadrant (1.0, 0.6, 1.4) with Average 15.69805; Menu Loaded at 136.5274
-> Time to Completion: 1.629547
-Selection rejected at 138.1574
-Selected Quadrant (0.2, 0.6, 2.2) with Average 13.97546; Menu Loaded at 141.1402
-> Time to Completion: 2.982803
-Selection rejected at 142.4239
-Selected Quadrant (1.0, 0.6, 1.4) with Average 15.69805; Menu Loaded at 143.3876
-> Time to Completion: 0.9636841
-Selection confirmed at 144.4124
-> Selected MAX(1.0, 0.6, 1.4); Mean=15.69805
-*** Trial 3 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_orient Task:  XYQuadrant*
-Task Loaded at 144.4124
-Selected Quadrant (1.0, 0.2, 1.1) with Average 7.99262; Menu Loaded at 153.813
-> Time to Completion: 9.400543
-Selection confirmed at 156.2543
-> Selected MAX(1.0, 0.2, 1.1); Mean=7.99262
-*** Trial 4 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_size Task:  XYQuadrant*
-Task Loaded at 156.2543
-Selected Quadrant (1.0, 0.2, 1.1) with Average 11.98701; Menu Loaded at 162.7648
-> Time to Completion: 6.510452
-Selection confirmed at 163.8401
-> Selected MAX(1.0, 0.2, 1.1); Mean=11.98701
-*** Trial 5 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard2_color Task:  XYQuadrant*
-Task Loaded at 163.8401
-Selected Quadrant (1.0, 0.2, 1.1) with Average 15.77833; Menu Loaded at 172.7514
-> Time to Completion: 8.911209
-Selection rejected at 183.5408
-Selected Quadrant (1.0, 0.9, 1.1) with Average 14.85002; Menu Loaded at 186.8854
-> Time to Completion: 3.344559
-Selection confirmed at 188.3996
-> Incorrect Selection (1.0, 0.9, 1.1); Mean=14.85002
-> MIN Delta=1.798181; MAX Delta=-0.9283152
-*** Trial 6 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy2_depth Task:  XYQuadrant*
-Task Loaded at 188.3996
-Selected Quadrant (1.0, 0.2, 1.8) with Average 7.709894; Menu Loaded at 196.1906
-> Time to Completion: 7.791016
-Selection rejected at 197.0923
-Selected Quadrant (1.0, 1.0, 1.8) with Average 7.049588; Menu Loaded at 198.5217
-> Time to Completion: 1.429352
-Selection confirmed at 199.5067
-> Incorrect Selection (1.0, 1.0, 1.8); Mean=7.049588
-> MIN Delta=1.795069; MAX Delta=-0.660306
+Positional Distance Traveled: 1.064306
+Rotational Distance Traveled: 30.29968
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_size Task:  XYZTrend*
 *** Trial 7 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium2_height Task:  XZQuadrant*
-Task Loaded at 199.5067
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (1.0, 0.9, 1.1) with Average 6.858259; Menu Loaded at 14.20856
-> Time to Completion: 14.20856
-Selection rejected at 18.43111
-Selected Quadrant (1.0, 0.9, 1.1) with Average 6.858259; Menu Loaded at 19.73367
-> Time to Completion: 1.302559
-Selection rejected at 23.4555
-Selected Quadrant (1.0, 0.9, 1.1) with Average 6.858259; Menu Loaded at 25.99553
-> Time to Completion: 2.540035
-Selection confirmed at 29.25309
-> Incorrect Selection (1.0, 0.9, 1.1); Mean=6.858259
-> MIN Delta=1.682581; MAX Delta=-1.134361
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 29.25309
-Selected Quadrant (0.2, 0.2, 1.8) with Average 8.704462; Menu Loaded at 44.28876
-> Time to Completion: 15.03567
-Selection rejected at 46.58265
-Selected Quadrant (0.2, 0.2, 1.8) with Average 8.704462; Menu Loaded at 48.20756
-> Time to Completion: 1.624916
-Selection rejected at 49.46669
-Selected Quadrant (0.2, 0.2, 1.8) with Average 8.704462; Menu Loaded at 60.38123
-> Time to Completion: 10.91454
-Selection rejected at 61.88911
-Selected Quadrant (0.2, 0.2, 1.8) with Average 8.704462; Menu Loaded at 67.22929
-> Time to Completion: 5.340179
-Selection rejected at 67.96745
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, 0.9, 1.1) with Average 5.883578; Menu Loaded at 13.92684
-> Time to Completion: 13.92684
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (1.0, 0.9, 1.1) with Average 6.858259; Menu Loaded at 8.904249
-> Time to Completion: 8.904249
-Selection rejected at 12.15058
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, 0.2, 1.1) with Average 5.175677; Menu Loaded at 8.845126
-> Time to Completion: 8.845126
-Selection rejected at 11.4409
-Selected Quadrant (0.2, 0.2, 1.1) with Average 5.175677; Menu Loaded at 17.72178
-> Time to Completion: 6.280876
-Selection rejected at 19.53134
-Selected Quadrant (0.2, 0.2, 1.1) with Average 5.175677; Menu Loaded at 31.56446
-> Time to Completion: 12.03312
-Selection rejected at 34.02158
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_color Task:  XYTrend*
-Task Loaded at 0
-Selected 1; Menu Loaded at 7.21431
-> Time to Completion: 7.21431
-Selection confirmed at 13.21484
-Incorrect Direction: Selected=(1,-0.00165949203635084); Correct=(3,0.998136946815856)
-> Delta: 0.999796438852207 (correct - select)
-*** Trial 1 ***
-* Vis: TrendPrefabs/Medium/Trend3dLgMedium1_depth Task:  XYTrend*
-Task Loaded at 13.21484
-Selected 0; Menu Loaded at 14.73785
-> Time to Completion: 1.523018
-Selection confirmed at 15.26057
-Incorrect Direction: Selected=(0,0.00827620456440993); Correct=(2,0.999881269867207)
-> Delta: 0.991605065302798 (correct - select)
-*** Trial 2 ***
-* Vis: TrendPrefabs/Hard/Trend3dLgHard1_height Task:  XZTrend*
-Task Loaded at 15.26057
-Selected 7; Menu Loaded at 16.57685
-> Time to Completion: 1.316279
-Selection confirmed at 17.80199
-Incorrect Direction: Selected=(7,-0.000787450802366426); Correct=(1,0.99955320031027)
-> Delta: 1.00034065111264 (correct - select)
-*** Trial 3 ***
-* Vis: TrendPrefabs/Easy/Trend3dLgEasy1_orient Task:  XYTrend*
-Task Loaded at 17.80199
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, 0.2, 1.0) with Average 11.04227; Menu Loaded at 184.1104
-> Time to Completion: 184.1104
-Selection rejected at 185.4765
-Selected Quadrant (0.2, -0.1, 1.0) with Average 8.624836; Menu Loaded at 187.7095
-> Time to Completion: 2.232956
-Selection rejected at 188.5982
-Selected Quadrant (0.2, 0.2, 1.0) with Average 11.04227; Menu Loaded at 438.2321
-> Time to Completion: 249.6339
-Selection confirmed at 439.0901
-> Selected MAX(0.2, 0.2, 1.0); Mean=11.04227
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 439.0901
-Selected Quadrant (0.2, 0.2, 1.3) with Average 10.79634; Menu Loaded at 447.7909
-> Time to Completion: 8.700714
-Selection confirmed at 448.6819
-> Incorrect Selection (0.2, 0.2, 1.3); Mean=10.79634
-> MIN Delta=1.218425; MAX Delta=-4.293363
-*** Trial 2 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard1_height Task:  XZQuadrant*
-Task Loaded at 448.6819
-Selected Quadrant (0.2, 0.1, 1.4) with Average 18.78053; Menu Loaded at 470.5034
-> Time to Completion: 21.82156
-Selection confirmed at 472.1451
-> Selected MAX(0.2, 0.1, 1.4); Mean=18.78053
-*** Trial 3 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_orient Task:  XYQuadrant*
-Task Loaded at 472.1451
-Selected Quadrant (0.2, 0.2, 1.0) with Average 11.04227; Menu Loaded at 476.1318
-> Time to Completion: 3.986633
-Selection confirmed at 477.2231
-> Selected MAX(0.2, 0.2, 1.0); Mean=11.04227
-*** Trial 4 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_size Task:  XYQuadrant*
-Task Loaded at 477.2231
-Selected Quadrant (-0.1, -0.1, 1.0) with Average 15.08971; Menu Loaded at 493.6901
-> Time to Completion: 16.46701
-Selection confirmed at 494.4798
-> Selected MAX(-0.1, -0.1, 1.0); Mean=15.08971
-*** Trial 5 ***
-* Vis: QuadrantPrefabs/Hard/Quadrant3dLgHard2_color Task:  XYQuadrant*
-Task Loaded at 494.4798
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Selected Quadrant (0.2, 0.2, 1.0) with Average 11.04227; Menu Loaded at 91.92477
-> Time to Completion: 91.92477
-Selection confirmed at 92.97607
-> Selected MAX(0.2, 0.2, 1.0); Mean=11.04227
-*** Trial 1 ***
-* Vis: QuadrantPrefabs/Medium/Quadrant3dLgMedium1_depth Task:  XYQuadrant*
-Task Loaded at 92.97607
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_size Task:  XYZTrend*
+Task Loaded at 186.2979
+Selected 2; Menu Loaded at 188.3418
+> Time to Completion: 2.043915
+Selection confirmed at 188.8451
+> Correct Direction: 2
 Positional Distance Traveled: 0
 Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: QuadrantPrefabs/Easy/Quadrant3dLgEasy1_color Task:  XYQuadrant*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 21.98721
-Selection confirmed at 37.90557
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-Positional Distance Traveled: 24.70272
-Rotational Distance Traveled: 0
-*** Trial 1 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_depth Task:  Outlier*
-Task Loaded at 37.90557
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 5.521213
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 3.165666
-Selection rejected at 44.04631
-> Time to Completion: 10.88579
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 2.712309
-Selection rejected at 7.555492
-> Time to Completion: 5.37013
-Selection rejected at 14.62062
-> Time to Completion: 18.65844
-Selection rejected at 36.05404
-> Time to Completion: 3.500229
-Selection rejected at 41.90884
-> Time to Completion: 1.194839
-Selection rejected at 44.28112
-> Time to Completion: 2.321545
-Selection rejected at 49.65259
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 2.759518
-Selection rejected at 7.880978
-> Time to Completion: 2.340024
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 3.076436
-Selection rejected at 11.25858
-> Time to Completion: 1.942868
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 2.585377
-Selection rejected at 3.809715
-> Time to Completion: 2.438793
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 3.072726
-Selection rejected at 4.322968
-> Time to Completion: 1.163075
-Selection rejected at 6.40102
-> Time to Completion: 8.117704
-Selection rejected at 15.69496
-> Time to Completion: 2.037781
-Selection rejected at 18.4808
-> Time to Completion: 1.395916
-Selection rejected at 21.02847
-> Time to Completion: 1.065586
-Selection rejected at 22.90871
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 6.05552
-Selection confirmed at 8.864214
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-Positional Distance Traveled: 0.3
-Rotational Distance Traveled: 95.08449
-*** Trial 1 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_depth Task:  Outlier*
-Total Time: 8.864214
-Total Resets: 0
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 1.903763
-Selection confirmed at 2.748823
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 0
-*** Trial 1 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_depth Task:  Outlier*
-Task Loaded at 2.748823
-> Time to Completion: 11.53236
-Selection confirmed at 15.32074
-> Selected 22.92545
-> Min: 2.577961 (delta=20.34748); Max: 22.92545 (delta=0)
-Positional Distance Traveled: 2.959485
-Rotational Distance Traveled: 164.9252
-*** Trial 2 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard1_height Task:  Outlier*
-Task Loaded at 15.32074
-User Reset to Home at 18.42822
-> Time to Completion: 9.932102
-Selection confirmed at 27.69686
-> Selected 22.66661
-> Min: 3.714046 (delta=18.95256); Max: 22.66661 (delta=0)
-Positional Distance Traveled: 6.293705
-Rotational Distance Traveled: 170.8007
-*** Trial 3 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_orient Task:  Outlier*
-Task Loaded at 27.69686
-> Time to Completion: 16.93637
-Selection confirmed at 45.57862
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-Positional Distance Traveled: 2.885127
-Rotational Distance Traveled: 82.11726
-*** Trial 4 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium1_size Task:  Outlier*
-Task Loaded at 45.57862
-> Time to Completion: 12.3243
-Selection confirmed at 61.08947
-> Selected 22.92545
-> Min: 2.577961 (delta=20.34748); Max: 22.92545 (delta=0)
-Positional Distance Traveled: 6.005957
-Rotational Distance Traveled: 87.13203
-*** Trial 5 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard2_color Task:  Outlier*
-Task Loaded at 61.08947
-> Time to Completion: 5.026058
-Selection confirmed at 68.37644
-> Selected 21.97854
-> Min: 3.515619 (delta=18.46292); Max: 21.97854 (delta=0)
-Positional Distance Traveled: 0
-Rotational Distance Traveled: 15.73768
-*** Trial 6 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy2_depth Task:  Outlier*
-Task Loaded at 68.37644
-> Time to Completion: 8.407364
-Selection confirmed at 77.80273
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-Positional Distance Traveled: 4.933106
-Rotational Distance Traveled: 52.48588
-*** Trial 7 ***
-* Vis: OutlierPrefabs/Medium/Outlier3dLgMedium2_height Task:  Outlier*
-Task Loaded at 77.80273
-> Time to Completion: 4.544525
-Selection confirmed at 83.09903
-> Selected 22.67618
-> Min: 3.802572 (delta=18.87361); Max: 22.67618 (delta=0)
-Positional Distance Traveled: 3.343413
-Rotational Distance Traveled: 87.76885
+-----------------------------------
+Total Time: 188.8451
+Total Resets: 1
 *** Trial 8 ***
-* Vis: OutlierPrefabs/Hard/Outlier3dLgHard2_size Task:  Outlier*
-Task Loaded at 83.09903
-> Time to Completion: 10.61726
-> Time to Completion: 11.35127
-Selection confirmed at 95.39066
-> Selected 21.32391
-> Min: 3.38369 (delta=17.94022); Max: 21.32391 (delta=0)
-Positional Distance Traveled: 4.268456
-Rotational Distance Traveled: 0
-*** Trial 9 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_orient Task:  Outlier*
-Task Loaded at 95.39066
-> Time to Completion: 3.698425
-Selection confirmed at 99.81046
-> Selected 26.41198
-> Min: 3.239175 (delta=23.1728); Max: 26.41198 (delta=0)
-Positional Distance Traveled: 0.2133291
-Rotational Distance Traveled: 0
-*** Trial 10 ***
-* Vis: OutlierPrefabs/Medium/Outlier4dLgMedium1_color Task:  Outlier*
-Task Loaded at 99.81046
-> Time to Completion: 11.1162
-Selection confirmed at 111.9848
-> Selected 16.18549
-> Min: 2.931767 (delta=13.25372); Max: 23.02704 (delta=-6.841547)
-Positional Distance Traveled: 5.2863
-Rotational Distance Traveled: 54.37322
-*** Trial 11 ***
-* Vis: OutlierPrefabs/Hard/Outlier4dLgHard1_orient Task:  Outlier*
-Task Loaded at 111.9848
+Total Time: 193.8567
+Total Resets: 1
 Positional Distance Traveled: 0
 Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
 *** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
-> Time to Completion: 18.06194
-Selection rejected at 19.28763
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.004841
+Selected 4; Menu Loaded at 12.81722
+> Time to Completion: 7.812379
+Selection rejected at 13.55226
+Selected 3; Menu Loaded at 14.57144
+> Time to Completion: 1.019176
+Selection rejected at 15.22978
+Selected 5; Menu Loaded at 19.97307
+> Time to Completion: 4.743281
+Selection rejected at 20.81876
+Selected 5; Menu Loaded at 21.65611
+> Time to Completion: 0.8373528
+Selection rejected at 23.03838
+Selected 7; Menu Loaded at 26.04901
+> Time to Completion: 3.010628
+Selection rejected at 26.81878
+Selected 0; Menu Loaded at 27.45165
+> Time to Completion: 0.6328735
+Selection confirmed at 28.04781
+> Correct Direction: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 7.924578
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+*** Trial 1 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+Task Loaded at 33.05698
 Positional Distance Traveled: 0
 Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
 *** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.009907
+Selected 4; Menu Loaded at 6.771436
+> Time to Completion: 1.761529
+Selection confirmed at 7.484789
+> Correct Direction: 4
 Positional Distance Traveled: 0
 Rotational Distance Traveled: 0
-*** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
 Positional Distance Traveled: 0
 Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
 *** Trial 0 ***
-* Vis: OutlierPrefabs/Easy/Outlier3dLgEasy1_color Task:  Outlier*
-Task Loaded at 0
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.001933
+Selected 4; Menu Loaded at 6.2519
+> Time to Completion: 1.249968
+Selection confirmed at 6.968415
+> Correct Direction: 4
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+*** Trial 1 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_depth Task:  XYTrend*
+Task Loaded at 11.97243
+Selected 1; Menu Loaded at 18.78462
+> Time to Completion: 6.81219
+Selection rejected at 19.72216
+Selected 0; Menu Loaded at 20.65395
+> Time to Completion: 0.9317856
+Selection rejected at 21.16575
+Selected 5; Menu Loaded at 22.09791
+> Time to Completion: 0.9321594
+Selection confirmed at 22.73078
+> Correct Direction: 5
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 16.8065
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_height Task:  XZTrend*
+*** Trial 2 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_height Task:  XZTrend*
+Task Loaded at 27.73363
+Selected 7; Menu Loaded at 32.63536
+> Time to Completion: 4.90173
+Selection rejected at 33.54803
+Selected 3; Menu Loaded at 34.75135
+> Time to Completion: 1.203327
+Selection confirmed at 35.65404
+> Correct Direction: 3
+Positional Distance Traveled: 0.5055788
+Rotational Distance Traveled: 55.26931
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_orient Task:  XYTrend*
+*** Trial 3 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_orient Task:  XYTrend*
+Task Loaded at 40.65536
+Selected 2; Menu Loaded at 59.74118
+> Time to Completion: 19.08582
+Selection confirmed at 60.24704
+> Correct Direction: 2
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_size Task:  XYTrend*
+*** Trial 4 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_size Task:  XYTrend*
+Task Loaded at 65.24969
+Selected 3; Menu Loaded at 71.48692
+> Time to Completion: 6.237228
+Selection rejected at 72.30486
+Selected 4; Menu Loaded at 73.04197
+> Time to Completion: 0.7371063
+Selection confirmed at 73.58959
+> Correct Direction: 4
+Positional Distance Traveled: 0.4412327
+Rotational Distance Traveled: 36.25721
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_color Task:  XYZTrend*
+*** Trial 5 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_color Task:  XYZTrend*
+Task Loaded at 78.59225
+Selected 3; Menu Loaded at 98.4837
+> Time to Completion: 19.89146
+Selection rejected at 99.14015
+Selected 0; Menu Loaded at 102.835
+> Time to Completion: 3.69487
+Selection rejected at 103.5111
+Selected 5; Menu Loaded at 112.1374
+> Time to Completion: 8.626221
+Selection confirmed at 112.8021
+> Correct Direction: 5
+Positional Distance Traveled: 4.97292
+Rotational Distance Traveled: 186.0814
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_orient Task:  XYZTrend*
+*** Trial 6 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_orient Task:  XYZTrend*
+Task Loaded at 117.8074
+Selected 1; Menu Loaded at 183.0844
+> Time to Completion: 65.27707
+Selection rejected at 185.6249
+Selected 0; Menu Loaded at 187.1107
+> Time to Completion: 1.485794
+Selection confirmed at 187.7242
+> Correct Direction: 0
+Positional Distance Traveled: 8.67695
+Rotational Distance Traveled: 229.7516
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_size Task:  XYZTrend*
+*** Trial 7 ***
+* Vis: TrendPrefabs/Training/Trend4dLgTrain_size Task:  XYZTrend*
+Task Loaded at 192.7269
+Selected 2; Menu Loaded at 194.4499
+> Time to Completion: 1.723022
+Selection confirmed at 194.9467
+> Correct Direction: 2
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+Total Time: 194.9467
+Total Resets: 0
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+*** Trial 0 ***
+* Vis: TrendPrefabs/Training/Trend3dLgTrain_color Task:  XYTrend*
+Task Loaded at 5.005837
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.006366
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.005322
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.005907
+Positional Distance Traveled: 0
+Rotational Distance Traveled: 0
+-----------------------------------
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+*** Trial 0 ***
+* Vis: OutlierPrefabs/Training/Outlier3dLgTrain_color Task:  Outlier*
+Task Loaded at 5.003195

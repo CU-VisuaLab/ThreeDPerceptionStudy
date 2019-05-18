@@ -29,6 +29,9 @@ public class SelectQuadrant : MonoBehaviour {
 
     private GameObject cameraObject;
 
+    private float incorrectTime;
+    private bool training;
+
     // Use this for initialization
     void Awake ()
     {
@@ -38,8 +41,6 @@ public class SelectQuadrant : MonoBehaviour {
         else cameraObject = GameObject.Find("Camera_eyes");
 
         vrVersion = (GameObject.Find("GazeCursor") != null);
-
-        transform.root.localScale = new Vector3(2, 2, 2);
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
         width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
@@ -52,6 +53,7 @@ public class SelectQuadrant : MonoBehaviour {
 
         clicked = false;
 
+        training = FindObjectOfType<CSVReader>().csvFile.name.ToLower().Contains("train");
         HandleTextFile.WriteString("Task Loaded at " + Time.time);
         startTime = Time.time;
     }
@@ -93,7 +95,12 @@ public class SelectQuadrant : MonoBehaviour {
             HandleTextFile.WriteString("Selected Quadrant " + selectedQuadrant + " with Average " + quadrantAverages[selectedQuadrant] + "; Menu Loaded at " + Time.time);
             HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
         }
-	}
+
+        if (training && GameObject.Find("TaskHUD").GetComponent<Text>().text.Contains("Incorrect") && Time.time > incorrectTime)
+        {
+            GameObject.Find("TaskHUD").GetComponent<Text>().text = "";
+        }
+    }
 
     private void SetQuadrants()
     {
@@ -194,6 +201,9 @@ public class SelectQuadrant : MonoBehaviour {
         menuObject = GameObject.Instantiate(menuPrefab);
 
         menuObject.transform.parent = transform.root;
+
+
+        menuObject.transform.localScale = new Vector3(.001f, .001f, .001f);
         if (vrVersion)
         {
             menuObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
@@ -239,6 +249,18 @@ public class SelectQuadrant : MonoBehaviour {
         float maxVal = quadrantAverages.Values.Max();
         float minVal = quadrantAverages.Values.Min();
 
+        // If the user makes the wrong selection in training, force them to make the right selection
+        if (training && ((taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("low") &&
+            quadrantAverages[selectedQuadrant] == minVal) ||
+            (taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("high") &&
+            quadrantAverages[selectedQuadrant] != maxVal)))
+        {
+            GameObject.Find("TaskHUD").GetComponent<Text>().text = "Incorrect, try again";
+            incorrectTime = Time.time + 2;
+            NoButton();
+            return;
+        }
+
         if (quadrantAverages[selectedQuadrant] == maxVal)
         {
             HandleTextFile.WriteString("> Selected MAX" + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
@@ -252,7 +274,7 @@ public class SelectQuadrant : MonoBehaviour {
             HandleTextFile.WriteString("> Incorrect Selection " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
             HandleTextFile.WriteString("> MIN Delta=" + (quadrantAverages[selectedQuadrant] - minVal) + "; MAX Delta=" + (quadrantAverages[selectedQuadrant] - maxVal));
         }
-        if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
+        if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().TrialFinished())
         {
             // Load a message to tell the user they're done
 
@@ -261,7 +283,6 @@ public class SelectQuadrant : MonoBehaviour {
             {
                 CompleteMessagePrefab = Resources.Load("Prefabs/VRStudyCompleteMessage") as GameObject;
                 GameObject CompleteMessageObject = Instantiate(CompleteMessagePrefab);
-                //CompleteMessageObject.GetComponent<Canvas>().worldCamera = Camera.main;
             }
             else
             {

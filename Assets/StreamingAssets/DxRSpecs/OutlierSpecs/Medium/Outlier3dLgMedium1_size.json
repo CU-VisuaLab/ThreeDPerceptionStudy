@@ -1,5 +1,6 @@
 {
-  "width": 550,
+  "width": 500,
+  "height": 500,
   "depth": 50,
   "data": {
     "url": "OutlierData/Outlier3dLgMedium1.csv"
@@ -26,7 +27,7 @@
       "field": "d",
       "type": "quantitative",
       "scale": {
-        "range": [0,15]
+        "range": [ 3, 8 ]
       }
     }
   }

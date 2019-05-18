@@ -237,7 +237,7 @@ namespace HoloToolkit.Unity.InputModule
             else if (AxisTypeIsMouseScroll)
             {
                 if (ShouldControl())
-                    rot.x += Input.GetAxis("Mouse ScrollWheel");
+                    rot.x += 0.04f * Input.GetAxis("Mouse ScrollWheel");
             }
             else if (AxisTypeIsMouse)
             {

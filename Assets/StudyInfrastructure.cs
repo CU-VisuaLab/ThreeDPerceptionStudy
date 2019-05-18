@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class StudyInfrastructure : MonoBehaviour {
 
@@ -23,6 +24,11 @@ public class StudyInfrastructure : MonoBehaviour {
     private float distancePos;
     private float distanceRot;
 
+    private bool vrVersion;
+
+    private float taskLoadTime;
+    private bool flashingConditions;
+
     // Use this for initialization
     void Start () {
         HandleTextFile.path = "Assets/Resources/Participant" + participantNumber + ".txt";
@@ -30,10 +36,13 @@ public class StudyInfrastructure : MonoBehaviour {
         participantOrderingData = CSVReader.SplitCsvGrid(csv.csvFile.text);
         trialNumber = -1;
         numResets = 0;
+        vrVersion = (GameObject.Find("GazeCursor") != null);
         if (Camera.main != null) cameraObject = Camera.main.gameObject;
         else cameraObject = GameObject.Find("Camera_eyes");
-        LoadTrial();
-	}
+        flashingConditions = false;
+        taskLoadTime = Time.time + 5;
+        TrialFinished();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -44,26 +53,44 @@ public class StudyInfrastructure : MonoBehaviour {
             numResets++;
             GameObject.Find("MixedRealityCamera").transform.position = Vector3.zero; 
             GameObject.Find("MixedRealityCamera").transform.localEulerAngles = Vector3.zero;
+            cameraLastPos = cameraObject.transform.position;
+            cameraLastRot = cameraObject.transform.rotation;
         }
         distancePos += Vector3.Distance(cameraObject.transform.position, cameraLastPos);
         cameraLastPos = cameraObject.transform.position;
 
         distanceRot += Quaternion.Angle(cameraObject.transform.rotation, cameraLastRot);
         cameraLastRot = cameraObject.transform.rotation;
+
+        if (flashingConditions && Time.time > taskLoadTime)
+        {
+            LoadTrial();
+            flashingConditions = false;
+        }
+    }
+
+    public bool TrialFinished()
+    {
+        trialNumber++;
+        
+        HandleTextFile.WriteString("Positional Distance Traveled: " + distancePos);
+        HandleTextFile.WriteString("Rotational Distance Traveled: " + distanceRot);
+
+        HandleTextFile.WriteString("-----------------------------------");
+
+        taskLoadTime = Time.time + 5;
+        flashingConditions = true;
+        return FlashConditions();
     }
 
     public bool LoadTrial()
     {
-        trialNumber++;
-
-        HandleTextFile.WriteString("Positional Distance Traveled: " + distancePos);
-        HandleTextFile.WriteString("Rotational Distance Traveled: " + distanceRot);
-
         distancePos = 0;
         distanceRot = 0;
 
         cameraLastPos = cameraObject.transform.position;
         cameraLastRot = cameraObject.transform.rotation;
+
 
         HandleTextFile.WriteString("*** Trial " + trialNumber + " ***");
         try
@@ -77,6 +104,35 @@ public class StudyInfrastructure : MonoBehaviour {
             HandleTextFile.WriteString("* Vis: " + prefabName + " Task:  " + taskName + "*");
             GameObject visPrefab = Resources.Load("Prefabs/VisualizationPrefabs/" + prefabName) as GameObject;
             GameObject visObject = Instantiate(visPrefab);
+            
+            GameObject overviewPrefab = Resources.Load("Prefabs/TaskOverview") as GameObject;
+            GameObject overviewObject = Instantiate(overviewPrefab);
+            overviewObject.transform.parent = visObject.transform;
+            overviewObject.transform.localPosition = new Vector3(-.2f, -.1f, 0);
+            GameObject.Find("TaskOverviewText").GetComponent<Text>().text = GameObject.Find("TaskHUD").GetComponent<Text>().text;
+            GameObject.Find("TaskHUD").GetComponent<Text>().text = "";
+
+            visObject.transform.Find("DxRAnchor").GetComponent<Renderer>().enabled = false;
+
+            if (vrVersion)
+            {
+                if (Camera.main != null)
+                {
+                    visObject.transform.root.localScale = new Vector3(0.175f, 0.175f, 0.175f);
+                    visObject.transform.root.position = new Vector3(-.05f, -.1475f, -.05f);
+                }
+                else
+                {
+                    visObject.transform.root.localScale = new Vector3(2, 2, 2);
+                    visObject.transform.root.position = new Vector3(-0.5f, -1.475f, -0.5f);
+                    visObject.transform.localEulerAngles = new Vector3(0, 90, 0);
+                }
+            }
+            else
+            {
+                visObject.transform.root.localScale = new Vector3(0.59f, 0.59f, 0.59f);
+                visObject.transform.root.position = new Vector3(-.16f, -.19f, .4f);
+            }
 
             if (taskName == "Outlier")
             {
@@ -104,32 +160,22 @@ public class StudyInfrastructure : MonoBehaviour {
             else if (taskName == "XYTrend")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
-                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XY");
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XY");
             }
             else if (taskName == "XZTrend")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
-                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XZ");
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XZ");
             }
             else if (taskName == "XYZTrend")
             {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
-                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XYZ");
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
+                visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XYZ");
             }
-
-            string channel = char.ToUpper(prefabName.Split('_')[1][0]) + prefabName.Split('_')[1].Substring(1);
-            if (prefabName.ToUpper().Contains("3D"))
-            {
-                GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - " + taskName + " - " + taskType + " - 3D";
-            }
-            else
-            {
-                GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - " + taskName + " - " + taskType + " - 4D";
-            }
-            visObject.GetComponent<Vis>().LoadArrowLegend();
+            //visObject.GetComponent<Vis>().LoadArrowLegend();
         }
         catch (Exception e)
         {
@@ -140,5 +186,52 @@ public class StudyInfrastructure : MonoBehaviour {
             return false;
         }
         return true;
+    }
+
+    private bool FlashConditions()
+    {
+        try
+        {
+            // For some reason, the CSVReader class does Col-Row indexing
+            string[] parameters = participantOrderingData[trialNumber + 1, participantNumber + 1].Split(' ');
+            string prefabName = parameters[0];
+            string taskName = parameters[1];
+            string taskType = (parameters.Length > 2) ? parameters[2] : "";
+
+            HandleTextFile.WriteString("* Vis: " + prefabName + " Task:  " + taskName + "*");
+            
+            string channel = char.ToUpper(prefabName.Split('_')[1][0]) + prefabName.Split('_')[1].Substring(1);
+            string dimensionality = prefabName.ToUpper().Contains("3D") ? "2D" : "3D";
+
+            if (taskName.ToLower().Contains("outlier"))
+            {
+                if (taskType.ToLower().Contains("min")) GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Lowest Value - " + dimensionality;
+                else GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Highest Value - " + dimensionality;
+            }
+            else if (taskName.ToLower().Contains("quad"))
+            {
+                if (taskType.ToLower().Contains("min")) GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Lowest Average Area - " + dimensionality;
+                else GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Highest Average Area - " + dimensionality;
+            }
+            else
+            {
+                if (taskType.ToLower().Contains("min")) GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Decreasing Data - " + dimensionality;
+                else GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Increasing Data - " + dimensionality;
+            }
+            if (GameObject.Find("TaskHUD").GetComponent<Text>().text.Contains("Orient"))
+                GameObject.Find("TaskHUD").GetComponent<Text>().text = GameObject.Find("TaskHUD").GetComponent<Text>().text.Replace("Orient", "Orientation");
+            //GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - " + taskName + " - " + taskType + dimensionality;
+            //visObject.GetComponent<Vis>().LoadArrowLegend();
+        }
+        catch (Exception e)
+        {
+            loading = false;
+            Debug.Log(e.Message);
+            HandleTextFile.WriteString("Total Time: " + Time.time);
+            HandleTextFile.WriteString("Total Resets: " + numResets);
+            return false;
+        }
+        return true;
+
     }
 }

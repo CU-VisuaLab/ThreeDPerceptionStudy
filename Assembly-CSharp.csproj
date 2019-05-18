@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AROffset.cs" />
      <Compile Include="Assets\CreateCone.cs" />
      <Compile Include="Assets\DxR\Resources\Axis\Axis.cs" />
      <Compile Include="Assets\DxR\Resources\GUI\GazeResponderButtons.cs" />
@@ -136,6 +137,7 @@
      <Compile Include="Assets\External\ProceduralToolkit\VectorE.cs" />
      <Compile Include="Assets\GazeCursor.cs" />
      <Compile Include="Assets\HandleTextFile.cs" />
+     <Compile Include="Assets\HideVRModels.cs" />
      <Compile Include="Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs" />
      <Compile Include="Assets\HoloToolkit\Boundary\Scripts\SceneContentAdjuster.cs" />
      <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\AnimatedCursor.cs" />
@@ -886,6 +888,7 @@
      <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
      <Compile Include="Assets\StudyInfrastructure.cs" />
      <Compile Include="Assets\ViveControllerClickListener.cs" />
+     <Compile Include="Assets\VROffset.cs" />
      <Compile Include="Assets\VRTK\Examples\ExampleResources\SceneResources\[001 - Interactions] ControllerEvents\Scripts\VRTKExample_ControllerEventsDelegateListeners.cs" />
      <Compile Include="Assets\VRTK\Examples\ExampleResources\SceneResources\[002 - Pointers] StraightPointer\Scripts\VRTKExample_PointerObjectHighlighterActivator.cs" />
      <Compile Include="Assets\VRTK\Examples\ExampleResources\SceneResources\[003 - Pointers] BezierPointer\Scripts\VRTKExample_BezierPointerChanger.cs" />
@@ -1300,6 +1303,8 @@
      <Compile Include="Assets\ZED\SDK\NativeInterface\ZEDCommon.cs" />
      <Compile Include="Assets\ZED\SDK\NativeInterface\ZEDMat.cs" />
      <None Include="Assets\DxR\Resources\Marks\milk\Ice(break).shader" />
+     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
+     <None Include="Assets\Resources\MichaelOutlier.txt" />
      <None Include="Assets\ZED\Examples\GreenScreen\Readme.txt" />
      <None Include="Assets\ZED\SDK\Helpers\Shaders\SpatialMapping\GeometryWireframe.shader" />
      <None Include="Assets\ZED\Examples\Plane Detection\Textures\Readme.txt" />
@@ -1311,8 +1316,10 @@
      <None Include="Assets\HoloToolkit\SpatialUnderstanding\Materials\SpatialUnderstandingSurface.shader" />
      <None Include="Assets\HoloToolkit\SpatialMapping\Shaders\SpatialMappingTap.shader" />
      <None Include="Assets\ZED\Examples\Dark Room\ReadMe.txt" />
+     <None Include="Assets\Resources\Participant0.txt" />
      <None Include="Assets\HoloToolkit\UX\Shaders\unlit_vert_color.shader" />
      <None Include="Assets\External\ProceduralToolkit\Shaders\Gradient Skybox.shader" />
+     <None Include="Assets\Resources\Participant1.txt" />
      <None Include="Assets\ZED\SDK\Helpers\Shaders\PostProcessing\ZED_Post-Processing.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\Obsolete\VertexLitConfigurable.cginc" />
      <None Include="Assets\ZED\SDK\Helpers\Shaders\GUI\ZED_Default_OverlayNoZTest.shader" />
@@ -1337,6 +1344,7 @@
      <None Include="Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\FastConfigurable.cginc" />
      <None Include="Assets\ZED\SDK\Helpers\Shaders\Lighting\ZED_Hide.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\FastConfigurable2Sided.shader" />
+     <None Include="Assets\Skybox Cubemap Extended.shader" />
      <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\UIOverlay.shader" />
      <None Include="Assets\SteamVR\InteractionSystem\Teleport\Shaders\Highlight.shader" />
      <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\VRTK_OutlineBasic.shader" />
@@ -1351,6 +1359,7 @@
      <None Include="Assets\HoloToolkit\UX\Fonts\LICENSE.txt" />
      <None Include="Assets\ZED\SDK\Helpers\Shaders\Lighting\ZED_Lighting.cginc" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\Obsolete\UnlitConfigurableTransparent.shader" />
+     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
      <None Include="Assets\ZED\Examples\Planetarium\Resources\Orbits\Materials\RingShader.shader" />
      <None Include="Assets\HoloToolkit\Input\Shaders\Cursor.shader" />
      <None Include="Assets\ZED\SDK\Helpers\Shaders\Lighting\ZED_Forward.shader" />
@@ -1385,7 +1394,6 @@
      <None Include="Assets\HoloToolkit\UX\Shaders\DebugNormals.shader" />
      <None Include="Assets\ZED\Examples\Plane Detection\Readme.txt" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\macro.cginc" />
-     <None Include="Assets\Resources\Participant0.txt" />
      <None Include="Assets\ZED\Examples\Planetarium\Resources\Saturn\Shader\Unliteferred.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\FastConfigurable\Shaders\HoloToolkitCommon.cginc" />
      <None Include="Assets\ZED\Examples\GreenScreen\Shaders\YUV.shader" />
@@ -1402,8 +1410,8 @@
      <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\Obsolete\VertexLitConfigurableTransparent.shader" />
      <None Include="Assets\HoloToolkit\UX\Shaders\HUXButtonHighlightShader.shader" />
+     <None Include="Assets\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
      <None Include="Assets\ZED\Examples\Planetarium\Resources\Sun\Shader\Sun.shader" />
-     <None Include="Assets\Resources\Participant1.txt" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\Obsolete\BlinnPhongConfigurable.cginc" />
      <None Include="Assets\External\ProceduralToolkit\Shaders\Specular Vertex Color.shader" />
      <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\TransparentFresnelBehind.shader" />

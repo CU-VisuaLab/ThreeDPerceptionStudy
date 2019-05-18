@@ -34,6 +34,9 @@ public class SelectTrend : MonoBehaviour {
 
     private GameObject cameraObject;
 
+    private float incorrectTime;
+    private bool training;
+
     // Use this for initialization
     void Awake()
     {
@@ -41,8 +44,6 @@ public class SelectTrend : MonoBehaviour {
         else cameraObject = GameObject.Find("Camera_eyes");
 
         vrVersion = (GameObject.Find("GazeCursor") != null);
-
-        transform.root.localScale = new Vector3(2, 2, 2);
 
         // TODO: 1 / 1000 factor defined as a constant in Vis.cs
         width = transform.root.localScale.x * transform.parent.parent.GetComponent<Vis>().GetVisSize().x / 1000;
@@ -52,7 +53,8 @@ public class SelectTrend : MonoBehaviour {
         confirming = false;
         
         orientationVersion = false;
-
+        
+        training = FindObjectOfType<CSVReader>().csvFile.name.ToLower().Contains("train");
         HandleTextFile.WriteString("Task Loaded at " + Time.time);
         startTime = Time.time;
     }
@@ -96,6 +98,11 @@ public class SelectTrend : MonoBehaviour {
         {
             HandleTextFile.WriteString("Missed click at " + Time.time);
         }
+
+        if (training && GameObject.Find("TaskHUD").GetComponent<Text>().text.Contains("Incorrect") && Time.time > incorrectTime)
+        {
+            GameObject.Find("TaskHUD").GetComponent<Text>().text = "";
+        }
     }
 
     private void SetDirections()
@@ -110,7 +117,6 @@ public class SelectTrend : MonoBehaviour {
         directionalPoints = new List<Vector3>();
         arrows = new List<GameObject>();
         Vector3 scaleVector = Vector3.zero;
-        Debug.Log("HAI");
         // Scale factor of 1 / 1000
         if (selectionPlane == "XY")
         {
@@ -155,6 +161,7 @@ public class SelectTrend : MonoBehaviour {
             GameObject arrow = GameObject.Instantiate(arrowPrefab);
             arrow.transform.parent = transform;
             arrow.transform.localPosition = new Vector3(width / 2, height / 2, depth / 2) / transform.root.localScale.x + directionalPoints[i];
+            arrow.transform.localScale = arrow.transform.localScale * transform.root.localScale.x; // FIX THIS!!!!
             if (selectionPlane == "XY") arrow.transform.localEulerAngles = new Vector3(0, 0, -90 + 45 * i);
             else if (selectionPlane == "XZ") arrow.transform.localEulerAngles = new Vector3(0, 360 - 45 * i, -90);
             else if (selectionPlane == "XYZ")
@@ -173,6 +180,8 @@ public class SelectTrend : MonoBehaviour {
         menuObject = GameObject.Instantiate(menuPrefab);
 
         menuObject.transform.parent = transform.root;
+
+        menuObject.transform.localScale = new Vector3(.001f, .001f, .001f);
 
         Vector3 center = arrows[directionIndex].transform.position;
         float a = 1.05f * Vector3.Magnitude(new Vector3(width / 2, height / 2, depth / 2)) / Vector3.Distance(cameraObject.transform.position, center);
@@ -292,6 +301,15 @@ public class SelectTrend : MonoBehaviour {
             directionalFits[5] = -directionalFits[1];
             directionalFits[7] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xMinusYVals, realVals).Item2) * xMinusYFit;
             directionalFits[3] = -directionalFits[7];
+            
+            if (taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("decreasing"))
+            {
+                for (var index = 0; index < directionalFits.Length; index++)
+                {
+                    directionalFits[index] *= -1;
+                }
+            }
+            
             if (maxFit == xFit)
             {
                 correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xVals, realVals).Item2 >= 0 ? 0 : 4;
@@ -312,6 +330,10 @@ public class SelectTrend : MonoBehaviour {
                 correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xMinusYVals, realVals).Item2 >= 0 ? 7 : 3;
                 //correctFit = correctDirection == 7 ? xMinusYFit : -xMinusYFit;
             }
+            if (taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("decreasing"))
+            {
+                correctDirection = (correctDirection + 4) % 8;
+            }
         }
         else
         {
@@ -321,6 +343,15 @@ public class SelectTrend : MonoBehaviour {
             directionalFits[3] = -directionalFits[2];
             directionalFits[4] = Mathf.Sign((float)MathNet.Numerics.LinearRegression.SimpleRegression.Fit(zVals, realVals).Item2) * zFit;
             directionalFits[5] = -directionalFits[4];
+
+            if (taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("decreasing"))
+            {
+                for (var index = 0; index < directionalFits.Length; index++)
+                {
+                    directionalFits[index] *= -1;
+                }
+            }
+
             if (maxFit == xFit)
             {
                 correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(xVals, realVals).Item2 >= 0 ? 0 : 1;
@@ -336,8 +367,13 @@ public class SelectTrend : MonoBehaviour {
                 correctDirection = MathNet.Numerics.LinearRegression.SimpleRegression.Fit(zVals, realVals).Item2 >= 0 ? 4 : 5;
                 //correctFit = correctDirection == 4 ? zFit : -zFit;
             }
+
+            if (taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("decreasing"))
+            {
+                if (correctDirection % 2 == 0) correctDirection += 1;
+                else correctDirection -= 1;
+            }
         }
-        Debug.Log(correctDirection);
     }
 
     private void CorrectOrientationDirection()
@@ -363,6 +399,15 @@ public class SelectTrend : MonoBehaviour {
 
     private void YesButton()
     {
+        // If the user makes the wrong selection in training, force them to make the right selection
+        if (training && selectedDirection != correctDirection)
+        {
+            GameObject.Find("TaskHUD").GetComponent<Text>().text = "Incorrect, try again";
+            incorrectTime = Time.time + 2;
+            NoButton();
+            return;
+        }
+
         HandleTextFile.WriteString("Selection confirmed at " + Time.time);
         if (selectedDirection == correctDirection) HandleTextFile.WriteString("> Correct Direction: " + selectedDirection);
         else if(orientationVersion)
@@ -377,7 +422,7 @@ public class SelectTrend : MonoBehaviour {
             correctDirection + "," + directionalFits[correctDirection] + ")");
             HandleTextFile.WriteString("> Delta: " + (directionalFits[correctDirection] - directionalFits[selectedDirection]) + " (correct - select)");
         }
-        if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().LoadTrial())
+        if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().TrialFinished())
         {
             // Load a message to tell the user they're done
 
@@ -408,11 +453,11 @@ public class SelectTrend : MonoBehaviour {
 
         taskDescription.transform.localScale = taskDescription.transform.localScale * transform.root.localScale.x;
 
-        if (taskName == "increasing")
+        if (taskName == "max")
         {
             taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "INCREASING";
         }
-        else if (taskName == "decreasing")
+        else if (taskName == "min")
         {
             taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "DECREASING";
         }
