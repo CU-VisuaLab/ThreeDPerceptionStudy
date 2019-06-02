@@ -1,0 +1,31 @@
+{
+  "width": 500,
+  "height": 500,
+  "depth": 50,
+  "data": {
+    "url": "TrendData/Trend3dLgMedium6.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "color": {
+      "field": "d",
+      "type": "quantitative"
+    }
+  }
+}

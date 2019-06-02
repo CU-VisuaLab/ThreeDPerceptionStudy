@@ -1,0 +1,35 @@
+{
+  "width": 500,
+  "height": 500,
+  "depth": 500,
+  "data": {
+    "url": "QuadrantData/Quadrant3dLgHard4.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "d",
+      "type": "quantitative",
+      "axis": {
+        "Title": "z",
+        "ticks": false
+      }
+    }
+  }
+}

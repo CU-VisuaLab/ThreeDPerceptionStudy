@@ -1,0 +1,33 @@
+{
+  "width": 500,
+  "height": 500,
+  "data": {
+    "url": "OutlierData/Outlier3dSmEasy3.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "size": {
+      "field": "d",
+      "type": "quantitative",
+      "scale": {
+        "range": [ 3, 8 ]
+      }
+    }
+  }
+}

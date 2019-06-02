@@ -1,0 +1,42 @@
+{
+  "width": 500,
+  "height": 500,
+  "depth": 500,
+  "data": {
+    "url": "TrendData/Trend4dLgMedium5.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "axis": {
+        "Title": "x",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "axis": {
+        "Title": "y",
+        "ticks": false
+      }
+    },
+    "z": {
+      "field": "z",
+      "type": "quantitative",
+      "axis": {
+        "Title": "z",
+        "ticks": false
+      }
+    },
+    "size": {
+      "field": "d",
+      "type": "quantitative",
+      "scale": {
+        "range": [ 3, 8 ]
+      }
+    }
+  }
+}
