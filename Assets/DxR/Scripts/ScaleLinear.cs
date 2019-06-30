@@ -17,6 +17,7 @@ namespace DxR
 
         public ScaleLinear(JSONNode scaleSpecs) : base(scaleSpecs) {
 
+
             domainMin = float.Parse(base.domain[0]); 
             domainMax = float.Parse(base.domain[1]);
 

@@ -82,8 +82,15 @@ namespace DxR
             }
 
             float startValue = float.Parse(base.domain[endIndex - 1]);
+            float endValue = float.Parse(base.domain[endIndex]);
+            if (GameObject.FindObjectOfType<Vis>() != null && GameObject.FindObjectOfType<Vis>().transform.name.ToLower().Contains("color"))
+            {
+                float r = endValue - startValue;
+                endValue += r;
+                startValue -= r;
+            }
 
-            float pct = (value - startValue) / (float.Parse(base.domain[endIndex]) - startValue);
+            float pct = (value - startValue) / (endValue - startValue);
 
             Color startColor;
             Color endColor;

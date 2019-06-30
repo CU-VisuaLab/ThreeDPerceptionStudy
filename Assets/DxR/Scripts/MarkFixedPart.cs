@@ -21,7 +21,7 @@ namespace DxR
             if (cur_renderer != null)
             {
                 Renderer m_parent = transform.parent.GetComponent<Renderer>();
-                cur_renderer.material = m_parent.material;
+                if (m_parent != null) cur_renderer.material = m_parent.material;
             }
 
             // Todo: set size and location to original.//

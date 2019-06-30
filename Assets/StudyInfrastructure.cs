@@ -108,12 +108,38 @@ public class StudyInfrastructure : MonoBehaviour {
             GameObject overviewPrefab = Resources.Load("Prefabs/TaskOverview") as GameObject;
             GameObject overviewObject = Instantiate(overviewPrefab);
             overviewObject.transform.parent = visObject.transform;
-            overviewObject.transform.localPosition = new Vector3(-.2f, -.1f, 0);
+            overviewObject.transform.localPosition = new Vector3(-.25f, -.15f, 0);
             GameObject.Find("TaskOverviewText").GetComponent<Text>().text = GameObject.Find("TaskHUD").GetComponent<Text>().text;
             GameObject.Find("TaskHUD").GetComponent<Text>().text = "";
 
             visObject.transform.Find("DxRAnchor").GetComponent<Renderer>().enabled = false;
+            
+            GameObject xAxisHead = Instantiate(Resources.Load("Prefabs/AxisArrow") as GameObject);
+            xAxisHead.transform.parent = visObject.transform;
+            xAxisHead.transform.localPosition = new Vector3(0.51f, 0, 0);
+            xAxisHead.transform.localEulerAngles = new Vector3(0, 0, -90);
 
+            GameObject yAxisHead = Instantiate(Resources.Load("Prefabs/AxisArrow") as GameObject);
+            yAxisHead.transform.parent = visObject.transform;
+            yAxisHead.transform.localPosition = new Vector3(0, 0.51f, 0);
+            yAxisHead.transform.localEulerAngles = Vector3.zero;
+            Debug.Log(prefabName);
+            if (prefabName.Contains("4d") || prefabName.Contains("depth") || prefabName.Contains("height"))
+            {
+                GameObject zAxisHead = Instantiate(Resources.Load("Prefabs/AxisArrow") as GameObject);
+                zAxisHead.transform.parent = visObject.transform;
+                zAxisHead.transform.localPosition = new Vector3(0, 0, 0.51f);
+                zAxisHead.transform.localEulerAngles = new Vector3(90, 0, 0);
+            }
+            Transform legendTicks = visObject.transform.Find("DxRView/DxRGuides/Legend(Clone)/Ticks");
+            if (legendTicks != null)
+            {
+                foreach (Transform tick in legendTicks)
+                {
+                    tick.GetComponent<TextMesh>().text = "";
+                }
+            }
+            
             if (vrVersion)
             {
                 if (Camera.main != null)
@@ -125,7 +151,7 @@ public class StudyInfrastructure : MonoBehaviour {
                 {
                     visObject.transform.root.localScale = new Vector3(2, 2, 2);
                     visObject.transform.root.position = new Vector3(-0.5f, -1.475f, -0.5f);
-                    visObject.transform.localEulerAngles = new Vector3(0, 90, 0);
+                    visObject.transform.localEulerAngles = new Vector3(0, 0, -90);
                 }
             }
             else
@@ -174,6 +200,11 @@ public class StudyInfrastructure : MonoBehaviour {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XYZ");
+            }
+            if (GameObject.Find("Zed_Rig_Stereo") != null)
+            {
+                Debug.Log("Not working??");
+                visObject.transform.localScale = new Vector3(2, 2, 2);
             }
             //visObject.GetComponent<Vis>().LoadArrowLegend();
         }

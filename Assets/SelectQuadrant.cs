@@ -89,6 +89,7 @@ public class SelectQuadrant : MonoBehaviour {
         }
         else if (!vrVersion && Input.GetMouseButtonDown(0) && !confirming)
         {
+            Debug.Log("HEY");
             selectedQuadrant = GetSelectedQuadrant();
             Debug.Log(selectedQuadrant);
             if (selectedQuadrant.x == Mathf.NegativeInfinity) return;

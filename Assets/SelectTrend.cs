@@ -136,23 +136,23 @@ public class SelectTrend : MonoBehaviour {
         if (selectionPlane == "XYZ")
         {
             // For XYZ Trend selection 
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 0, 0)));
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 0, 0)));
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 1.2f, 0)));
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, -1.2f, 0)));
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 0, 1.2f)));
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 0, -1.2f)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.25f, 0, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.25f, 0, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 1.25f, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, -1.25f, 0)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 0, 1.25f)));
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 0, -1.25f)));
         }
         else
         {
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 0, 0)));             // East
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, 1.2f, 1.2f)));       // Northeast
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 1.2f, 1.2f)));          // North
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 1.2f, 1.2f)));      // Northwest 
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, 0, 0)));            // West
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.2f, -1.2f, -1.2f)));    // Southwest
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, -1.2f, -1.2f)));        // South
-            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.2f, -1.2f, -1.2f)));     // Southeast
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.25f, 0, 0)));             // East
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.25f, 1.25f, 1.25f)));       // Northeast
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, 1.25f, 1.25f)));          // North
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.25f, 1.25f, 1.25f)));      // Northwest 
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.25f, 0, 0)));            // West
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(-1.25f, -1.25f, -1.25f)));    // Southwest
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(0, -1.25f, -1.25f)));        // South
+            directionalPoints.Add(Vector3.Scale(scaleVector, new Vector3(1.25f, -1.25f, -1.25f)));     // Southeast
         }
 
         for (var i = 0; i < directionalPoints.Count; i++)
