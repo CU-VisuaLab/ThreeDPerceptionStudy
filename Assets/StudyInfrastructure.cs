@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using System.Linq;
 
 public class StudyInfrastructure : MonoBehaviour {
 
@@ -41,7 +42,7 @@ public class StudyInfrastructure : MonoBehaviour {
         else cameraObject = GameObject.Find("Camera_eyes");
         flashingConditions = false;
         taskLoadTime = Time.time + 5;
-        TrialFinished();
+        Invoke("TrialFinished", 5);
     }
 	
 	// Update is called once per frame
@@ -110,7 +111,13 @@ public class StudyInfrastructure : MonoBehaviour {
             overviewObject.transform.parent = visObject.transform;
             overviewObject.transform.localPosition = new Vector3(-.25f, -.15f, 0);
             GameObject.Find("TaskOverviewText").GetComponent<Text>().text = GameObject.Find("TaskHUD").GetComponent<Text>().text;
-            GameObject.Find("TaskHUD").GetComponent<Text>().text = "";
+
+            Text[] textObjects = FindObjectsOfType<Text>();
+            foreach(Text txt in textObjects)
+            {
+                if (txt.transform.name == "TaskHUD") txt.text = "";
+            }
+            //GameObject.Find("TaskHUD").GetComponent<Text>().text = "";
 
             visObject.transform.Find("DxRAnchor").GetComponent<Renderer>().enabled = false;
             
@@ -149,9 +156,10 @@ public class StudyInfrastructure : MonoBehaviour {
                 }
                 else
                 {
+                    Debug.Log("HE");
                     visObject.transform.root.localScale = new Vector3(2, 2, 2);
                     visObject.transform.root.position = new Vector3(-0.5f, -1.475f, -0.5f);
-                    visObject.transform.localEulerAngles = new Vector3(0, 0, -90);
+                    visObject.transform.localEulerAngles = new Vector3(0, 0, 0);
                 }
             }
             else
@@ -234,23 +242,29 @@ public class StudyInfrastructure : MonoBehaviour {
             string channel = char.ToUpper(prefabName.Split('_')[1][0]) + prefabName.Split('_')[1].Substring(1);
             string dimensionality = prefabName.ToUpper().Contains("3D") ? "2D" : "3D";
 
+            string taskText = "";
             if (taskName.ToLower().Contains("outlier"))
             {
-                if (taskType.ToLower().Contains("min")) GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Lowest Value - " + dimensionality;
-                else GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Highest Value - " + dimensionality;
+                if (taskType.ToLower().Contains("min")) taskText = channel + " - Lowest Value - " + dimensionality;
+                else taskText = channel + " - Highest Value - " + dimensionality;
             }
             else if (taskName.ToLower().Contains("quad"))
             {
-                if (taskType.ToLower().Contains("min")) GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Lowest Average Area - " + dimensionality;
-                else GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Highest Average Area - " + dimensionality;
+                if (taskType.ToLower().Contains("min")) taskText = channel + " - Lowest Average Area - " + dimensionality;
+                else taskText = channel + " - Highest Average Area - " + dimensionality;
             }
             else
             {
-                if (taskType.ToLower().Contains("min")) GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Decreasing Data - " + dimensionality;
-                else GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - Increasing Data - " + dimensionality;
+                if (taskType.ToLower().Contains("min")) taskText = channel + " - Decreasing Data - " + dimensionality;
+                else taskText = channel + " - Increasing Data - " + dimensionality;
             }
-            if (GameObject.Find("TaskHUD").GetComponent<Text>().text.Contains("Orient"))
-                GameObject.Find("TaskHUD").GetComponent<Text>().text = GameObject.Find("TaskHUD").GetComponent<Text>().text.Replace("Orient", "Orientation");
+            if (taskText.Contains("Orient")) taskText = taskText.Replace("Orient", "Orientation");
+
+            Text[] textObjects = FindObjectsOfType<Text>();
+            foreach (Text txt in textObjects)
+            {
+                if (txt.transform.name == "TaskHUD") txt.text = taskText;
+            }
             //GameObject.Find("TaskHUD").GetComponent<Text>().text = channel + " - " + taskName + " - " + taskType + dimensionality;
             //visObject.GetComponent<Vis>().LoadArrowLegend();
         }
