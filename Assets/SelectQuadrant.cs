@@ -89,9 +89,7 @@ public class SelectQuadrant : MonoBehaviour {
         }
         else if (!vrVersion && Input.GetMouseButtonDown(0) && !confirming)
         {
-            Debug.Log("HEY");
             selectedQuadrant = GetSelectedQuadrant();
-            Debug.Log(selectedQuadrant);
             if (selectedQuadrant.x == Mathf.NegativeInfinity) return;
             HandleTextFile.WriteString("Selected Quadrant " + selectedQuadrant + " with Average " + quadrantAverages[selectedQuadrant] + "; Menu Loaded at " + Time.time);
             HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
@@ -264,15 +262,17 @@ public class SelectQuadrant : MonoBehaviour {
 
         if (quadrantAverages[selectedQuadrant] == maxVal)
         {
-            HandleTextFile.WriteString("> Selected MAX" + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+            if (task == "max") HandleTextFile.WriteString("> CORRECT: Selected MAX " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+            else HandleTextFile.WriteString("> INCORRECT: Selected MAX " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
         }
         else if (quadrantAverages[selectedQuadrant] == minVal)
         {
-            HandleTextFile.WriteString("> Selected MIN" + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+            if (task == "min") HandleTextFile.WriteString("> CORRECT: Selected MIN" + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+            else HandleTextFile.WriteString("> INCORRECT: Selected MIN " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
         }
         else
         {
-            HandleTextFile.WriteString("> Incorrect Selection " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
+            HandleTextFile.WriteString("> INCORRECT Selection " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
             HandleTextFile.WriteString("> MIN Delta=" + (quadrantAverages[selectedQuadrant] - minVal) + "; MAX Delta=" + (quadrantAverages[selectedQuadrant] - maxVal));
         }
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().TrialFinished())
@@ -371,5 +371,6 @@ public class SelectQuadrant : MonoBehaviour {
         }
         taskDescription.transform.Find("TaskSpecs").localPosition = new Vector3(0, -5, 0);
         taskDescription.transform.Find("Title2").GetComponent<Text>().text = "average value";
+        task = taskName;
     }
 }

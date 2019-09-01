@@ -173,10 +173,6 @@ public class SelectIndividualMark : MonoBehaviour {
 
     private void YesButton()
     {
-        HandleTextFile.WriteString("Selection confirmed at " + Time.time);
-        HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
-        HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
-            maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
         
         // If the user makes the wrong selection in training, force them to make the right selection
         if (training && ((taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("low") && 
@@ -188,6 +184,44 @@ public class SelectIndividualMark : MonoBehaviour {
             incorrectTime = Time.time + 2;
             NoButton();
             return;
+        }
+
+        HandleTextFile.WriteString("Selection confirmed at " + Time.time);
+        HandleTextFile.WriteString("> Selected " + selectedObject.GetComponent<Mark>().GetRealValue());
+        if (task == "min")
+        {
+            if (selectedObject.GetComponent<Mark>().GetRealValue() == minValue)
+            {
+                HandleTextFile.WriteString("> CORRECT selected MIN: " + selectedObject.GetComponent<Mark>().GetRealValue());
+            }
+            else if (selectedObject.GetComponent<Mark>().GetRealValue() == maxValue)
+            {
+                HandleTextFile.WriteString("> INCORRECT selected MAX: " + selectedObject.GetComponent<Mark>().GetRealValue());
+            }
+            else
+            {
+                HandleTextFile.WriteString("> INCORRECT selection: " + selectedObject.GetComponent<Mark>().GetRealValue());
+            }
+            HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
+                maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
+        }
+        else
+        {
+            if (selectedObject.GetComponent<Mark>().GetRealValue() == minValue)
+            {
+                HandleTextFile.WriteString("> INCORRECT selected MIN: " + selectedObject.GetComponent<Mark>().GetRealValue());
+            }
+            else if (selectedObject.GetComponent<Mark>().GetRealValue() == maxValue)
+            {
+                HandleTextFile.WriteString("> CORRECT selected MAX: " + selectedObject.GetComponent<Mark>().GetRealValue());
+            }
+            else
+            {
+                HandleTextFile.WriteString("> INCORRECT selection: " + selectedObject.GetComponent<Mark>().GetRealValue());
+            }
+            HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + "); Max: " +
+                maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ")");
+
         }
 
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().TrialFinished())
@@ -244,6 +278,6 @@ public class SelectIndividualMark : MonoBehaviour {
         {
             taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text = "HIGHEST";
         }
-
+        task = taskName;
     }
 }

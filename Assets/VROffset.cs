@@ -5,8 +5,7 @@ using UnityEngine;
 public class VROffset : MonoBehaviour {
     private bool initialized = false;
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
 	}
 	
 	// Update is called once per frame

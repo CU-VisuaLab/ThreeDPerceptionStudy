@@ -33,6 +33,7 @@ public class StudyInfrastructure : MonoBehaviour {
     // Use this for initialization
     void Start () {
         HandleTextFile.path = "Assets/Resources/Participant" + participantNumber + ".txt";
+        HandleTextFile.WriteString("\n\n----- NEW PARTICIPANT START TIME: " + DateTime.Now.ToString() + " --------");
         csv = GetComponent<CSVReader>();
         participantOrderingData = CSVReader.SplitCsvGrid(csv.csvFile.text);
         trialNumber = -1;
@@ -50,7 +51,7 @@ public class StudyInfrastructure : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            HandleTextFile.WriteString("User Reset to Home at " + Time.time);
+            HandleTextFile.WriteString("###### User Reset to Home at " + Time.time);
             numResets++;
             GameObject.Find("MixedRealityCamera").transform.position = Vector3.zero; 
             GameObject.Find("MixedRealityCamera").transform.localEulerAngles = Vector3.zero;
@@ -74,10 +75,13 @@ public class StudyInfrastructure : MonoBehaviour {
     {
         trialNumber++;
         
-        HandleTextFile.WriteString("Positional Distance Traveled: " + distancePos);
-        HandleTextFile.WriteString("Rotational Distance Traveled: " + distanceRot);
+        if (Time.time > 5.5f)
+        {
+            HandleTextFile.WriteString("Positional Distance Traveled: " + distancePos);
+            HandleTextFile.WriteString("Rotational Distance Traveled: " + distanceRot);
 
-        HandleTextFile.WriteString("-----------------------------------");
+            HandleTextFile.WriteString("-----------------------------------\n");
+        }
 
         taskLoadTime = Time.time + 5;
         flashingConditions = true;
@@ -93,7 +97,7 @@ public class StudyInfrastructure : MonoBehaviour {
         cameraLastRot = cameraObject.transform.rotation;
 
 
-        HandleTextFile.WriteString("*** Trial " + trialNumber + " ***");
+        HandleTextFile.WriteString("\n*** Trial " + trialNumber + " ***");
         try
         {
             // For some reason, the CSVReader class does Col-Row indexing
@@ -236,8 +240,6 @@ public class StudyInfrastructure : MonoBehaviour {
             string prefabName = parameters[0];
             string taskName = parameters[1];
             string taskType = (parameters.Length > 2) ? parameters[2] : "";
-
-            HandleTextFile.WriteString("* Vis: " + prefabName + " Task:  " + taskName + "*");
             
             string channel = char.ToUpper(prefabName.Split('_')[1][0]) + prefabName.Split('_')[1].Substring(1);
             string dimensionality = prefabName.ToUpper().Contains("3D") ? "2D" : "3D";
