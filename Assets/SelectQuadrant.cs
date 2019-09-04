@@ -357,7 +357,7 @@ public class SelectQuadrant : MonoBehaviour {
         GameObject taskDescriptionPrefab = Resources.Load("Prefabs/TaskDescription") as GameObject;
         taskDescription = Instantiate(taskDescriptionPrefab);
         taskDescription.transform.parent = transform.root;
-        taskDescription.transform.position = transform.position + new Vector3(width / 2, 1.3f * height, depth / 2);
+        if (width > 0) taskDescription.transform.localPosition = new Vector3(width / 2, 1.3f * height, depth / 2) / transform.root.localScale.x;
         taskDescription.transform.localScale = taskDescription.transform.localScale * transform.root.localScale.x;
 
         taskDescription.transform.Find("Title1").GetComponent<Text>().text = "Select the quadrant with the";

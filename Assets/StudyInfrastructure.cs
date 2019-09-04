@@ -31,7 +31,13 @@ public class StudyInfrastructure : MonoBehaviour {
     private bool flashingConditions;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        Text[] textObjects = FindObjectsOfType<Text>();
+        foreach (Text txt in textObjects)
+        {
+            if (txt.transform.name == "TaskHUD") txt.text = "";
+        }
         HandleTextFile.path = "Assets/Resources/Participant" + participantNumber + ".txt";
         HandleTextFile.WriteString("\n\n----- NEW PARTICIPANT START TIME: " + DateTime.Now.ToString() + " --------");
         csv = GetComponent<CSVReader>();
@@ -156,14 +162,14 @@ public class StudyInfrastructure : MonoBehaviour {
                 if (Camera.main != null)
                 {
                     visObject.transform.root.localScale = new Vector3(0.175f, 0.175f, 0.175f);
-                    visObject.transform.root.position = new Vector3(-.05f, -.1475f, -.05f);
+                    visObject.transform.root.position = new Vector3(.05f, 0, -.1f);
+                    visObject.transform.localEulerAngles = new Vector3(0, 180, 0);
                 }
                 else
                 {
-                    Debug.Log("HE");
-                    visObject.transform.root.localScale = new Vector3(2, 2, 2);
-                    visObject.transform.root.position = new Vector3(-0.5f, -1.475f, -0.5f);
-                    visObject.transform.localEulerAngles = new Vector3(0, 0, 0);
+                    visObject.transform.root.localScale = new Vector3(1.75f,1.75f,1.75f);
+                    visObject.transform.root.position = new Vector3(0.5f, 0, -1f);
+                    visObject.transform.localEulerAngles = new Vector3(0, 180, 0);
                 }
             }
             else
@@ -212,11 +218,6 @@ public class StudyInfrastructure : MonoBehaviour {
                 visObject.transform.Find("DxRView/DxRMarks").gameObject.AddComponent<SelectTrend>();
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XYZ");
-            }
-            if (GameObject.Find("Zed_Rig_Stereo") != null)
-            {
-                Debug.Log("Not working??");
-                visObject.transform.localScale = new Vector3(2, 2, 2);
             }
             //visObject.GetComponent<Vis>().LoadArrowLegend();
         }

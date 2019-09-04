@@ -14,9 +14,10 @@ public class ZedCameraOffset : MonoBehaviour {
 	void Update () {
 		if (transform.Find("Camera_eyes").localPosition != Vector3.zero && !initialized)
         {
-            transform.position = -transform.Find("Camera_eyes").localPosition;
-      
-            transform.localEulerAngles = new Vector3(0, -transform.Find("Camera_eyes").localEulerAngles.y, 0);
+            transform.position = new Vector3(-transform.Find("Camera_eyes").localPosition.x,0, -transform.Find("Camera_eyes").localPosition.z);
+
+            GetComponent<ZEDManager>().depthMode = sl.DEPTH_MODE.PERFORMANCE;
+            transform.localEulerAngles = Vector3.zero;// new Vector3(0, -transform.Find("Camera_eyes").localEulerAngles.y, 0);
             initialized = true;
         }
 	}
