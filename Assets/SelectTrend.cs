@@ -414,8 +414,8 @@ public class SelectTrend : MonoBehaviour {
         {
             HandleTextFile.WriteString("Incorrect Direction: Selected=(" + selectedDirection + "," + orientationDirectionCounts[selectedDirection] + "); Correct=(" +
                 correctDirection + "," + orientationDirectionCounts[correctDirection] + ")");
-            HandleTextFile.WriteString("> Delta: " + (orientationDirectionCounts[correctDirection] - orientationDirectionCounts[selectedDirection]) + " (correct - select)");
-            if (orientationDirectionCounts[correctDirection] == -orientationDirectionCounts[selectedDirection])
+            HandleTextFile.WriteString("> Delta: " + (directionalFits[correctDirection] - directionalFits[selectedDirection]) + " (correct - select)");
+            if (directionalFits[correctDirection] == -directionalFits[selectedDirection])
                 HandleTextFile.WriteString("> Selected OPPOSITE DIRECTION");
         }
         else
@@ -423,7 +423,7 @@ public class SelectTrend : MonoBehaviour {
             HandleTextFile.WriteString("CORRECT Direction: Selected=(" + selectedDirection + "," + directionalFits[selectedDirection] + "); Correct=(" +
             correctDirection + "," + directionalFits[correctDirection] + ")");
             HandleTextFile.WriteString("> Delta: " + (directionalFits[correctDirection] - directionalFits[selectedDirection]) + " (correct - select)");
-            if (orientationDirectionCounts[correctDirection] == -orientationDirectionCounts[selectedDirection])
+            if (directionalFits[correctDirection] == -directionalFits[selectedDirection])
                 HandleTextFile.WriteString("> Selected OPPOSITE DIRECTION");
         }
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().TrialFinished())

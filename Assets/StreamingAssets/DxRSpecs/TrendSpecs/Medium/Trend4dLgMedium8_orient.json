@@ -1,11 +1,11 @@
 {
   "width": 500,
   "height": 500,
-  "depth": 500,
+  "depth": 50,
   "data": {
     "url": "TrendData/Trend4dLgMedium8.csv"
   },
-  "mark": "arrow",
+  "mark": "cylinder",
   "encoding": {
     "x": {
       "field": "x",

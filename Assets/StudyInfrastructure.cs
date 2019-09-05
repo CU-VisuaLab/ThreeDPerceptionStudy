@@ -157,6 +157,10 @@ public class StudyInfrastructure : MonoBehaviour {
                 }
             }
             
+            if (visObject.transform.Find("DxRView/DxRGuides/Legend(Clone)") != null)
+            {
+                visObject.transform.Find("DxRView/DxRGuides/Legend(Clone)").gameObject.SetActive(false);
+            }
             if (vrVersion)
             {
                 if (Camera.main != null)
