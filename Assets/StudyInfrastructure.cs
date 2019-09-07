@@ -30,6 +30,8 @@ public class StudyInfrastructure : MonoBehaviour {
     private float taskLoadTime;
     private bool flashingConditions;
 
+    private GameObject visObject;
+
     // Use this for initialization
     void Start ()
     {
@@ -48,6 +50,15 @@ public class StudyInfrastructure : MonoBehaviour {
         if (Camera.main != null) cameraObject = Camera.main.gameObject;
         else cameraObject = GameObject.Find("Camera_eyes");
         flashingConditions = false;
+
+        RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Trilight;
+        RenderSettings.ambientSkyColor = new Color(0.95f, 0.95f, 0.95f);
+        RenderSettings.ambientEquatorColor = new Color(0.5f, 0.5f, 0.5f);
+        RenderSettings.ambientGroundColor = new Color(0.95f, 0.95f, 0.95f);
+
+        FindObjectOfType<Light>().color = new Color(187f / 255, 187f / 255, 187f / 255);
+        FindObjectOfType<Light>().intensity = 0.75f;
+
         taskLoadTime = Time.time + 5;
         Invoke("TrialFinished", 5);
     }
@@ -114,7 +125,7 @@ public class StudyInfrastructure : MonoBehaviour {
 
             HandleTextFile.WriteString("* Vis: " + prefabName + " Task:  " + taskName + "*");
             GameObject visPrefab = Resources.Load("Prefabs/VisualizationPrefabs/" + prefabName) as GameObject;
-            GameObject visObject = Instantiate(visPrefab);
+            visObject = Instantiate(visPrefab);
             
             GameObject overviewPrefab = Resources.Load("Prefabs/TaskOverview") as GameObject;
             GameObject overviewObject = Instantiate(overviewPrefab);
@@ -180,6 +191,11 @@ public class StudyInfrastructure : MonoBehaviour {
             {
                 visObject.transform.root.localScale = new Vector3(0.59f, 0.59f, 0.59f);
                 visObject.transform.root.position = new Vector3(-.16f, -.19f, .4f);
+            }
+
+            if (taskName != "Outlier")
+            {
+                RemoveLargestPoint();
             }
 
             if (taskName == "Outlier")
@@ -284,6 +300,20 @@ public class StudyInfrastructure : MonoBehaviour {
             return false;
         }
         return true;
-
+    }
+    private void RemoveLargestPoint()
+    {
+        float maxVal = Mathf.NegativeInfinity;
+        Transform maxMark = null;
+        foreach (Transform mark in visObject.transform.Find("DxRView/DxRMarks"))
+        {
+            float possibleValue = mark.GetComponent<Mark>().GetRealValue();
+            if (possibleValue > maxVal)
+            {
+                maxVal = possibleValue;
+                maxMark = mark;
+            }
+        }
+        Destroy(maxMark.gameObject);
     }
 }
