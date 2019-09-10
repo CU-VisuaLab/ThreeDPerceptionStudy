@@ -83,6 +83,7 @@ public class SelectQuadrant : MonoBehaviour {
                 selectedQuadrant = GetSelectedQuadrant();
                 if (selectedQuadrant.x == Mathf.NegativeInfinity) return;
                 HandleTextFile.WriteString("Selected Quadrant " + selectedQuadrant + " with Average " + quadrantAverages[selectedQuadrant] + "; Menu Loaded at " + Time.time);
+                FindObjectOfType<StudyInfrastructure>().HandleClick();
                 HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
                 
             }
@@ -92,6 +93,7 @@ public class SelectQuadrant : MonoBehaviour {
             selectedQuadrant = GetSelectedQuadrant();
             if (selectedQuadrant.x == Mathf.NegativeInfinity) return;
             HandleTextFile.WriteString("Selected Quadrant " + selectedQuadrant + " with Average " + quadrantAverages[selectedQuadrant] + "; Menu Loaded at " + Time.time);
+            FindObjectOfType<StudyInfrastructure>().HandleClick();
             HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
         }
 

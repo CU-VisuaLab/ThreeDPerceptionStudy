@@ -82,8 +82,8 @@ public class SelectTrend : MonoBehaviour {
             selectedDirection = GetSelectedDirection();
             if (selectedDirection >= 0)
             {
-
                 HandleTextFile.WriteString("Selected " + selectedDirection + "; Menu Loaded at " + Time.time);
+                FindObjectOfType<StudyInfrastructure>().HandleClick();
                 HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
                 menuTime = Time.time;
                 for (var i = 0; i < arrows.Count; i++)

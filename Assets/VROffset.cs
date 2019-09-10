@@ -7,8 +7,8 @@ public class VROffset : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         transform.position = Vector3.zero;
-        transform.localEulerAngles = Vector3.zero;
-	}
+        transform.localEulerAngles = new Vector3(0, 110, 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -1032,22 +1032,15 @@ namespace DxR
         }
 
         // Need to load a legend for arrow orientation
-        public void LoadArrowLegend()
+        public void LoadLegend(string channel)
         {
-            if (GameObject.Find("ArrowLegend (clone)") != null) Destroy(GameObject.Find("ArrowLegend (clone)"));
-            if (markInstances[0].transform.name.Contains("arrow") || markInstances[0].transform.name.Contains("cylinder"))
-            {
-                if (transform.Find("DxRView/DxRMarks").GetComponent<SelectIndividualMark>() != null ||
-                    transform.Find("DxRView/DxRMarks").GetComponent<SelectQuadrant>() != null)
-                {
-                    GameObject legendPrefab = Resources.Load("Prefabs/ArrowLegend") as GameObject;
-                    GameObject legend = Instantiate(legendPrefab);
-                    legend.transform.parent = Camera.main.transform;
-                    legend.transform.localPosition = new Vector3(1, .45f, 1);
-                    legend.transform.localEulerAngles = Vector3.zero;
-                }
-            }
+            if (channel == "Color") return;
+            if (channel == "Orient") channel = "Orientation";
+            GameObject legendPrefab = Resources.Load("Prefabs/" + channel + "Legend") as GameObject;
+            GameObject legend = Instantiate(legendPrefab);
+            legend.transform.parent = transform;
+            legend.transform.localPosition = new Vector3(.7f, .45f, 0);
+            legend.transform.localEulerAngles = Vector3.zero;
         }
     }
-
 }

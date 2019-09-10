@@ -51,14 +51,6 @@ public class StudyInfrastructure : MonoBehaviour {
         else cameraObject = GameObject.Find("Camera_eyes");
         flashingConditions = false;
 
-        RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Trilight;
-        RenderSettings.ambientSkyColor = new Color(0.95f, 0.95f, 0.95f);
-        RenderSettings.ambientEquatorColor = new Color(0.5f, 0.5f, 0.5f);
-        RenderSettings.ambientGroundColor = new Color(0.95f, 0.95f, 0.95f);
-
-        FindObjectOfType<Light>().color = new Color(187f / 255, 187f / 255, 187f / 255);
-        FindObjectOfType<Light>().intensity = 0.75f;
-
         taskLoadTime = Time.time + 5;
         Invoke("TrialFinished", 5);
     }
@@ -94,8 +86,8 @@ public class StudyInfrastructure : MonoBehaviour {
         
         if (Time.time > 5.5f)
         {
-            HandleTextFile.WriteString("Positional Distance Traveled: " + distancePos);
-            HandleTextFile.WriteString("Rotational Distance Traveled: " + distanceRot);
+            HandleTextFile.WriteString("Total Positional Distance Traveled: " + distancePos);
+            HandleTextFile.WriteString("Total Rotational Distance Traveled: " + distanceRot);
 
             HandleTextFile.WriteString("-----------------------------------\n");
         }
@@ -167,23 +159,21 @@ public class StudyInfrastructure : MonoBehaviour {
                     tick.GetComponent<TextMesh>().text = "";
                 }
             }
-            
-            if (visObject.transform.Find("DxRView/DxRGuides/Legend(Clone)") != null)
-            {
-                visObject.transform.Find("DxRView/DxRGuides/Legend(Clone)").gameObject.SetActive(false);
-            }
+
+            visObject.GetComponent<Vis>().LoadLegend(char.ToUpper(prefabName.Split('_')[1][0]) + prefabName.Split('_')[1].Substring(1));
+
             if (vrVersion)
             {
                 if (Camera.main != null)
                 {
                     visObject.transform.root.localScale = new Vector3(0.175f, 0.175f, 0.175f);
-                    visObject.transform.root.position = new Vector3(.05f, 0, -.1f);
+                    visObject.transform.root.position = new Vector3(-.06f, 0, -.075f);
                     visObject.transform.localEulerAngles = new Vector3(0, 180, 0);
                 }
                 else
                 {
                     visObject.transform.root.localScale = new Vector3(1.75f,1.75f,1.75f);
-                    visObject.transform.root.position = new Vector3(0.5f, 0, -1f);
+                    visObject.transform.root.position = new Vector3(-0.6f, 0, -.75f);
                     visObject.transform.localEulerAngles = new Vector3(0, 180, 0);
                 }
             }
@@ -239,7 +229,24 @@ public class StudyInfrastructure : MonoBehaviour {
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().setTask(taskType);
                 visObject.transform.Find("DxRView/DxRMarks").GetComponent<SelectTrend>().SetPlane("XYZ");
             }
-            //visObject.GetComponent<Vis>().LoadArrowLegend();
+
+            if (prefabName.ToLower().Contains("color"))
+            {
+                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+                RenderSettings.ambientLight = Color.white; 
+                FindObjectOfType<Light>().intensity = 0;
+            }
+            else
+            {
+
+                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Trilight;
+                RenderSettings.ambientSkyColor = new Color(0.95f, 0.95f, 0.95f);
+                RenderSettings.ambientEquatorColor = new Color(0.5f, 0.5f, 0.5f);
+                RenderSettings.ambientGroundColor = new Color(0.95f, 0.95f, 0.95f);
+
+                FindObjectOfType<Light>().color = new Color(187f / 255, 187f / 255, 187f / 255);
+                FindObjectOfType<Light>().intensity = 0.75f;
+            }
         }
         catch (Exception e)
         {
@@ -315,5 +322,10 @@ public class StudyInfrastructure : MonoBehaviour {
             }
         }
         Destroy(maxMark.gameObject);
+    }
+    public void HandleClick()
+    {
+        HandleTextFile.WriteString("Positional Distance: " + distancePos);
+        HandleTextFile.WriteString("Rotational Distance: " + distanceRot);
     }
 }

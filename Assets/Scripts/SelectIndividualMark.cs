@@ -79,6 +79,7 @@ public class SelectIndividualMark : MonoBehaviour {
                     //HandleTextFile.WriteString("Selected Value " + transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
                     selectedObject = tempObject;
                     HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
+                    FindObjectOfType<StudyInfrastructure>().HandleClick();
                     foreach (Transform child in transform)
                     {
                         if (child.gameObject != selectedObject)
@@ -102,6 +103,7 @@ public class SelectIndividualMark : MonoBehaviour {
                 {
                     //HandleTextFile.WriteString("Selected Value " + hit.transform.GetComponent<Mark>().GetRealValue() + "; Menu Loaded at " + Time.time);
                     HandleTextFile.WriteString("> Time to Completion: " + (Time.time - startTime));
+                    FindObjectOfType<StudyInfrastructure>().HandleClick();
                     menuTime = Time.time;
                     selectedObject = hit.transform.gameObject;
                     foreach (Transform child in transform)
