@@ -256,7 +256,7 @@ public class SelectQuadrant : MonoBehaviour {
 
         // If the user makes the wrong selection in training, force them to make the right selection
         if (training && ((taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("low") &&
-            quadrantAverages[selectedQuadrant] == minVal) ||
+            quadrantAverages[selectedQuadrant] != minVal) ||
             (taskDescription.transform.Find("TaskSpecs").GetComponent<Text>().text.ToLower().Contains("high") &&
             quadrantAverages[selectedQuadrant] != maxVal)))
         {
@@ -279,7 +279,8 @@ public class SelectQuadrant : MonoBehaviour {
         else
         {
             HandleTextFile.WriteString("> INCORRECT Selection " + selectedQuadrant + "; Mean=" + quadrantAverages[selectedQuadrant]);
-            HandleTextFile.WriteString("> MIN Delta=" + (quadrantAverages[selectedQuadrant] - minVal) + "; MAX Delta=" + (quadrantAverages[selectedQuadrant] - maxVal));
+            HandleTextFile.WriteString("> MIN Delta=" + (quadrantAverages[selectedQuadrant] - minVal) + ", " + (100 * (quadrantAverages[selectedQuadrant] - minVal) / (maxVal - minVal)) + "%; MAX Delta=" + 
+                (100 * (maxVal - quadrantAverages[selectedQuadrant]) / (maxVal - minVal)) + "%");
         }
         if (!GameObject.Find("StudyInfrastructure").GetComponent<StudyInfrastructure>().TrialFinished())
         {

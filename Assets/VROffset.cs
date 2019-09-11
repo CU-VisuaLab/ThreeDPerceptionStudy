@@ -6,7 +6,7 @@ public class VROffset : MonoBehaviour {
     private bool initialized = false;
 	// Use this for initialization
 	void Awake () {
-        transform.position = Vector3.zero;
+        transform.position = new Vector3(0, -Camera.main.transform.position.y, 0);
         transform.localEulerAngles = new Vector3(0, 110, 0);
     }
 	

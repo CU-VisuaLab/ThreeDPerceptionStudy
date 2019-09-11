@@ -72,7 +72,7 @@ namespace HoloToolkit.Unity.InputModule
 
         private const float MouseSensitivity = 0.015f;           // always affects the mouse sensitivity
         private const float MouseUnlockedSensitivity = 0.1f;    // affects the sensitivity when using the mouse buttons
-        private const float KeyboardSensitivity = 10.0f;
+        private const float KeyboardSensitivity = 5.0f;
         private const float InputManagerAxisSensitivity = 0.05f;
 
         private bool isMouseJumping = false;

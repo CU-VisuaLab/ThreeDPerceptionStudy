@@ -25,11 +25,17 @@
     },
     "height": {
       "field": "TempQuad2",
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale": {
+        "range":  [ 200, 400 ]
+      }
     },
     "y": {
       "field": "TempQuad2",
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale": {
+        "range":  [ 200, 400 ]
+      }
     },
     "yoffsetpct": {
       "value": -0.5

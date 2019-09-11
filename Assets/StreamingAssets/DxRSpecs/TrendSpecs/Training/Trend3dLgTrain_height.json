@@ -25,11 +25,17 @@
     },
     "height": {
       "field": "HeatLongMinusLat",
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale": {
+        "range":  [ 200, 400 ]
+      }
     },
     "y": {
       "field": "HeatLongMinusLat",
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale": {
+        "range":  [ 200, 400 ]
+      }
     },
     "yoffsetpct": {
       "value": -0.5

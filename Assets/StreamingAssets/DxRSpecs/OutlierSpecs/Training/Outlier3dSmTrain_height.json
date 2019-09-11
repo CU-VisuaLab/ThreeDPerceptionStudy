@@ -25,11 +25,17 @@
     },
     "height": {
       "field": "TempOutlierSm1",
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale": {
+        "range":  [ 200, 400 ]
+      }
     },
     "y": {
       "field": "TempOutlierSm1",
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale": {
+        "range":  [ 200, 400 ]
+      }
     },
     "yoffsetpct": {
       "value": -0.5

@@ -412,7 +412,7 @@ public class SelectTrend : MonoBehaviour {
         if (selectedDirection == correctDirection) HandleTextFile.WriteString("> CORRECT Direction: " + selectedDirection);
         else if(orientationVersion)
         {
-            HandleTextFile.WriteString("Incorrect Direction: Selected=(" + selectedDirection + "," + orientationDirectionCounts[selectedDirection] + "); Correct=(" +
+            HandleTextFile.WriteString("INCORRECT Direction: Selected=(" + selectedDirection + "," + orientationDirectionCounts[selectedDirection] + "); Correct=(" +
                 correctDirection + "," + orientationDirectionCounts[correctDirection] + ")");
             HandleTextFile.WriteString("> Delta: " + (directionalFits[correctDirection] - directionalFits[selectedDirection]) + " (correct - select)");
             if (directionalFits[correctDirection] == -directionalFits[selectedDirection])
@@ -420,7 +420,7 @@ public class SelectTrend : MonoBehaviour {
         }
         else
         {
-            HandleTextFile.WriteString("CORRECT Direction: Selected=(" + selectedDirection + "," + directionalFits[selectedDirection] + "); Correct=(" +
+            HandleTextFile.WriteString("INCORRECT Direction: Selected=(" + selectedDirection + "," + directionalFits[selectedDirection] + "); Correct=(" +
             correctDirection + "," + directionalFits[correctDirection] + ")");
             HandleTextFile.WriteString("> Delta: " + (directionalFits[correctDirection] - directionalFits[selectedDirection]) + " (correct - select)");
             if (directionalFits[correctDirection] == -directionalFits[selectedDirection])
