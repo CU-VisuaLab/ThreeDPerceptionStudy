@@ -167,13 +167,13 @@ public class StudyInfrastructure : MonoBehaviour {
                 if (Camera.main != null)
                 {
                     visObject.transform.root.localScale = new Vector3(0.175f, 0.175f, 0.175f);
-                    visObject.transform.root.position = new Vector3(-.06f, 0, -.075f);
+                    visObject.transform.root.position = new Vector3(-.06f, 0, -.08f);
                     visObject.transform.localEulerAngles = new Vector3(0, 180, 0);
                 }
                 else
                 {
                     visObject.transform.root.localScale = new Vector3(1.75f,1.75f,1.75f);
-                    visObject.transform.root.position = new Vector3(-0.6f, 0, -.75f);
+                    visObject.transform.root.position = new Vector3(-0.6f, 0, -.8f);
                     visObject.transform.localEulerAngles = new Vector3(0, 180, 0);
                 }
             }

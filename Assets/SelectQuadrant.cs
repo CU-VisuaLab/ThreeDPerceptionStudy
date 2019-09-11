@@ -114,29 +114,29 @@ public class SelectQuadrant : MonoBehaviour {
         }
         if (selectionPlane == "XY")
         {
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 4, depth / 2));         // Bottom Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 4, depth / 2));     // Bottom Right
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, 3 * height / 4, depth / 2));     // Top Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, 3 * height / 4, depth / 2)); // Top Right
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 4, offsetVector * depth / 2));         // Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 4, offsetVector * depth / 2));     // Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, 3 * height / 4, offsetVector * depth / 2));     // Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, 3 * height / 4, offsetVector * depth / 2)); // Top Right
             
         }
         else if (selectionPlane == "XZ")
         {
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 2, depth / 4));          // Bottom Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 2, depth / 4));      // Bottom Right
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 2, 3 * depth / 4));      // Top Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 2, 3 * depth / 4));  // Top Right
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 2, offsetVector * depth / 4));          // Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 2, offsetVector * depth / 4));      // Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 2, 3 * offsetVector * depth / 4));      // Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 2, 3 * offsetVector * depth / 4));  // Top Right
         }
         else if (selectionPlane == "XYZ")
         {
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 4, depth / 4));              // Front Bottom Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 4, depth / 4));          // Front Bottom Right
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, 3 * height / 4, depth / 4));          // Front Top Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, 3 * height / 4, depth / 4));      // Front Top Right
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 4, 3 * depth / 4));          // Back Bottom Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 4, 3 * depth / 4));      // Back Bottom Right
-            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, 3 * height / 4, 3 * depth / 4));      // Back Top Left
-            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, 3 * height / 4, 3 * depth / 4));  // Back Top Right    
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 4, offsetVector * depth / 4));              // Front Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 4, offsetVector * depth / 4));          // Front Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, 3 * height / 4, offsetVector * depth / 4));          // Front Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, 3 * height / 4, offsetVector * depth / 4));      // Front Top Right
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, height / 4, 3 * offsetVector * depth / 4));          // Back Bottom Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, height / 4, 3 * offsetVector * depth / 4));      // Back Bottom Right
+            quadrantCenters.Add(transform.position + new Vector3(offsetVector * width / 4, 3 * height / 4, 3 * offsetVector * depth / 4));      // Back Top Left
+            quadrantCenters.Add(transform.position + new Vector3(3 * offsetVector * width / 4, 3 * height / 4, 3 * offsetVector * depth / 4));  // Back Top Right    
         }
     }
     private Vector3 GetGazedQuadrant()

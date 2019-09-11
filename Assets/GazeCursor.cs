@@ -14,11 +14,7 @@ public class GazeCursor : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        if (Camera.main != null) cameraObject = Camera.main.gameObject;
-        else cameraObject = GameObject.Find("Camera_eyes");
-        transform.parent = cameraObject.transform;
-        transform.Find("CursorObject").GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
-        transform.localEulerAngles = Vector3.zero;
+        InitializeCursor();
     }
 
     // Update is called once per frame
@@ -53,5 +49,21 @@ public class GazeCursor : MonoBehaviour {
     public GameObject getHoveredObject()
     {
         return hoveredObject;
+    }
+
+    private void InitializeCursor()
+    {
+        if (Camera.main != null) cameraObject = Camera.main.gameObject;
+        else cameraObject = GameObject.Find("Camera_eyes");
+        transform.parent = cameraObject.transform;
+        GameObject cursorObject = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        cursorObject.transform.parent = transform;
+        cursorObject.transform.name = "CursorObject";
+        cursorObject.transform.localEulerAngles = new Vector3(90, 0, 0);
+        cursorObject.transform.localScale = new Vector3(.02f, .005f, .02f);
+        cursorObject.transform.localPosition = Vector3.zero;
+        cursorObject.GetComponent<Collider>().enabled = false;
+        cursorObject.GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
+        transform.localEulerAngles = Vector3.zero;
     }
 }
