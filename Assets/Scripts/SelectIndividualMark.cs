@@ -206,7 +206,7 @@ public class SelectIndividualMark : MonoBehaviour {
             }
             HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + ", " +
                 (100 * (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) / (maxValue - minValue)) + "%); Max: " +
-                maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + 
+                maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ", " +
                 (100 * (maxValue - selectedObject.GetComponent<Mark>().GetRealValue()) / (maxValue - minValue)) + "%)");
         }
         else
@@ -225,7 +225,7 @@ public class SelectIndividualMark : MonoBehaviour {
             }
             HandleTextFile.WriteString("> Min: " + minValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) + ", " +
                 (100 * (selectedObject.GetComponent<Mark>().GetRealValue() - minValue) / (maxValue - minValue)) + "%); Max: " +
-                maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) +
+                maxValue + " (delta=" + (selectedObject.GetComponent<Mark>().GetRealValue() - maxValue) + ", " +
                 (100 * (maxValue - selectedObject.GetComponent<Mark>().GetRealValue()) / (maxValue - minValue)) + "%)");
 
         }
